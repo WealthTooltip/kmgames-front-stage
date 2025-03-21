@@ -1,0 +1,60 @@
+@import '~@core/templates/desktop/styles/mixins/index.scss';
+
+:local(.match_item) {
+  display: flex;
+  box-sizing: border-box;
+  position: relative;
+  height: 82px;
+  transition: background 0.5s;
+  @include useTheme {
+    color: getVar('dpNormal');
+  }
+  &:hover{
+    @include useTheme {
+      background: getVar('dp_match_bg_hover');
+      // box-shadow: rgba(0, 0, 0, 0.1) 0px 1px 2px 0px;
+    }
+  }
+  &.active:after {
+    content: "";
+    position: absolute;
+    width: 2px;
+    height: 100%;
+    left: 0;
+    top: 0;
+    background: #3586FF;
+  }
+  .video-list {
+    width: 52px;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-evenly;
+    align-items: center;
+    overflow: hidden;
+    @include useTheme {
+      border-left: 1px solid getVar('dpNoobOutLine');
+      border-top: 1px solid getVar('dpNoobOutLine');
+    }
+    .video-item{
+      display: block;
+      width: 36px;
+      height: 20px;
+      font-size: 12px;
+      border-radius: 4px;
+      box-sizing: border-box;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      @include useTheme {
+        color: getVar('dpAncillary');
+        border: 1px solid getVar('dpAncillary');
+      }
+    }
+    .video-item.active{
+      @include useTheme {
+        color: getVar('dpOddActive');
+        border: 1px solid getVar('dpOddActive');
+      }
+    }
+  }
+}

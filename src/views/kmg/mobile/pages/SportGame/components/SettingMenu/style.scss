@@ -1,0 +1,20 @@
+@import '~@core/templates/desktop/styles/mixins/index.scss';
+
+:local(.wrapper){
+    flex-shrink: 0;
+    fill: #FFF;
+    position: absolute;
+    width: 100%;
+    left: 0;
+    bottom: 0;
+    box-sizing: border-box;
+    font-family: 'PingFang SC';
+    height: auto;
+    transition: all 0.4s ease;
+    &.active {  
+        transform: translateY(0);
+    }
+    &.hidden {
+        transform: translateY(100%);
+    }
+}

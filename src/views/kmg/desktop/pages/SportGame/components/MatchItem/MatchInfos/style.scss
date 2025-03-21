@@ -1,0 +1,113 @@
+@import '~@core/templates/desktop/styles/mixins/index.scss';
+
+:local(.match_status) {
+  width: 58px;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  p:not(:first-child) {
+    margin-top: 8px;
+  }
+  @include useTheme {
+    color: getVar('dpStrong');
+  }
+}
+
+:local(.team_info) {
+  width: 182px;
+  display: flex;
+  flex-direction: column;
+  margin-top: 8px;
+  .team {
+    display: flex;
+    height: 34px;
+    align-items: center;
+    padding: 0 10px;
+    margin-bottom: 2px;
+    &:hover {
+      img {
+        transform: scale(1.2);
+      }
+    }
+    img {
+      width: 16px;
+      border-radius: 50%;
+      transition: .5s ease-in-out;
+    }
+    .team-name {
+      flex: 1;
+      margin: 0 6px;
+      display: flex;;
+      align-items: center;
+      @include useTheme {
+        color: getVar('dpStrong');
+      }
+      > span:first-child {
+        max-width: 96px;
+        overflow: hidden;
+        white-space: nowrap;
+        text-overflow: ellipsis;
+      }
+      .red-card {
+        font-style: normal;
+        width: 11px;
+        height: 14px;
+        font-size: 11px;
+        background: #E94343;
+        color: #fff;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        margin-left: 3px;
+        border-radius: 2px;
+      }
+      &:hover {
+        @include useTheme {
+          color: getVar('dpTheme');
+        }
+      }
+    }
+    .team-score {
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      height: 16px;
+      padding: 0 2px;
+      min-width: 22px;
+      box-sizing: border-box;
+      font-weight: 600;
+      font-family: PingFang SC;
+      @include useTheme {
+        color: getVar('dpTheme');
+        background: getVar('dpBar');
+      }
+    }
+  }
+  .other {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 0 10px;
+    margin-top: 10px;
+    cursor: pointer;
+    @include useTheme {
+      color: getVar('dpAncillary');
+    }
+    .icons {
+      display: flex;
+      align-items: center;
+      > span {
+        display: flex;
+        align-items: center;
+        > div {
+          display: flex;
+          align-items: center;
+        }
+      }
+    }
+    .icon-arrow {
+      transform: translateY(2px) rotate(-90deg);
+    }
+  }
+}

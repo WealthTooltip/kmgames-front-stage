@@ -1,0 +1,643 @@
+@import '~@core/templates/desktop/styles/mixins/index.scss';
+
+:local(.wrapper) {
+  margin-top: 6px;
+  width: 830px;
+  .match-info {
+    border-radius: 4px;
+    @include useTheme {
+      background-color: getVar('dpCar');
+    }
+    .info-wrap {
+      @include useTheme {
+        background: url(getVar('dpFullScoreBg')) no-repeat;
+        background-size: 100% 100%;
+      }
+    }
+    .match-info-header {
+      display: flex;
+      justify-content: space-between;
+      height: 38px;
+      margin-left: 8px;
+      align-items: center;
+      
+      .home {
+        .match-score {
+          flex-direction :row-reverse !important;
+        }
+      }
+      .match-team{
+        display: flex;
+        justify-content: center;
+        width: 95px;
+        height: 34px;
+        .team-logo {
+          height: 24px;
+          width: 24px;
+          margin-top: 5px;
+          margin-bottom: 5px;
+          object-fit: contain;
+        }
+      }
+      .match-info-icon {
+        margin-top: 7px;
+        margin-bottom: 7px;
+        margin-left: 8px;
+        margin-right: 4px;
+        & > svg {
+          width: 24px;
+          height: 24px;
+        }
+      }
+      .match-score {
+        width: 154px;
+        height: 34px;
+        display: flex;
+        align-items: center;
+        margin: 0px 1px;
+        .score {
+          @include useTheme {
+            color: getVar('dpTheme');
+          }
+          font-size: 15px;
+          font-style: normal;
+          font-weight: 500;
+          line-height: 15px;
+          margin: 0px 12px;
+          margin-top: auto;
+          margin-bottom: auto;
+        }
+        .name {
+          @include useTheme {
+            color: getVar('dpStrong');
+          }
+          font-size: 12px;
+          font-style: normal;
+          font-weight: 400;
+          line-height: 12px;
+          margin-top: auto;
+          margin-bottom: auto;
+        }
+      }
+      .match-time {
+        width: 96px;
+        height: 34px;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        justify-content: space-evenly;
+        .part {
+          @include useTheme {
+            color: getVar('dpStrong');
+          }
+          font-size: 13px;
+          font-style: normal;
+          font-weight: 500;
+          line-height: 13px; 
+        }
+        .time {
+          @include useTheme {
+            color: getVar('dpTheme');
+          }
+          font-size: 13px;
+          font-style: normal;
+          font-weight: 500;
+          line-height: 13px;
+        }
+      }
+    }
+    .match-info-media {
+      height: 360px;
+      background-size: cover;
+      background-repeat: no-repeat;
+      position: relative;
+      background-position: center;
+      &.is-video {
+        height: auto;
+        background: #000;
+        aspect-ratio: 16 / 9;
+      }
+      &.sid-1 {
+        background-image: url("./i/sport-1-full.webp");
+      }
+      &.sid-2 {
+        background-image: url("./i/sport-2-full.webp");
+      }
+      &.sid-3 {
+        background-image: url("./i/sport-3-full.webp");
+      }
+      &.sid-5 {
+        background-image: url("./i/sport-5-full.webp");
+      }
+      &.sid-6 {
+        background-image: url("./i/sport-6-full.webp");
+      }
+      &.sid-8 {
+        background-image: url("./i/sport-8-full.webp");
+      }
+      &.sid-9 {
+        background-image: url("./i/sport-9-full.webp");
+      }
+      &.sid-10 {
+        background-image: url("./i/sport-10-full.webp");
+      }
+      &.sid-11 {
+        background-image: url("./i/sport-11-full.webp");
+      }
+      &.sid-12 {
+        background-image: url("./i/sport-12-full.webp");
+      }
+      &.sid-13 {
+        background-image: url("./i/sport-13-full.webp");
+      }
+      &.sid-16 {
+        background-image: url("./i/sport-16-full.webp");
+      }
+      &.sid-18 {
+        background-image: url("./i/sport-18-full.webp");
+      }
+      &.sid-19 {
+        background-image: url("./i/sport-19-full.webp");
+      }
+      &.sid-23 {
+        background-image: url("./i/sport-23-full.webp");
+      }
+      &.sid-28 {
+        background-image: url("./i/sport-28-full.webp");
+      }
+      .score-detail-info .col-item {
+        height: 70px;
+      }
+    }
+    .match-info-status {
+      height: 142px;
+      .game-info {
+        display: flex;
+        justify-content: space-between;
+        height: 101px;
+        align-items: center;
+        @include useTheme {
+          border-bottom: getVar('dpDivide') solid 1px;
+          background: getVar('dpCar');
+        }
+        .team {
+          height: 65px;
+          display: flex;
+          align-items: flex-start;
+          position: relative;
+          .team-status {
+            display: flex;
+            flex-direction: column;
+            justify-content: space-around;
+            text-align: center;
+            width: 180px;
+            height: 65px;
+            .team-name {
+              white-space: nowrap;
+              overflow: hidden;
+              text-overflow: ellipsis;
+              @include useTheme {
+                color: getVar('dpStrong');
+              }
+              text-align: center;
+              font-size: 20px;
+              font-style: normal;
+              font-weight: 400;
+              line-height: 20px;
+            }
+            .events {
+              display: flex;
+              align-items: flex-end;
+              &.away {
+                justify-content: flex-end;
+              }
+            }
+            .event {
+              display: flex;
+              align-items: center;
+              margin-right: 10px;
+              @include useTheme {
+                color: getVar('dpStrong');
+              }
+              text-align: center;
+              font-size: 18px;
+              font-style: normal;
+              font-weight: 500;
+              line-height: 28px;
+              &:-child {
+                margin-right: 0;
+              }
+              @include useTheme {
+                color: getVar('dpNormal');
+              }
+              > *:first-child {
+                margin-right: 6px;
+              }
+              img {
+                width: 10px;
+              }
+            }
+          }
+          
+          .team-logo {
+            width: 64px;
+          }
+          &:after {
+            content: '';
+            width: 4px;
+            height: 46px;
+            top: 9px;
+            border-radius: 4px;
+            position: absolute;
+            background-size: contain;
+            background-repeat: no-repeat;
+            background-position: center center;
+          }
+          &.home {
+            padding-left: 12px;
+            >.team-logo {
+              margin-right: 18px;
+            }
+            &:after {
+              left: 0;
+              background-image: url('~@this/pages/SportGame/components/MatchDetail/i/home-team-line.png');
+            }
+            .team-name {
+              text-align: left;
+            }
+            .event {
+              &:last-child {
+                margin-right: 0;
+              }
+            }
+          }
+          &.away {
+            flex-direction: row-reverse;
+            padding-right: 12px;
+            >.team-logo {
+              margin-left: 18px;
+            }
+            &:after {
+              right: 0;
+              background-image: url('~@this/pages/SportGame/components/MatchDetail/i/away-team-line.png');
+            }
+            .team-name {
+              text-align: right;
+            }
+            .evnets {
+              flex-direction: row-reverse;
+            }
+            .event {
+              margin-right: 0;
+              margin-left: 10px;
+              &:first-child {
+                margin-left: 0;
+              }
+            }
+            .team-detail {
+              align-items: flex-end;
+            }
+          }
+        
+        }
+        .score {
+          box-sizing: border-box;
+          height: 100%;
+          padding: 5px 2px;
+          display: flex;
+          flex-direction: column;
+          align-items: center;
+          justify-content: space-around;
+          .time {
+            @include useTheme {
+              color: getVar('dpTheme');
+            }
+            font-size: 14px;
+            font-style: normal;
+            font-weight: 500;
+            line-height: 14px;
+            display: flex;
+            >*:nth-child(2) {
+              margin-left: 10px;
+            }
+          }
+          .score-panel {
+            @include useTheme {
+              color: getVar('dpStrong');
+            }
+            text-align: center;
+            font-size: 44px;
+            font-style: normal;
+            font-weight: 700;
+            line-height: 44px;
+          }
+        }
+        .team-detail {
+          height: 31px;
+          display: flex;
+          flex-direction: column;
+          justify-content: space-between;
+          align-items: flex-start;
+          &.no-events {
+            justify-content: center;
+            .events {
+              display: none;
+            }
+          }
+        }
+    
+      }
+      .game-status {
+        .status {
+          width: 24px;
+          height: 24px;
+          background-image: url('./i/status.png');
+          margin-right: 6px;
+        }
+        @include useTheme {
+          color: getVar('dpStrong');
+        }
+        font-size: 12px;
+        font-style: normal;
+        font-weight: 400;
+        line-height: 12px;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        margin-top: 8.5px;
+      }
+      .corner-card,
+      .yellow-card,
+      .red-card {
+        width: 20px;
+        height: 20px;
+        border-radius: 1px;
+      }
+      .corner-card {
+        background-image: url('./i/corner.png');
+        background-size: cover;
+      }
+      .yellow-card {
+        background-image: url('./i/yellow.png');
+        background-size: cover;
+      }
+      .red-card {
+        background-image: url('./i/red.png');
+        background-size: cover;
+      }
+    }
+  }
+  .match-infos {
+    @include useTheme {
+      background-color: getVar('dpCar');
+    }
+    min-height: 100px;
+    padding: 25px 36px;
+    margin-top: 6px;
+    border-radius: 4px;
+    display: flex;
+    flex-direction: column;
+    &.football {
+      gap: 20px;
+    }
+    .match-infos-main {
+      height: 38px;
+      display: flex;
+      justify-content: space-between;
+      .possession {
+        display: flex;
+        align-items: center;
+        > div {
+          width: 368px;
+        }
+      }
+      .cards {
+        display: inline-flex;
+        flex-direction: column;
+        align-items: center;
+        gap: 12px;
+        .card {
+          display: flex;
+          align-items: flex-start;
+          gap: 20px;
+          .yellow-card,
+          .red-card {
+            width: 10px;
+            height:14px;
+            margin: 0px 2px;
+            border-radius: 2px;
+          }
+          .corner-card,
+          .kick-card {
+            width:14px;
+            height:14px
+          }
+          .corner-card {
+            background-image: url('./i/corner.png');
+            background-size: cover;
+          }
+          .yellow-card {
+            background: #ffbc3b;
+          }
+          .red-card {
+            background: #e94343;
+          }
+          .kick-card {
+            background-image: url('./i/kick.png');
+            background-size: cover;
+          }
+        }
+        .value {
+          display: flex;
+          align-items: flex-start;
+          gap: 27px
+        }
+      }
+    }
+    .match-infos-detail {
+      display: flex;
+      width: 748px;
+      margin-right: auto;
+      margin-left: auto;
+      align-items: center;
+      .line-vertical {
+        width: 1px;
+        height: 38px;
+        @include useTheme {
+          background: getVar('dpDivide');
+        }
+        margin-right: 39px;
+        margin-left: 39px;
+      }
+      .detail-column {
+        display: flex;
+        flex-direction: column;
+        gap: 18px;
+        > div {
+          width: 334px;
+        }
+      }
+    }
+    &.basketball {
+      align-items: flex-start;
+      flex-direction: row;
+      padding: 26px 10px 26px 26px;
+      position: relative;
+      &:after {
+        content: "";
+        width: 1px;
+        height: 110px;
+        position: absolute;
+        left: 50%;
+        top: 50%;
+        transform: translate(-50%, -50%);
+        height: 135px;
+        @include useTheme {
+          background: getVar('dpDivide');
+        }
+      }
+      .score-info,
+      .sta-info {
+        width: 50%;
+      }
+      .sta-info {
+        margin-left: 30px;
+        .line-wrap {
+          margin-bottom: 20px;
+          display: flex;
+          justify-content: center;
+        }
+      }
+      .line-box {
+        display: flex;
+        align-items: center;
+        .title {
+          width: 80px;
+          text-align: center;
+        }
+        .line-score {
+          flex: 1;
+          &:first-child {
+            text-align: right;
+            padding-right: 10px;
+          }
+          &:last-child {
+            padding-left: 10px;
+          }
+        }
+
+      }
+      .score-info {
+        .item {
+          display: flex;
+          align-items: center;
+          margin-bottom: 20px;
+          div:first-child {
+            width: 160px;
+            box-sizing: border-box;
+            padding-right: 10px;
+            white-space: nowrap;
+            text-overflow: ellipsis;
+            overflow: hidden;
+          }
+          div:not(:first-child) {
+            flex: 1;
+            text-align: center;
+          }
+        }
+      }
+      .line-wrap {
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        .item {
+          width: 46px;
+          @include useTheme {
+            color: getVar('dpNormal');
+          }
+        }
+        .left,
+        .right {
+          width: 106px;
+          height: 6px;
+          position: relative;
+          @include useTheme {
+            background: getVar('dpDivide');
+          }
+        }
+        .left span {
+          position: absolute;
+          right: 0;
+          height: 100%;
+          border-radius: 3px 0 0 3px;
+          @include useTheme {
+            background: getVar('dpTheme');
+          }
+        }
+        .right span {
+          position: absolute;
+          left: 0;
+          height: 100%;
+          border-radius: 0 3px 3px 0;
+          background: #ea3b3b;
+        }
+      }
+    }
+    &.tennis {
+      padding: 50px 48px;
+      .title-list,
+      .line {
+        display: flex;
+        text-align: center;
+        align-items: center;
+        justify-content: space-between;
+        .item,
+        .line-item {
+          width: 80px;
+        }
+        .line-item:nth-child(3) {
+          width: 200px;
+        }
+      }
+      .title-list {
+        margin-bottom: 40px;
+        .item {
+          @include useTheme {
+            color: getVar('dpTheme');
+          }
+          position: relative;
+          &:after {
+            content: "";
+            width: 100%;
+            height: 5px;
+            border-radius: 3px;
+            @include useTheme {
+              background: getVar('dpTheme');
+            }
+            position: absolute;
+            left: 0;
+            bottom: -20px;
+          }
+        }
+        .item:nth-child(4),
+        .item:nth-child(5),
+        .item:nth-child(6) {
+          @include useTheme {
+            color: getVar('dpUp');
+          }
+          &:after {
+            @include useTheme {
+              background: getVar('dpUp');
+            }
+          }
+        }
+      }
+    }
+  }
+  iframe,
+  .my-live {
+    width: 100%;
+    height: 100%;
+    border: none;
+  }
+}

@@ -1,0 +1,249 @@
+@import '~@core/templates/desktop/styles/mixins/index.scss';
+
+:local(.wrapper) {
+  border-radius: 4px;
+  @include useTheme {
+    background: getVar('dpCar');
+  }
+  .action-bar {
+    min-height: 38px;
+    box-sizing: border-box;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 5px 14px;
+    row-gap: 10px;
+    .today-btn{
+      @include useTheme {
+        background-color: getVar('dpButton');
+        color: getVar('dpNormal');
+        &:hover {
+          background: getVar('dp_btn_hover');
+        }
+        &.active {
+          color: getVar('dpBasicWhite');
+          background-color: getVar('dpTheme');
+        }
+        &.active {
+          pointer-events: none;
+        }
+      };
+    }
+  }
+  .status-bar {
+    height: 40px;
+    line-height: 40px;
+    padding: 0 14px;
+    display: flex;
+    justify-content: flex-start;
+    @include useTheme {
+      border-top: 1px solid getVar('dpDivide');
+    }
+    .game-type {
+      font-size: 14px;
+      font-weight: 400;
+      min-width: 90px;
+      span {
+        font-size: 12px;
+      }
+    }
+  }
+
+  .game-bar {
+    height: 120px;
+    background-size: cover;
+    background-repeat: no-repeat;
+    background-position: center center;
+    display: flex;
+    align-items: center;
+    padding-left: 20px;
+    .item {
+      width: 100px;
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      align-items: center;
+      font-size: 14px;
+      cursor: pointer;
+      @include useTheme {
+        color: getVar('dpNormal');
+      }
+      &.active {
+        @include useTheme {
+          color: getVar('dpBasicWhite');
+        }
+      }
+      &.type-278 {
+        .logo {
+          background-image: url('./i/icon_lol.png');
+        }
+        &.active .logo {
+          background-image: url('./i/icon_lol1.png');
+        }
+      }
+      &.type-279 {
+        .logo {
+          background-image: url('./i/icon_king.png');
+        }
+        &.active .logo {
+          background-image: url('./i/icon_king1.png');
+        }
+      }
+      &.type-276 {
+        .logo {
+          background-image: url('./i/icon_dota.png');
+        }
+        &.active .logo {
+          background-image: url('./i/icon_dota1.png');
+        }
+      }
+      &.type-277 {
+        .logo {
+          background-image: url('./i/icon_csgo.png');
+        }
+        &.active .logo {
+          background-image: url('./i/icon_csgo1.png');
+        }
+      }
+      .logo {
+        width: 30px;
+        height: 30px;
+        margin-bottom: 10px;
+        background-repeat: no-repeat;
+        background-size: contain;
+        background-position: center center;
+      }
+    }
+    &.sid-278 {
+      background-image: url('./i/lol.webp');
+    }
+    &.sid-276 {
+      background-image: url('./i/dota2.webp');
+    }
+    &.sid-279 {
+      background-image: url('./i/king.webp');
+    }
+    &.sid-277 {
+      background-image: url('./i/csgo.webp');
+    }
+  }
+
+  .match-select {
+    line-height: 1;
+    max-width: 260px;
+    > .ant-select {
+      > .ant-select-selector {
+        padding: 6px 11px;
+      }
+    }
+  }
+
+  .bet-type-switch {
+    > button {
+      padding: 6px 11px;
+    }
+  }
+
+  @keyframes spin {
+    from {
+      transform: rotate(0deg);
+    }
+    to {
+      transform: rotate(360deg);
+    }
+  }
+  .spin-active svg {
+    animation: spin 1s ease-in-out;
+  }
+
+  .expand {
+
+    svg {
+      transition: transform 0.5s cubic-bezier(0, 1, 0, 1);
+      transform: rotate(0deg);
+    }
+
+    &.active svg {
+      transition: transform 0.5s cubic-bezier(0, 1, 0, 1);
+      transform: rotate(-180deg);
+    }
+  }
+
+  .close-all-matchs {
+    transform-origin: 12px 12px;
+    transform: rotate(-180deg);
+    transition: all 0.2s linear;
+    width: 24px;
+    height: 24px;
+  }
+  .open-all-matchs {
+    width: 24px;
+    height: 24px;
+    transform-origin: 12px 12px;
+    transform: rotate(0deg);
+    transition: all 0.2s linear;
+  }
+  .reload-icon {
+    width: 24px;
+    height: 24px;
+  }
+  .reload-icon svg {
+    width: 24px;
+    height: 24px;
+  }
+}
+
+:local(.datePicker){
+  position: relative;
+  height: 100%;
+  width: 100%;
+  display: flex;
+  align-items: center;
+  flex-wrap: nowrap;
+  overflow-x: auto;
+  white-space: nowrap;
+  -ms-overflow-style: none;
+  scrollbar-width: none;
+  &::-webkit-scrollbar {
+    display: none;
+  }
+  >span{
+    font-size: 14px;
+    font-weight: 400;
+    padding-left: 15px;
+    padding-right: 15px;
+    cursor: pointer;
+    position: relative;
+  }
+
+  hr {
+    position: absolute;
+    height: 5%;
+    bottom: 0;
+    margin: 0;
+    z-index: 0;
+    background: getVar('dpTheme');
+    border: none;
+    transition: 0.3s ease-in-out;
+  }
+  >div.date-underline.hide {
+    display: none;
+  }
+}
+
+:local(.arrow){
+  font-size: 16px;
+  font-weight: 400;
+  color: #999999;
+  border-radius: 50%;
+  cursor: pointer;
+  transform: translateX(10px) rotate(-90deg);
+  cursor: pointer;
+  width: 20px;
+  :hover{
+    opacity: .9;
+  }
+  &.scroll-start {
+    transform: translateX(-10px) rotate(90deg);
+  }
+}

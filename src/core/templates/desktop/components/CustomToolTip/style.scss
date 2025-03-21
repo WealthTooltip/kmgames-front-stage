@@ -1,0 +1,86 @@
+@import '~@core/templates/desktop/styles/mixins/index.scss';
+.custom-tooltip{
+    // @include useTheme {
+    //     background-color: getVar('dpHover');
+    // }     
+
+    // Weima 赛果页面
+    &.result-icon-tooltip {
+        >div.ant-tooltip-content {
+            width: fit-content;
+            margin-top: -12px;
+
+            >.ant-tooltip-inner {
+                padding: 2px 4px;
+                font-size: 12px;
+                border-radius: 5px;
+            }
+        }
+    }
+
+    >div.ant-tooltip-content{               
+        width: 310px;
+        >.ant-tooltip-inner{
+            @include useTheme {
+                // background-color: getVar('dpHover');
+            }       
+            border-radius: 10px;
+            padding: 0;
+            >div.custom-content{     
+                border-radius: 6px; 
+                >div.custom-content-header{
+                    padding: 11px 12px 9px 12px;
+                    color: var(--DP_strong, #0B0B0C);
+                    font-size: 14px;
+                    font-style: normal;
+                    font-weight: 400;
+                    line-height: 14px; /* 100% */
+                    box-sizing: border-box;
+                    display: flex;
+                    align-items: center;
+                    @include useTheme {
+                        color: getVar('dpStrong');
+                        background-color: getVar('dpTip');
+                    }
+                    border-radius: 6px 6px 0 0;
+                    &::before{
+                        content: "";
+                        height: 14px;
+                        width: 2px;
+                        background: #3586FF;
+                        margin-right: 8px;
+                    }
+                }
+                >div.custom-content-body{
+                    padding: 0px 9px 0px 9px;
+                    border-radius: 0 0 6px 6px;
+                    @include useTheme {
+                        background-color: getVar('dp_Card');
+                    }  
+                    >p{
+                        padding: 9px 9px 13px 0;
+                        font-size: 12px;
+                        font-style: normal;
+                        font-weight: 400;
+                        line-height: 12px; /* 100% */                  
+                        @include useTheme {
+                            color: getVar('dpStrong');
+                        }
+                    }
+                }
+            }
+        }
+    }
+    >div.ant-tooltip-arrow{
+        &::before{
+            @include useTheme {
+                background-color: getVar('dpTip') !important;
+            }       
+        }
+        &::after{
+            @include useTheme {
+                background-color: getVar('dpTip') !important;
+            }       
+        }
+    } 
+}

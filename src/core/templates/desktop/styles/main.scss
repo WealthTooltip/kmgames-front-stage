@@ -1,0 +1,36 @@
+@import './normalize';
+@import '~@core/templates/desktop/styles/mixins/index.scss';
+@import "~@this/styles/main";
+
+body {
+  -ms-overflow-style: -ms-autohiding-scrollbar;
+  &::-webkit-scrollbar {
+    width: 4px;
+    height: 6px;
+    background-color: #f6f8fb;
+  }
+  &::-webkit-scrollbar-track {
+    background-color: #f6f8fb;
+  }
+  &::-webkit-scrollbar-thumb {
+    cursor: pointer;
+    background-color: #3b82f6;
+    border-radius: 10px;
+  }
+}
+
+#root {
+  height: 100%;
+  user-select: none;
+  @include useTheme {
+    background: getVar('dpBackground');
+  }
+}
+
+// 去掉当 input = number 时的上下箭头
+input[type='number']::-webkit-inner-spin-button,
+input[type='number']::-webkit-outer-spin-button {
+  -webkit-appearance: none;
+  margin: 0;
+}
+

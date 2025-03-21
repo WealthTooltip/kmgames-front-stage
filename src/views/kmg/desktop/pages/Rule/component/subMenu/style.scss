@@ -1,0 +1,51 @@
+@import '~@core/templates/desktop/styles/mixins/index.scss';
+:local(.subMenuWrapper) {
+  width: 100%;
+  height: calc(100% - 6px);
+  @include useTheme {
+    background: getVar('dp_Card');
+  }
+  .sub-menu-body{
+    cursor: pointer;
+    display: flex;
+    margin: auto;
+    @include useTheme{
+      border: 1px solid rgba(getVar('dpStrong'),0.11);
+      border-radius: 8px;
+    }
+    li{
+      position: relative;
+      margin-right: -21px;
+      border-radius: 6px;
+      height: 40px;
+      @include useTheme {
+        color: getVar('dpNormal');
+      }
+      .sub-title{
+        position: absolute;
+        width: 100%;
+        left: 0;
+        padding: 15px 0;
+        text-align: center;
+      }
+      .s-path{
+        height: 40px;
+        @include useTheme{
+          stroke: rgba(getVar('dpStrong'),.07);
+        }
+      }
+    }
+    .selected{
+      .s-path{
+        @include useTheme{
+          fill: getVar('dpTheme')
+        }
+      }
+      span{
+        @include useTheme {
+          color: #fff;
+        }
+      }
+    }
+  }
+}

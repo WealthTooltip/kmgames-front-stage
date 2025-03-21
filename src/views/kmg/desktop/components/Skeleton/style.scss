@@ -1,0 +1,14 @@
+:local(.match) {
+  .ant-skeleton.ant-skeleton-element .ant-skeleton-input {
+    height: 20px;
+    line-height: 20px;
+  }
+}
+
+:local(.gameResult) {
+  margin-bottom: 10px;
+  
+  .ant-skeleton.ant-skeleton-element .ant-skeleton-input {
+    height: 70px;
+  }
+}

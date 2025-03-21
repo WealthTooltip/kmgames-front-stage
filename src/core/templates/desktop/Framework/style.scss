@@ -1,0 +1,17 @@
+/*
+ * @Author: Passion.KMG
+ * @Date: 2023-12-13
+ * @LastEditors: Passion.KMG
+ * @FilePath: /KMG/src/core/templates/desktop/Framework/style.scss
+ * @Description:
+ */
+ @import '~@core/templates/desktop/styles/mixins/index.scss';
+
+:local(.wrapper) {
+  width: 100%;
+  height: 100%;
+  background-size: 100% auto;
+  background-repeat: repeat;
+  overflow-y: hidden;
+  @include scrollbar();
+}

@@ -1,0 +1,139 @@
+@import '~@core/templates/mobile/styles/mixins/index.scss';
+
+:local(.modal) {    
+    position: relative;
+    width: 275px !important;
+    height: 408px !important;
+    &::before {
+        content: '';
+        position: absolute;        
+        width: 275px !important;
+        height: 408px !important;
+        @include useTheme {              
+            background-image: getVar('dpAlert3Bg');       
+        }   
+        background-repeat: no-repeat;
+        background-size: contain;
+        background-position: center;
+        border-radius: 14px;    
+    }    
+    
+    >div.ant-modal-content{
+        background: none;
+        height: 408px ;
+        padding: 0;
+        display: flex;
+        flex-direction: column;
+        box-shadow: none;
+        border-radius: 14px;        
+        &::before {
+            content: '';
+            position: absolute;
+            top: -58px;
+            width: 275px;
+            height: 174px;
+            @include useTheme {
+                // background: getVar('dpAlert4Img') no-repeat;
+                background: getVar('dpAlert3Player');
+                background-size: contain;
+                background-position: center;
+                background-repeat: no-repeat;
+            }
+        }       
+        >.ant-modal-close {
+            display: none;
+        }
+        >div.ant-modal-body {
+            height: 408px;
+            position: relative;               
+            &::before {
+                content: '';
+                position: absolute;
+                top: 8px;
+                width: 275px;
+                height: 130px;
+                @include useTheme {
+                    // background: getVar('dp_tip_notice_modal_background2');
+                    background: getVar('dpAlert3Gradient');
+                    background-repeat: no-repeat;
+                    background-size: contain;
+                    background-position: center;
+                }    
+            }     
+            
+            >div.body-content {
+                text-align: center;
+                margin-top: 268px;     
+                display: flex;
+                justify-content: center;
+                flex-direction: column;
+                align-items: center;
+                gap: 16px;   
+                position: relative;
+                div.img-container {
+                    position: absolute;
+                    width: 116px;
+                    height: 98px;
+                    top: -112px;
+                    left: 50%;
+                    transform: translate(-50%, 0);
+                    @include useTheme {
+                        background: getVar('dpAlert3Connection');
+                        background-repeat: no-repeat;
+                        background-size: contain;
+                        background-position: center;
+                    }    
+                    
+                }
+                >h4 {
+                    @include useTheme {
+                        color: getVar('dpStrong');                        
+                    }
+                    text-align: center;
+                    font-family: "PingFang SC";
+                    font-size: 16px;
+                    font-style: normal;
+                    font-weight: 500;
+                    line-height: 16px; /* 100% */                
+                }
+                >p {
+                    @include useTheme {
+                        color: getVar('dpNormal');                        
+                    }
+                    text-align: center;
+                    font-family: "PingFang SC";
+                    font-size: 14px;
+                    font-style: normal;
+                    font-weight: 400;
+                    line-height: 14px; /* 100% */
+                }
+                button {
+                    display: flex;
+                    width: 124px;
+                    height: 38px;
+                    padding: 15px 38px;
+                    justify-content: center;
+                    align-items: center;
+                    gap: 10px;
+                    border-radius: 6px;
+                    @include useTheme {
+                        background: getVar('dpTheme');                        
+                    }
+                    >span {
+                        color: #FFF;
+                        font-family: "PingFang SC";
+                        font-size: 15px;
+                        font-style: normal;
+                        font-weight: 500;
+                        line-height: 12px; /* 80% */
+                    }
+
+                }
+            }       
+        }
+        >div.ant-modal-footer {
+            display: none;
+        }
+       
+    }
+}

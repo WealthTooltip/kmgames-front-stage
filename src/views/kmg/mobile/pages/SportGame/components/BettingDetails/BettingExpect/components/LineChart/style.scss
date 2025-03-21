@@ -1,0 +1,23 @@
+@import '~@style/mixins/index.scss';
+
+:local(.wrapper){
+  width: 168px;
+  height: 2px;
+  position: relative;
+  &.red {
+    @include useTheme {
+      background-color: getVar('dpRed');
+    }
+  }
+  &.yellow {
+    @include useTheme {
+      background-color: getVar('dpYellow');
+    }
+  }
+  .rest {
+    height: 2px;
+    @include useTheme {
+      background-color: getVar('dpDivide');
+    }
+  }
+}

@@ -1,0 +1,41 @@
+@import '~@core/templates/desktop/styles/mixins/index.scss';
+
+:local(.dp_date_range_picker) {
+  display: flex;
+  // width: 173px;
+  justify-content: space-between;
+  align-items: center;
+  gap: 20px;
+  font-size: 12px;
+  border-radius: 13px;
+  border:none;
+  @include useTheme {
+    color: getVar('dpNormal');
+    background: getVar('dpBar');
+  }
+
+  .ant-picker {
+    padding: 3px 10px;
+    border: none;
+    border-radius: 13px;
+    @include useTheme {
+      background: getVar('dpCar');
+    }
+
+    .ant-picker-input {
+      width: 62px;
+      input {
+        font-size: 12px;
+      }
+    }
+    .ant-picker-range-separator {
+      padding: 0;
+    }
+    .ant-picker-active-bar{
+      margin-inline-start: 10px;
+    }
+    .ant-picker-suffix {
+      margin-left: 12px;
+    }
+  }
+}

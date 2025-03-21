@@ -1,0 +1,28 @@
+.events-item {
+    .event {
+        margin-right: 20px;
+    }
+    .event-count {
+        margin-top: 10px;
+        color: var(--DP_normal, #787878);
+        text-align: center;
+        font-family: DINPro;
+        font-size: 13px;
+        font-style: normal;
+        font-weight: 500;
+        line-height: 12px;
+        /* 92.308% */
+    }
+    .red-card {
+        width: 14px !important;
+        height: 14px !important;
+    }
+    .yellow-card {
+        width: 14px !important;
+        height: 14px !important;
+    }
+    .flag-card {
+        width: 14px !important;
+        height: 14px !important;
+    }
+}

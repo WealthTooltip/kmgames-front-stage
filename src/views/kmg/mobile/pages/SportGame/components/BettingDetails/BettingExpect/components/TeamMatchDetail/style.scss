@@ -1,0 +1,192 @@
+@import '~@style/mixins/index.scss';
+:local(.wrapper){
+    animation: slideInUp 0.3s ease-in-out;
+    height: calc(100% - 11px);
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    text-align: center;
+    display: flex;
+    flex-direction: column;
+    position: absolute;
+    bottom: 0;
+    border-radius: 16px 16px 0px 0px;
+    @include useTheme {
+        background-color: getVar('dpBackground');
+    }
+
+    > .container {
+        overflow: hidden;
+        flex: 1;
+        border-radius: 16px 16px 0px 0px;
+        .detail-panel {
+          margin: 8px 6px;
+          border-radius: 6px;
+          @include useTheme {
+            background-color: getVar('dpCard');
+            border-bottom: 0.5px solid getVar('dpCardBorder');
+            color: getVar('dpStrong');
+          }
+          .panel-header {
+            height: 28px;
+            margin-top: 4px;
+            display: flex;
+            align-items: center;
+            position: relative;
+            padding-left: 10px;
+            @include useTheme {
+              border-bottom: 1px solid getVar('dpDivide');
+            }
+            .vs {
+              @include useTheme {
+                color: getVar('dpAncillary');
+              }
+              font-family: "PingFang SC";
+              font-size: 12px;
+              font-style: normal;
+              font-weight: 400;
+              line-height: 22px; 
+            }
+            .team {
+              @include useTheme {
+                color: getVar('dpStrong');
+              }
+              font-family: "PingFang SC";
+              font-size: 12px;
+              font-style: normal;
+              font-weight: 400;
+              line-height: 22px;
+              display: flex;
+              align-items: center;
+              .team-img {
+                width: 17px;
+                height: 17px;
+              }
+              .team-name {
+                padding: 6px;
+              }
+              &.home {
+                > .team-img {
+                  background-image: url('./i/team1.webp');
+                  background-size: cover;
+                }
+              }
+              &.away {
+                > .team-img {
+                  background-image: url('./i/team2.webp');
+                  background-size: cover;
+                }
+                flex-direction: row-reverse;
+              }
+            }
+            &::after {
+              content: '';
+              position: absolute;
+              left: 0;
+              top:7px;
+              width: 2px;
+              height: 14px;
+              border-radius: 2px;
+              @include useTheme {
+                background-color: getVar('dpTheme');
+              }
+            }
+          }
+          .panel-content {
+            padding: 0 10px;
+            .content-header, .content {
+              display: flex;
+              align-items: center;
+              justify-content: space-between;
+              height: 24px;
+              @include useTheme{
+                border-bottom: 1px solid getVar('dpDivide');
+              }
+              .dateevent {
+                width: 50px;
+              }
+              .home {
+                width: 61px;
+                text-align: right;
+              }
+              .score {
+                width: 49px;
+              }
+              .away {
+                width: 102px;
+                text-align: left;
+              }
+              .handicap {
+                width: 40px;
+              }
+              .bigsmall {
+               width: 40px; 
+              }
+              @include useTheme {
+                color: getVar(dpAncillary);
+              }
+              text-align: center;
+              font-family: "PingFang SC";
+              font-size: 10px;
+              font-style: normal;
+              font-weight: 400;
+              line-height: 22px;
+            }
+            .content {
+              &:last-child {
+                border: 0px;
+              }
+              height: 45px;
+              .home, .away {
+                @include useTheme {
+                  color: getVar(dpStrong);
+                }
+                font-family: "PingFang SC";
+                font-size: 11px;
+                font-style: normal;
+                font-weight: 400;
+                line-height: 16px;
+              }
+              .score {
+                @include useTheme {
+                  color: getVar(dpStrong);
+                }
+                text-align: center;
+                font-family: "DIN Pro";
+                font-size: 14px;
+                font-style: normal;
+                font-weight: 700;
+                line-height: 21px;
+                letter-spacing: -1px;
+              }
+              .dateevent{
+                display: flex;
+                flex-direction: column;
+                align-items: flex-start;
+                >.date {
+                  @include useTheme {
+                    color: getVar(dpStrong);
+                  }
+                  font-family: "DIN Pro";
+                  font-size: 11px;
+                  font-style: normal;
+                  font-weight: 400;
+                  line-height: 22px;
+                  letter-spacing: -1px;
+                }
+                >.event {
+                  @include useTheme {
+                    color: getVar(dpAncillary);
+                  }
+                  font-family: "PingFang SC";
+                  font-size: 11px;
+                  font-style: normal;
+                  font-weight: 400;
+                  line-height: normal;
+                }
+              }
+            }
+          }
+        }
+    }
+}

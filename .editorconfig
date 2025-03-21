@@ -1,0 +1,10 @@
+# 顶层的.editorconfig文件
+root = true
+
+# 通用配置，适用于所有文件类型
+[*]
+indent_style = space
+indent_size = 2
+charset = utf-8
+trim_trailing_whitespace = true
+insert_final_newline = true

@@ -1,0 +1,95 @@
+@import '~@core/templates/desktop/styles/mixins/index.scss';
+
+:local(.wrapper) {
+
+  margin-top: 6px;
+  height: 55px;
+  box-sizing: border-box;
+  border-radius: 4px;
+  padding: 0 10px;
+  position: relative;
+  @include useTheme {
+    background: getVar('dpCar');
+  }
+  .prev,
+  .next {
+    position: absolute;
+    width: 16px;
+    height: 30px;
+    top: 50%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    transform: translateY(-50%);
+    cursor: pointer;
+    z-index: 2;
+    @include useTheme {
+      background: getVar('dpButton');
+    }
+  }
+  .prev {
+    left: 0;
+    border-radius: 0 4px 4px 0;
+    > div {
+      transform: rotate(90deg);
+    }
+  }
+  .next {
+    right: 0;
+    border-radius: 4px 0 0 4px;
+    > div {
+      transform: rotate(-90deg);
+    }
+  }
+  .swiper {
+    height: 100%;
+  }
+  .swiper-slide {
+    width: auto;
+  }
+  .sport-type-item {
+    position: relative;
+    padding: 9px 20px;
+    min-width: 46px;
+    text-align: center;
+    cursor: pointer;
+    @include useTheme {
+      color: getVar('dpNormal');
+    }
+    &:hover {
+      .sport-logo {
+        transform: translateY(-2px) scale(1.2);
+      }
+    }
+    &.active {
+      @include useTheme {
+        color: getVar('dpStrong');
+      }
+      .total {
+        @include useTheme {
+          color: getVar('dpStrong');
+        }
+      }
+    }
+    .sport-logo {
+      margin: 4px auto 2px;
+      transition: .3s;
+    }
+    .item-wrap {
+      position: relative;
+    }
+    .total {
+      position: absolute;
+      top: 5px;
+      left: calc(50% + 12px);
+      font-size: 10px;
+      @include useTheme {
+        color: getVar('dpAncillary');
+      }
+    }
+    p {
+      white-space: nowrap;
+      font-size: 11px;
+    }
+  }
+}

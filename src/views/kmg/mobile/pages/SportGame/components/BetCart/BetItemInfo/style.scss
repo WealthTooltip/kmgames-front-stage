@@ -1,0 +1,115 @@
+@import '~@style/mixins/index.scss';
+
+:local(.wrapper){
+  display: flex;
+  padding: 12px;
+  margin: 12px 0;
+  flex-direction: column;
+  align-items: flex-start;
+  gap: 8px;
+  border-radius: 6px;
+  @include useTheme {
+    background: getVar('dpInputBackground');
+  }
+  height: 63px;
+  margin-top: 12px;
+  position: relative;
+  >div.name-odd{
+    display: flex;
+    justify-content: space-between;
+    width: 100%;
+    >span{
+      font-size: 12px;
+      font-weight: 400;
+      @include useTheme {
+        color: getVar('dpStrong');
+      }
+      &.name{
+        font-weight: 500;
+      }
+      &.odd{
+        font-weight: 500;
+      }
+    }
+  }
+  >div.infos{
+    position: relative;
+    &::after {
+      content: '';
+      position: absolute;
+      top:   0px;
+      width: 2px;
+      height: 41px;
+      @include useTheme{
+        background-color: getVar('dpTheme');
+      }
+      border-top-left-radius: 2px;
+      border-top-right-radius: 2px;
+  }
+    .info-content{
+      display: flex;
+      justify-content: left;
+      flex-direction: column;
+      gap: 4px;
+      padding-left: 8px;
+      div{
+        @include useTheme {
+          color: getVar('dpNormal');
+        }
+        font-size: 10px;
+        font-style: normal;
+        font-weight: 400;
+      }
+    }
+  }
+  >span.countdown{
+    position: absolute;
+    display: flex;
+    width: 18px;
+    height: 18px;
+    line-height: 18px;
+    padding: 4px 6px;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    gap: 10px;
+    box-sizing: border-box;
+    border-radius: 18px;
+    font-size: 12px;
+    font-style: normal;
+    font-weight: 500;
+    line-height: 12px; /* 100% */
+    @include useTheme {
+      color: getVar('dpTheme');
+      background: getVar('dpCountDownBg');
+    }
+    right: 12px;
+    bottom: 12px;
+  }
+
+}
+:local(.closeWrapper){
+  width: 351px;
+  height: 87px;
+  border-radius: 6px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin: 12px 0;
+  @include useTheme {
+    color: getVar('dpTheme');
+    background: getVar('dpInputBackground');
+  }
+  .close-view{
+    width: 100%;
+    display: flex;
+    flex-flow: column;
+    justify-content: center;
+    align-items: center;
+    img{
+      width: 70px;
+      height: 60px;
+      flex-shrink: 0;
+    }
+  }
+}

@@ -1,0 +1,15 @@
+@import '~@core/templates/desktop/styles/mixins/index.scss';
+
+:local(.wrapper) {
+
+  overflow: auto;
+  @include scrollbar();
+
+  #page-wrapper {
+    width: 1440px;
+    margin-left: auto;
+    margin-right: auto;
+    overflow: hidden;
+    @include scrollbar();
+  }
+}

@@ -1,0 +1,263 @@
+@import '~@core/templates/desktop/styles/mixins/index.scss';
+
+:local(.betResultWrapper) {
+  line-height: 1;
+  @include useTheme {
+    background-color: getVar('dpBackground');
+  }
+  height: 100%;
+  width: 100%;
+
+  .main {
+    display: flex;
+    flex-flow: column;
+    margin: 12px 6px;
+    gap: 8px;
+
+    .team-mark img {
+      width: 16px;
+      height: 16px;
+    }
+
+    .event,
+    .event-analysis {
+      @include useTheme {
+        background-color: getVar('dpCard');
+      }
+      border-radius: 6px;
+      @include useTheme {
+        border: 0.5px solid getVar('dpBackground');
+      }
+
+      .graphic-view {
+        min-height: 630px;
+
+        .team-board,
+        .team-item,
+        .record-board {
+          display: flex;
+          justify-content: space-between;
+          align-items: center;
+        }
+
+        .team-info {
+          min-height: 16px;
+          padding: 12px;
+
+          .team-item {
+            .team-name {
+              @include useTheme {
+                color: getVar('dpStrong');
+                font-size: 12px;
+              }
+            }
+            gap: 4px;
+          }
+        }
+      }
+
+      .event-result {
+        padding: 0 12px;
+        margin-top: 30px;
+
+        .event-overview {
+          padding: 12px 0;
+          gap: 4px;
+          display: grid;
+          grid-template-columns: repeat(5, 1fr);
+
+          @include useTheme {
+            border-top: 0.5px solid rgba(getVar('dpNormal'), 0.1);
+          }
+
+          .event-item {
+            display: flex;
+            justify-content: left;
+            align-items: center;
+            font-size: 12px;
+            width: 58px;
+            &.event-item:nth-child(4){
+              width: 68px;
+            }
+            &.event-item:nth-child(9){
+              width: 68px;
+            }
+
+            .event-img {
+              width: 16px;
+              height: 16px;
+              padding-right: 4px;
+            }
+
+            .event-score {
+              @include useTheme {
+                color: getVar('dpNormal');
+              }
+            }
+          }
+        }
+      }
+    }
+
+    .event-analysis {
+      position: relative;
+      border-radius: 6px;
+      min-height: 100px;
+      @include useTheme {
+        border: 0.5px solid getVar('dpBackground');
+      }
+
+      .header {
+        position: relative;
+
+        .title {
+          text-align: center;
+          padding: 10px 0;
+
+          @include useTheme {
+            border-bottom: 0.5px solid rgba(getVar('dpNormal'), 0.1);
+            color: getVar('dpStrong');
+          }
+        }
+
+        .btn-group {
+          position: absolute;
+          top: 2px;
+          right: 10px;
+
+          .switch-btn {
+            @include useTheme {
+              background-color: rgba(getVar('dpNormal'), 0.1);
+            }
+            .switch-body{
+              padding-left: 2px;
+            }
+            font-size: 12px;
+            gap: 2px;
+
+            span {
+              width: 40px;
+            }
+
+            span.active {
+              @include useTheme {
+                color: getVar('dpStrong');
+                background: getVar('dpBasicWhite');
+                box-shadow: none;
+              }
+            }
+          }
+        }
+      }
+
+      &:hover {
+        &::before {
+          content: '';
+          position: absolute;
+          border-radius: 4px;
+          top: 8px;
+          left: 0;
+          width: 2px;
+          height: 14px;
+          background-color: getVar('dpTheme');
+        }
+      }
+
+      .body {
+        padding: 12px;
+
+        .team-board,
+        .team-item,
+        .record-board {
+          display: flex;
+          justify-content: space-between;
+          align-items: center;
+        }
+
+        .team-info {
+          min-height: 16px;
+
+          .team-item {
+            .team-name {
+              @include useTheme {
+                color: getVar('dpStrong');
+                font-size: 12px;
+              }
+            }
+            gap: 4px;
+
+            .team-mark {
+              width: 16px;
+              height: 16px;
+
+              img {
+                width: 100%;
+              }
+            }
+          }
+        }
+
+        .record-board {
+          margin-top: 8px;
+        }
+
+        .offensive-view,
+        .deffensive-view {
+          margin-top: 16px;
+
+          .title {
+            text-align: center;
+
+            @include useTheme {
+              color: getVar('dpStrong');
+            }
+          }
+
+          .view {
+            margin-top: 12px;
+
+            .circle {
+              display: flex;
+              justify-content: space-around;
+              .circle-item{
+                position: relative;
+                .score{
+                  position: absolute;
+                  top: 0;
+                  width: 90%;
+                  left: 5px;
+                  height: 100%;
+                  display: flex;
+                  justify-content: space-between;
+                  align-items: center;
+                }
+              }
+            }
+
+            .line {
+              display: flex;
+              flex-flow: column;
+              gap: 12px;
+            }
+          }
+        }
+      }
+    }
+
+    .comment {
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      margin-bottom: 25px;
+      font-size: 10px;
+      gap: 2px;
+      @include useTheme {
+        color: getVar('dpAncillary');
+      }
+    }
+  }
+}
+
+::-webkit-scrollbar {
+  display: none; /* Chrome Safari */
+}

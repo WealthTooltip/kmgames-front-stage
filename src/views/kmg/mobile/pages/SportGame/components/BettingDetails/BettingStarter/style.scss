@@ -1,0 +1,161 @@
+@import '~@style/mixins/index.scss';
+
+:local(.wrapper){
+  flex: 1;
+  overflow-y: auto;
+  .match-video {
+    margin: 8px 5px;
+    height: 712px;
+    width: 363px;
+    background-image: url("./i/bg.webp");
+    background-size: cover;
+    background-repeat: no-repeat;
+  }
+  .panel-wrapper {
+    @include useTheme {
+      background-color: getVar('dpBasicWhite');
+      color: getVar('dpStrong');
+    }
+    border-radius: 5px;
+    margin: 8px 5px;
+    padding: 2px 2px;
+    .panel-header {
+      @include useTheme {
+        background-color: getVar('dpCard');
+      }
+      display: flex;
+      justify-content: center;
+      padding: 5px;
+      border-top-right-radius: 5px;
+      border-top-left-radius: 5px;
+      position: relative;
+      align-items: center;
+      height: 24px;
+      > span {
+        font-family: 'PingFang SC';
+        font-size: 12px;
+        font-weight: 500;
+        line-height: 12px;
+      } 
+      &::before {
+        content:'';
+        position: absolute;
+        top: 10px;
+        left: 4px;
+        width: 2px;
+        height: 14px;
+        @include useTheme {
+          background-color : getVar('dpTheme')
+        }
+        border-radius: 2px;
+      }
+    }
+    .panel-content {
+      margin-top: 3px;
+      padding-top: 10px;
+      @include useTheme {
+        background-color: getVar('dpCard');
+      }
+      position: relative;
+      border-bottom-left-radius: 5px;
+      border-bottom-right-radius: 5px;
+      .panel-teams {
+        width: 100%;
+        display: flex;
+        flex-direction: row;
+        justify-content: center;
+        margin: auto;
+        &>.panel-team {
+          width: 50%;
+          height: 36px;
+          display: flex;
+          align-items: center;
+          .team-img {
+            margin-left: 5px;
+            width: 26px;
+            height: 26px;
+            margin-right: 6px;
+            background-size: contain;
+            background-repeat: no-repeat;
+          }
+          &.away .team-img {
+            background-image: url('./i/team1.webp');
+          }
+          &.home .team-img {
+            background-image: url('./i/team2.webp');
+          }
+        }
+      }
+      .panel-players {
+        display: flex;
+        flex-direction: row;
+        width: 100%;
+        justify-content: center;
+        margin-top: 5px;
+        &>.panel-team {
+          &.home .panel-player .player-img {
+            background-image: url('./i/player1.webp');
+          }
+          &.away .panel-player .player-img {
+            background-image: url('./i/player2.webp');
+          }
+          .panel-player {
+            border-radius: 4px;
+            padding: 5px;
+            height: 26px;
+            width: 160px;
+            @include useTheme {
+              background-color: getVar('dpBasicWhite');
+              box-shadow: 1px 1px 3px getVar('dpBackground');
+            }
+            display: flex;
+            align-items: center;
+            flex-direction: row;
+            margin: 10px 5px;
+            .player-img {
+              width: 26px;
+              height:26px;
+              background-size: cover;
+              background-repeat: no-repeat;
+            }
+            .player-number {
+              display: flex;
+              justify-content: center;
+              width: 14px;
+              @include useTheme {
+                color : getVar('dpTheme')
+              }
+              span {
+                font-family: "DINPro";
+                font-size: 12px;
+                font-weight: 700;
+                line-height: 12px;
+              }
+            }
+            .player-detail {
+              padding-left: 12px;
+              width: 108px;
+              display: flex;
+              flex-direction: column;
+              height: 66px;
+              justify-content: center;
+              p {
+                font-family: "PingFang SC";
+                font-size: 11px;
+                font-weight: 400;
+                line-height: 11px;
+                
+                &.role {
+                  @include useTheme {
+                    color : getVar('dpNormal')
+                  }
+                  margin-top: 3px;
+                }
+              }
+            }
+          }
+        }
+      }
+    }
+  }
+}

@@ -1,0 +1,110 @@
+@import '~@core/templates/mobile/styles/mixins/index.scss';
+
+:local(.modal) {
+    
+    >div.ant-modal-content{
+        border-radius: 14px;
+        // height: 176px !important;
+        padding: 0 !important;
+        display: flex;
+        flex-direction: column;
+        box-shadow: none;
+        // background-color: #FFFFFF;
+        border-bottom: 0.5px solid var(--Separator-Color-Light-With-Transparency, rgba(60, 60, 67, 0.36));
+        @include useTheme {
+            background-color: getVar('dpConfirmModalBg');
+            // background-color: white;
+        }
+        >.ant-modal-close{
+            top: 11px;
+            left: 401px;
+            display: none;
+        }        
+        >div.ant-modal-header{
+            display: none;
+            
+        }
+        >div.ant-modal-body{            
+            >div.body-title {
+                margin-top: 20px;                
+                @include useTheme {
+                    color: getVar('dpStrong');
+                }
+                text-align: center;
+                font-feature-settings: 'case' on;
+                font-family: "PingFang SC";
+                font-size: 16px;
+                font-style: normal;
+                font-weight: 700;
+                line-height: 24px; 
+                margin-bottom: 12px;
+            }
+            >div.body-content {
+                @include useTheme {
+                    color: getVar('dpStrong');
+                }
+                text-align: center;
+                font-feature-settings: 'case' on;
+                font-family: "PingFang SC";
+                font-size: 14px;
+                font-style: normal;
+                font-weight: 400;
+                line-height: 22px; 
+                opacity: 0.6;
+                margin-bottom: 20px;
+            }
+            >div.body-footer {
+                display: flex;
+                justify-content: center;
+                align-items: center;
+                border-top: 0.5px solid var(--Separator-Color-Light-With-Transparency, rgba(60, 60, 67, 0.36));
+                >div {
+                    width: 142.5px !important;
+                    height: 44px;
+                    display: flex;
+                    justify-content: center;
+                    align-items: center;
+                    background: none;
+                
+                    >button {       
+                        display: inline-block;
+                        margin: 0 !important;
+                        border-radius: 0 ;    
+                        border: none;
+                        background: none;
+                        box-shadow: none;
+                        >span{
+                            text-align: center;
+                            font-feature-settings: 'case' on;
+                            font-family: "PingFang SC";
+                            font-size: 14px;
+                            font-style: normal;
+                            font-weight: 400;
+                            line-height: 22px; /* 157.143% */
+                        }   
+                    }
+                }
+                >div.btn-cancel {
+                    border-right: 0.5px solid var(--Separator-Color-Light-With-Transparency, rgba(60, 60, 67, 0.36));
+                    >button {
+                      >span{
+                        
+                      }                    
+                    }      
+                }      
+                >div.btn-ok {
+                    >button {   
+                        >span{
+                            @include useTheme {
+                                color: getVar('dpTheme') !important;
+                            }
+                        }
+                    }      
+                }
+            }
+        }
+        >div.ant-modal-footer{
+            display: none;
+        }
+    }
+}

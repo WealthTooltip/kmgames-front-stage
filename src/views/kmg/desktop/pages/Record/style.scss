@@ -1,0 +1,392 @@
+@import '~@core/templates/desktop/styles/mixins/index.scss';
+:local(.historyWrapper) {
+  height: calc(100% - 6px);
+  @include useTheme {
+    border-top: 1px solid getVar('dpDivide');
+  }
+  .theme-color {
+    display: flex;
+    align-items: center;
+    @include useTheme {
+      color: getVar('dpTheme');
+    }
+  }
+  .cancel-btn {
+    flex: 1px;
+    border-radius: 40px;
+    border: 1px solid;
+    font-size: 12px;
+    font-style: normal;
+    font-weight: 400;
+    line-height: normal;
+    text-align: center;
+    padding: 10px 2px;
+    cursor: pointer;
+    margin-left: 10px;
+
+    @include useTheme {
+      color: getVar('dpTheme');
+      border-color: getVar('dpTheme');
+    }
+  }
+  .ant-tabs-nav{
+    margin: 0 !important;
+  }
+  .ant-tabs-ink-bar{
+    height: 3px !important;
+  }
+  >.tabs{
+    display: flex;
+    width: 100%;
+    padding: 0px 20px;
+    justify-content: space-between;
+    align-items: center;
+    box-sizing: border-box;
+    @include useTheme {
+      background: getVar('dpCar');
+    }
+    >.remark{
+      font-size: 12px;
+      line-height: 1;
+      @include useTheme {
+        color: getVar('dpNormal2');
+      }
+    }
+  }
+  .serach-bar{
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    margin: 10px 0;
+    .search-btn{
+      margin-left: 10px;
+    }
+    .select-tab{
+      margin-right: 10px;
+    }
+  }
+  .bet-win{
+    color: #DD5454 !important;
+  }
+  .bet-lose{
+    @include useTheme {
+      color: getVar('dpStrong') !important;
+    }
+    color: getVar('dpStrong') !important;
+  }
+  .bet-total{
+    @include useTheme {
+      color: getVar('dpStrong') !important;
+    }
+  }
+  >.main{
+    margin-top: 10px;
+    border-radius: 6px;
+    line-height: 1;
+    overflow: auto;
+    height: calc(100vh - 250px);
+    @include useTheme {
+      color: getVar('dpBackground');
+    }
+    .no-record{
+      padding-top: 226px;
+    }
+    >.header,.content{
+      display: flex;
+      align-items: center;
+      z-index: 99;
+      @include useTheme {
+        background: getVar('dpCar');
+        color: getVar('dpNormal2');
+      }
+      li{
+        font-size: 12px;
+        padding: 14px 20px;
+        box-sizing: border-box;
+      }
+      li:nth-child(1){
+        width: 80px;
+      }
+      li:nth-child(2){
+        width: 220px;
+      }
+      li:nth-child(3){
+        display: inline;
+        width: 220px;
+      }
+      li:nth-child(4){
+        width: 783px;
+      }
+      li:nth-child(5){
+        width: 150px;
+      }
+      li:nth-child(6){
+        width: 150px;
+      }
+      li:nth-child(7){
+        width: 179px;
+      }
+    }
+    >.header{
+      position: sticky;
+      top: 0;
+      left: 0;
+      height: 40px;
+      li{
+        font-size: 12px;
+        padding: 14px 20px;
+        box-sizing: border-box;
+      }
+    }
+    >.content:hover{
+      @include useTheme {
+        background: getVar('dp_odd_hover');
+      }
+      transition: all 0.3s ease;
+    }
+    >.content{
+      transition: all 0.3s linear;
+      @include useTheme {
+        border-top: 1px solid getVar('dpDivide');
+      }
+      li{
+        display: flex;
+        flex-flow: column;
+        font-size: 12px;
+        padding: 8px 20px;
+        box-sizing: border-box;
+        font-size: 12px;
+        line-height: 1;
+        @include useTheme {
+          color: getVar('dpStrong');
+        }
+      }
+      li:nth-child(1){
+        text-align: center;
+      }
+      .r-4{
+        position: relative;
+        .settled-score{
+          margin-top: 4px;
+          @include useTheme {
+            color: getVar('dpNormal2');
+          }
+        }
+      }
+      .orderNo,.match-type{
+        margin-bottom: 9px;
+        margin-right: 6px;
+      }
+      .score{
+        margin-top: 6px;
+      }
+      .time{
+        display: flex;
+        align-items: center;
+      }
+      .copy{
+        margin-left: 6px;
+        cursor: pointer;
+      }
+      .league-name{
+        font-weight: 500;
+        line-height: normal;
+      }
+      .match-info{
+        display: flex;
+        align-items: center;
+        margin: 6px 0;
+        line-height: normal;
+        @include useTheme {
+          color: getVar('dpNormal2');
+        }
+        .team-bet-type{
+          line-height: 1;
+          margin-right:20px;
+        }
+        .odd{
+          font-size: 12px;
+          @include useTheme {
+            color: getVar('dpTheme');
+          }
+        }
+      }
+      .league-type{
+        line-height: normal;
+        @include useTheme {
+          color: getVar('dpNormal2');
+        }
+      }
+      .teams{
+        display: flex;
+        margin-top: 3px;
+        align-items: center;
+        padding: 3px 0;
+        line-height: 1;
+        @include useTheme {
+          color: getVar('dpNormal2');
+        }
+        .m8{
+          margin: 0 8px;
+        }
+        .win,.lose{
+          position: absolute;
+          left: 300px;
+          top: 50%;
+          transform: translate(0px, -50%);
+        }
+        .win{
+          padding: 2px 4px;
+          border-radius: 4px;
+          border: 0.5px solid #F85454;
+          background: #DD5454;
+          color: #fff;
+        }
+        .lose{
+          padding: 2px 4px;
+          font-size: 12px;
+          font-style: normal;
+          font-weight: 400;
+          line-height: 16px;
+          border-radius: 4px;
+          @include useTheme {
+            border: 0.5px solid getVar('dpOutline');
+            background: getVal('dp_record_lose');
+          }
+        }
+      }
+    }
+  }
+  >.pagination-wrap{
+    margin-top: 15px;
+    width: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    >.ant-pagination {
+      >.ant-pagination-prev,
+      >.ant-pagination-next {
+        padding: 5px;
+        min-width: 28px;
+        height: 28px;
+        display: inline-flex;
+        justify-content: center;
+        align-items: center;
+        @include useTheme {
+          background-color: getVar('dp_Card');
+        }
+        
+        svg {
+          fill: #9C9C9C;
+        }
+      }
+  
+      >.ant-pagination-item {
+        font-size: 12px;
+        font-style: normal;
+        font-weight: 700;
+        line-height: normal;
+        min-width: 28px;
+        height: 28px;
+        display: inline-flex;
+        justify-content: center;
+        align-items: center;
+        border: 0;
+        @include useTheme {
+          background-color: getVar('dp_Card');
+        }
+  
+        &.ant-pagination-item-active {
+          border: 0;
+          @include useTheme {
+            color: getVar('dpBasicWhite');
+            background-color: getVar('dpTheme');
+          }
+          a {
+            @include useTheme {
+              color: getVar('dpBasicWhite');
+            }
+          }
+        }
+      }
+
+      >.ant-pagination-options {
+        >.ant-select {
+          >.ant-select-selector {
+            display: inline-flex;
+            padding: 4px 11px 4px 12px;
+            justify-content: center;
+            align-items: center;
+            font-size: 12px;
+            font-style: normal;
+            font-weight: 400;
+            line-height: 20px;
+            border: 0;
+            @include useTheme {
+              color: getVar('dpStrong');
+              background-color: getVar('dp_Card');
+            }
+          }
+
+          >.ant-select-arrow {
+            svg {
+              fill: #9C9C9C;
+            }
+          }
+        }
+
+        >.ant-pagination-options-quick-jumper {
+          font-size: 12px;
+          font-style: normal;
+          font-weight: 400;
+          line-height: 20px;
+          margin-inline-start: 24px;
+
+          >input {
+            height: 28px;
+            line-height: 20px;
+            display: inline-flex;
+            justify-content: center;
+            align-items: center;
+            border: 0;
+            @include useTheme {
+              color: getVar('dpStrong');
+              background-color: getVar('dp_Card');
+            }
+          }
+        }
+      }
+    }
+  }
+  ::-webkit-scrollbar {
+    display: none; /* Chrome Safari */
+  }
+  .statistics{
+    padding: 28px 20px;
+    display: flex;
+    align-content: center;
+    justify-content: flex-end;
+    position: sticky;
+    bottom: 0;
+    left: 0;
+    width: 100%;
+    box-sizing: border-box;
+    font-size: 14px;
+    @include useTheme {
+      border-top: 1px solid getVar('dpDivide');
+      background: getVar('dpCar');
+    }
+    >span{
+      margin-left: 48px;
+      @include useTheme {
+        color: getVar('dpNormal2');
+      }
+      >em{
+        @include useTheme {
+          color: getVar('dpNormal2');
+        }
+      }
+    }
+  }
+}

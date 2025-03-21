@@ -1,0 +1,53 @@
+
+@mixin ellipsis {
+  display: inline-block;
+  max-width: 100%;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+  word-wrap: normal;
+}
+
+@mixin scrollbar() {
+  -ms-overflow-style: -ms-autohiding-scrollbar;
+  &::-webkit-scrollbar {
+    width: 4px;
+    height: 4px;
+    background-color: #f6f8fb;
+  }
+  &::-webkit-scrollbar-track {
+    background-color: #f6f8fb;
+  }
+  &::-webkit-scrollbar-thumb {
+    cursor: pointer;
+    background-color: #3b82f6;
+    border-radius: 10px;
+  }
+}
+
+@mixin glass($left: 205px){
+  overflow: hidden;
+  position: relative;
+  &:hover {
+    filter: brightness(110%);
+    opacity: 1 !important;
+    &::before {
+      width: 45px;
+      left: $left;
+    }
+  }
+  &::before {
+    content: ' ';
+    position: absolute;
+    background: #fff;
+    width: 25px;
+    height: 50px;
+    top: 0;
+    left: -45px;
+    opacity: 0.3;
+    -webkit-transition: all 0.25s ease-out;
+    transition: all 0.25s ease-out;
+    -webkit-transform: skewX(-25deg);
+    transform: skewX(-25deg);
+  }
+}

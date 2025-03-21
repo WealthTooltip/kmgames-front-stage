@@ -1,0 +1,49 @@
+.status-basket-bar {
+    width: 130px;
+
+    .status-text {
+        width: 20px;
+        margin-right: 9px;
+        color: var(--DP_normal, #787878);
+        text-align: center;
+        font-family: DINPro;
+        font-size: 13px;
+        font-style: normal;
+        font-weight: 500;
+        line-height: 12px;
+        /* 92.308% */
+    }
+
+
+    .status-right-text {
+        width: 20px;
+        color: var(--DP_normal, #787878);
+        text-align: center;
+        font-family: DINPro;
+        font-size: 13px;
+        font-style: normal;
+        font-weight: 500;
+        line-height: 12px;
+        margin-left: 9px;
+        /* 92.308% */
+    }
+
+    .status-left {
+        height: 6px;
+        width: 60px;
+        flex-shrink: 0;
+        background: var(--DP_divide, #EBEDF1);
+    }
+
+    .status-right {
+        height: 6px;
+        width: 60px;
+        flex-shrink: 0;
+        background: var(--DP_up, #3586FF);
+    }
+
+    .status-blank {
+        height: 6px;
+        background: var(--DP_divide, #EBEDF1);
+    }
+}

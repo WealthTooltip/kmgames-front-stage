@@ -1,0 +1,13 @@
+:local(.nameWrapper){
+  .swiper-slide{
+    display: flex;
+    justify-content: space-around;
+  }
+
+  span.label{
+    text-align: center;
+    font-size: 10px;
+    font-style: normal;
+    font-weight: 400;
+  }
+}

@@ -1,0 +1,129 @@
+@import '~@core/templates/desktop/styles/mixins/index.scss';
+
+:local(.wrapper) {
+  display: flex;
+  flex: 1;
+  margin-top: 8px;
+  margin-bottom: 4px;
+  .disabled {
+    pointer-events: none;
+  }
+  .match-odds-box {
+    flex: 1;
+    &:last-child {
+      .team-odds-item {
+        margin-right: 0;
+      }
+    }
+    .team-odds-item {
+      margin-bottom: 2px;
+      margin-right: 2px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      padding: 0 13px 0 12px;
+      box-sizing: border-box;
+      font-size: 12px;
+      font-weight: 400;
+      &.active {
+        .text-theme{
+          color: #fff !important;
+        }
+      }
+      @include useTheme {
+        background: getVar('dpForm2')
+      }
+      overflow: hidden;
+      position: relative;
+      cursor: pointer;
+      white-space: nowrap;
+      &:hover{
+        @include useTheme {
+          background: getVar('dp_odd_hover') !important
+        }
+      }
+      &.between {
+        justify-content: space-between;
+      }
+      &.active:not(.disabled) {
+        @include useTheme {
+          background: getVar('dpOddActive')!important;
+          color: getVar('dp_nomal_white');
+          .odd {
+            color: getVar('dpBasicWhite');  
+          }
+        }
+      }
+      .odd {
+        font-size: 12px;
+        @include useTheme {
+          color: getVar('dpStrong');
+        }
+        margin-left: 2px;
+      }
+      &.team-odds-item:not(.disabled).up.up {
+        @include useTheme {
+          background: getVar('dpUpBackground');
+        }
+        .odd {
+          @include useTheme {
+            color: getVar('dpUp');
+          }
+        }
+        &:after {
+          content: "";
+          width: 8px;
+          height: 12px;
+          background: url('~@this/assets/images/svg/up.png') no-repeat;
+          background-size: cover;
+          right: 2px;
+          top: 50%;
+          transform: translateY(-50%);
+          position: absolute;
+          animation-name: breath;
+          animation-duration: 2s;
+          animation-timing-function: ease-in-out;
+          animation-iteration-count: infinite;
+        }
+      }
+      &.team-odds-item:not(.disabled).down.down {
+        @include useTheme {
+          background: getVar('dpDownBackground');
+        }
+        .odd {
+          @include useTheme {
+            color: getVar('dpDown');
+          }
+        }
+        &:after {
+          content: "";
+          width: 8px;
+          height: 12px;
+          background: url('~@this/assets/images/svg/down.png') no-repeat;
+          background-size: cover;
+          right: 2px;
+          top: 50%;
+          transform: translateY(-50%);
+          position: absolute;
+          animation-name: breath;
+          animation-duration: 2s;
+          animation-timing-function: ease-in-out;
+          animation-iteration-count: infinite;
+        }
+      }
+    }
+    &:nth-child(1),
+    &:nth-child(2),
+    &:nth-child(3) {
+      .team-odds-item {
+        @include useTheme {
+          background: getVar('dpForm1')
+        }
+      }
+    }
+  }
+  .team-odds-item {
+    height: 34px;
+    border-radius: 4px;
+  }
+}

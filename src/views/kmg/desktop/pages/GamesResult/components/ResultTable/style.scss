@@ -1,0 +1,9 @@
+@import '~@core/templates/desktop/styles/mixins/index.scss';
+
+:local(.wrapper) {
+  flex: 1;
+  height: calc(100% - 62px);
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-start;
+}

@@ -1,0 +1,177 @@
+@import '~@core/templates/desktop/styles/mixins/index.scss';
+:local(.betRuleWrapper) {
+  width: 100%;
+  height: calc(100% - 6px);
+  @include useTheme {
+    background: getVar('dp_Card');
+  }
+  .menu-body{
+    padding-left: 20px;
+    display: flex;
+    justify-content: left;
+    align-items: center;
+    @include useTheme {
+    border-bottom: 1px solid getVar('dpDivide');
+    }
+    .selected {
+      position: relative;
+      color: getVar('dpTheme') !important;
+      transition: 0.3s ease-in-out;
+
+      &::after {
+        transition: 0.3s ease-in-out;
+        content: '';
+        position: absolute;
+        bottom: 0;
+        left: 0;
+        width: 100%;
+        border-bottom: 2px solid getVar('dpTheme');
+      }
+    }
+    .menu-item{
+      padding: 11px 20px;
+      font-weight: 500;
+      cursor: pointer;
+      @include useTheme {
+        color: getVar('dpStrong');
+      }
+    }
+  }
+  .sub-menu{
+    margin-top: 30px;
+    min-height: 42px;
+  }
+  .board {
+    position: relative;
+    margin-top: 40px;
+    width: 100%;
+    text-align: center;
+    .back{
+      .ant-image{
+        width: 700px;
+        height: 600px;
+      }
+    }
+    .slide {
+      position: absolute;
+      top: 16.8px;
+      left: 305.5px;
+      height: 376px;
+      width: 666px;
+      overflow: hidden;
+      .inner {
+        position: absolute;
+        display: flex;
+        margin: auto;
+        .inner-body{
+          .ant-image-img {
+            width: 666px;
+            opacity: 1;
+            transition: opacity 0.3s ease-in-out;
+            &.active {
+              opacity: 1;
+            }
+          }
+          .child{
+            position: relative;
+            .child-menu{
+              opacity: 0;
+              position: absolute;
+              top: 14px;
+              left: 10px;
+              width: 100%;
+              display: flex;
+              justify-content: left;
+              align-items: center;
+              gap: 20px;
+              background-color: transparent;
+              .child-title{
+                opacity: 1;
+                cursor: pointer;
+                min-width: 45px;
+                font-size: 12px;
+                padding: 8px 8px;
+                border-radius: 44px;
+                border: 0.5px solid rgba(getVar('dpOutline'), 0.5);
+                @include useTheme{
+                  color: rgba(getVar('dpNormal'), 0.8);
+                }
+                &:hover{
+                  @include useTheme{
+                    transition: background-color 0.3s ease-in-out;
+                    background-color: getVar('dpTheme');
+                    color: #fff;
+                  }
+                }
+                &.selected{
+                  @include useTheme{
+                    background-color: getVar('dpTheme');
+                    color: #fff;
+                  }
+                }
+                }
+              &.sub2{
+                position: absolute;
+                left: 105px;
+                top: 140px;
+                display: flex;
+                gap: 15px;
+                .child-title {
+                  &.cId0, &.cId3{
+                    display: none;
+                  }
+                  cursor: pointer;
+                  width: 200px;
+                  height: 45px;
+                  opacity: 0;
+                }
+              }
+            }
+            .child-inner{
+              img{
+                display: none;
+                &.active{
+                  display: block;
+                }
+              }
+            }
+          }
+        }
+        .ant-image-img {
+          width: 675px;
+          height: 376px;
+        }
+      }
+    }
+    .btn-group {
+      position: absolute;
+      top: 249px;
+      width: 100%;
+
+      .ant-btn {
+        @include useTheme {
+          background-color: rgba(getVar('dpStrong'), .1) !important;
+          color: getVar('dp_Card');
+        }
+        border-radius: 50%;
+
+        &:hover {
+          @include useTheme {
+            transition: background-color 0.1s ease-in-out;
+            background-color: getVar('dpTheme') !important;
+          }
+        }
+      }
+
+      .next {
+        position: absolute;
+        right: 80px;
+      }
+
+      .previous {
+        position: absolute;
+        left: 80px;
+      }
+    }
+  }
+}

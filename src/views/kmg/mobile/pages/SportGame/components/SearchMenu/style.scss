@@ -1,0 +1,52 @@
+@import '~@core/templates/desktop/styles/mixins/index.scss';
+
+:local(.wrapper){
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    height: 30px;
+    .search-group {
+        display: flex;
+        .search-list {
+            width: 60px;
+            height: 30px;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            > div {
+                width: 52px;
+                height: 22px;
+                display: flex;
+                gap: 2px;
+                justify-content: center;
+                align-items: center;
+                border-radius: 2px;
+                .search-name {
+                    font-size: 14px;
+                    line-height: 14px;
+                    @include useTheme {
+                        color: getVar('dpNormal');
+                    }
+                }
+                &.active {
+                    @include useTheme {
+                        background-color: getVar('dpInputBackground');
+                        color: getVar('dpTheme');
+                    }
+                }
+            }
+        }
+    }
+    .search-btn {
+        width: 30px;
+        height: 30px;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        svg {
+            @include useTheme {
+                fill: getVar('dpTheme');
+            }
+        }
+    }
+}

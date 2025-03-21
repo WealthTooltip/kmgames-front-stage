@@ -1,0 +1,251 @@
+@import '~@core/templates/desktop/styles/mixins/index.scss';
+
+:local(.match_status) {
+  width: 58px;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  @include useTheme {
+    color: getVar('dpStrong');
+    border-right: 1px solid getVar('dpNoobOutLine');
+    border-top: 1px solid getVar('dpNoobOutLine');
+  }
+}
+
+:local(.team_info) {
+  width: 710px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  overflow: hidden;
+  @include useTheme {
+    color: getVar('dpStrong');
+    border-top: 1px solid getVar('dpDivide');
+  }
+  .disabled {
+    pointer-events: none;
+  }
+  .team-odds-item{
+    .odd{
+      font-size: 13px;
+      font-weight: 500;
+      @include useTheme {
+        color: getVar('dpStrong');
+      }
+    }
+  }
+  &.locked-odd {
+    .odd {
+      @include useTheme {
+        color: getVar('dpNormal')!important;
+      }
+    }
+  }
+  .datas,.more{
+      width: 50px;
+      height: 58px;
+      line-height: 58px;
+      margin: 0 6px;
+      text-align: center;
+      box-sizing: border-box;
+      border-radius: 4px;
+      @include useTheme {
+        color: getVar('dpNormal');
+        background: getVar('dpForm1');
+      }
+  }
+  .team-min:hover,.team:hover{
+    border-radius: 4px;
+    @include useTheme {
+      background: getVar('dpHover');
+    }
+  }
+  .home-score,.away-score{
+    width: 45px;
+    height: 58px;
+    line-height: 58px;
+    text-align: center;
+    box-sizing: border-box;
+    font-size: 18px;
+    @include useTheme {  
+      color: getVar('dpTheme');
+    }
+  }
+  .left.up{
+    position: relative;
+    @include useTheme {
+      background: getVar('dpUpBackground');
+    }
+    .odd {
+      @include useTheme {
+        color: getVar('dpUp');
+      }
+    }
+    &:after {
+      content: "";
+      width: 8px;
+      height: 12px;
+      background: url('~@this/assets/images/svg/up.png') no-repeat;
+      background-size: cover;
+      left: 6px;
+      top: 50%;
+      transform: translateY(-50%);
+      position: absolute;
+      animation-name: breath;
+      animation-duration: 2s;
+      animation-timing-function: ease-in-out;
+      animation-iteration-count: infinite;
+    }
+  }
+  .left.down {
+    position: relative;
+    @include useTheme {
+      background: getVar('dpDownBackground');
+    }
+    .odd {
+      @include useTheme {
+        color: getVar('dpDown');
+      }
+    }
+    &:after {
+      content: "";
+      width: 8px;
+      height: 12px;
+      background: url('~@this/assets/images/svg/down.png') no-repeat;
+      background-size: cover;
+      left: 6px;
+      top: 50%;
+      transform: translateY(-50%);
+      position: absolute;
+      animation-name: breath;
+      animation-duration: 2s;
+      animation-timing-function: ease-in-out;
+      animation-iteration-count: infinite;
+    }
+  }
+  .team-min.up,.right.up{
+    position: relative;
+    @include useTheme {
+      background: getVar('dpUpBackground');
+    }
+    .odd {
+      @include useTheme {
+        color: getVar('dpUp');
+      }
+    }
+    &:after {
+      content: "";
+      width: 8px;
+      height: 12px;
+      background: url('~@this/assets/images/svg/up.png') no-repeat;
+      background-size: cover;
+      right: 6px;
+      top: 50%;
+      transform: translateY(-50%);
+      position: absolute;
+      animation-name: breath;
+      animation-duration: 2s;
+      animation-timing-function: ease-in-out;
+      animation-iteration-count: infinite;
+    }
+  }
+  .team-min.down,.right.down {
+    position: relative;
+    @include useTheme {
+      background: getVar('dpDownBackground');
+    }
+    .odd {
+      @include useTheme {
+        color: getVar('dpDown');
+      }
+    }
+    &:after {
+      content: "";
+      width: 8px;
+      height: 12px;
+      background: url('~@this/assets/images/svg/down.png') no-repeat;
+      background-size: cover;
+      right: 6px;
+      top: 50%;
+      transform: translateY(-50%);
+      position: absolute;
+      animation-name: breath;
+      animation-duration: 2s;
+      animation-timing-function: ease-in-out;
+      animation-iteration-count: infinite;
+    }
+  }
+  .active:not(.disabled) {
+    @include useTheme {
+      background: getVar('dpTheme')!important;
+      color: getVar('dpBasicWhite');
+      .odd {
+        color: getVar('dpBasicWhite');  
+      }
+    }
+  }
+  .team-min{
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    width: 120px;
+    height: 58px;
+    padding: 23px 20px;
+    box-sizing: border-box;
+    border-radius: 4px;
+    @include useTheme {
+      color: getVar('dpNormal');
+      background: getVar('dpForm2');
+    }
+  }
+  .left{
+    .team-name{
+      text-align:right;
+    }
+  }
+  .team {
+    display: flex;
+    justify-content: space-between;
+    width: 180px;
+    height: 58px;
+    line-height: 58px;
+    padding: 14px 20px;
+    align-items: center;
+    border-radius: 4px;
+    box-sizing: border-box;
+    @include useTheme {
+      color: getVar('dpNormal');
+      background: getVar('dpForm2');
+    }
+    img {
+      width: 30px;
+      border-radius: 50%;
+      transition: .5s ease-in-out;
+    }
+    .team-name {
+      width: 72px;
+      overflow: hidden;
+      text-overflow: ellipsis;
+      margin: 0 6px;
+      white-space: nowrap;
+    }
+    .team-score {
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      width: 25px;
+      box-sizing: border-box;
+      @include useTheme {
+        color: getVar('dpStrong');
+      }
+    }
+  }
+  .align{
+    text-align: center;
+    span{
+      text-align: center;
+      width: 100%;
+    }
+  }
+}

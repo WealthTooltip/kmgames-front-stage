@@ -1,0 +1,134 @@
+@import '~@style/mixins/index.scss';
+
+:local(.wrapper) {
+  padding: 12px 10px;
+  box-sizing: border-box;
+  font-size: 12px;
+  @include useTheme {
+    border-top: 0.5px solid getVar('dpDivide');
+  }
+  .match-noob-header {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    height: 15px;
+    line-height: 15px;
+    @include useTheme {
+      color: getVar('dpNormal');
+    }
+    .match-status {
+      min-width: auto;
+    }
+    > div {
+      min-width: 60px;
+      &:last-child {
+        text-align: right;
+      }
+    }
+    .media-box {
+      display: flex;
+      align-items: center;
+      > div {
+        margin-right: 6px;
+      }
+    }
+  }
+  .match-info {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 44px;
+    .score {
+      width: 114px;
+      box-sizing: border-box;
+      padding: 0 6px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      p {
+        text-align: center;
+        margin: 0 10px;
+      }
+      span {
+        flex: 1;
+        text-align: right;
+        &:last-child {
+          text-align: left;
+        }
+      }
+    }
+    .team {
+      display: flex;
+      align-items: center;
+      &:first-child {
+        .team-name {
+          text-align: right;
+          margin-right: 5px;
+          justify-content: flex-end;
+        }
+        .red-card {
+          margin-right: 3px;
+        }
+      }
+      &:last-child {
+        .team-name {
+          margin-left: 5px;
+        }
+        .red-card {
+          margin-left: 3px;
+        }
+      }
+      .team-name {
+        width: 102px;
+        display: flex;
+        align-items: center;
+      }
+      .team-name span:not(.red-card) {
+        max-width: 88px;
+        white-space: nowrap;
+        overflow: hidden;
+        text-overflow: ellipsis;
+      }
+      .red-card {
+        font-weight: normal;
+        width: 11px;
+        height: 14px;
+        font-size: 10px;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        border-radius: 2px;
+        background: #E94343;
+        color: #fff;
+      }
+    }
+  }
+  .match-bottom {
+    display: flex;
+    align-items: center;
+    .collect-box {
+      width: 31px;
+      padding-left: 3px;
+      box-sizing: border-box;
+      display: flex;
+      justify-content: flex-start;
+    }
+  }
+  .odds {
+    width: 282px;
+    display: flex;
+    &.is-esports {
+      .name {
+        display: none;
+      }
+    }
+    > div {
+      flex: 1;
+      height: 34px;
+      margin-right: 2px;
+      &:last-child {
+        margin-right: 0;
+      }
+    }
+  }
+}

@@ -1,0 +1,200 @@
+@import '~@core/templates/mobile/styles/mixins/index.scss';
+
+:local(.modal) {
+    * {
+        box-sizing: border-box;
+    }
+    border-radius: 18px;    
+    height: 290px !important;
+    top: 12px !important;
+    width: 343px !important;
+    >div.ant-modal-content{        
+        @include useTheme {
+            background-color: getVar('dpBackground');            
+        }    
+        padding: 0;        
+        box-shadow: none;        
+        height: 290px;
+        >.ant-modal-close{
+            // display: none;
+            right: 0;
+            top: -36px;
+            width: 24px;
+            height: 24px;
+            border-radius: 50%;
+            @include useTheme {
+                background-color: getVar('dpBackground');    
+            }    
+            >span {
+                @include useTheme {
+                    color: getVar('dpTheme');
+                }
+            }
+        }        
+        >div.ant-modal-header{
+            display: none;            
+        }
+        >div.ant-modal-body{
+            padding: 24px 16px ;
+            display: flex;
+            justify-content: flex-between;
+            position: relative;
+            gap: 16px;
+            
+            >div.mode{
+                width: 148px;
+                height: 192px;
+                flex-shrink: 0;
+                border-radius: 8px;
+                @include useTheme {
+                    background-color: getVar('dpInputBackground');
+                }
+                &::before {
+                    content: '';
+                    position: absolute;
+                    top: 70px;
+                    left: 24.23px;
+                    width: 99.526px;
+                    height: 122px;            
+                    background: url('../img/betting-common.svg');
+                    background-repeat: no-repeat;
+                    background-size: contain;
+                    background-position: center; 
+                }
+                position: relative;
+                cursor: pointer;
+                >div.back-img{
+                    top: 109px;
+                    left: 50%;
+                    transform: translate(-50%, 0);
+                    width: 129px;
+                    height: 62px;
+                    flex-shrink: 0;
+                    border-radius: 4px;                    
+                    position: absolute;   
+                              
+                    background-size: cover;  
+                    z-index: 100;
+                }
+                >div.description{
+                    margin-top: 16px;
+                    text-align: center;
+                    >h4{
+                        @include useTheme {
+                            color: getVar('dpStrong');
+                        }
+                        text-align: center;
+                        font-family: "PingFang SC";
+                        font-size: 14px;
+                        font-style: normal;
+                        font-weight: 500;
+                        line-height: 14px; /* 100% */
+                        margin-bottom: 12px;
+                    }
+                    >p{
+                        @include useTheme {
+                            color: getVar('dpNormal');
+                        }
+                        text-align: center;
+                        font-family: "PingFang SC";
+                        font-size: 12px;
+                        font-style: normal;
+                        font-weight: 400;
+                        line-height: 12px; /* 100% */
+                    }
+                }
+                >button{
+                    position: absolute;
+                    left: 50%;
+                    transform: translate(-50%, 0);
+                    bottom: -50px;
+                    display: flex;
+                    width: 70px;
+                    height: 32px;
+                    padding: 15px 38px;
+                    justify-content: center;
+                    align-items: center;
+                    gap: 10px;
+                    flex-shrink: 0;
+                    border-radius: 31px;
+                    >span {
+                        color: #FFF;
+                        font-family: "PingFang SC";
+                        font-size: 12px;
+                        font-style: normal;
+                        font-weight: 400;
+                        line-height: 12px; /* 100% */
+                    }
+                }
+                
+            }
+            >div.mode-professional{
+                &::after {
+                    content: '';
+                    position: absolute;
+                    top: 74.94px;
+                    left: 29.73px;
+                    width: 88.544px;
+                    height: 117.2px;            
+                    background: url('../img/betting-professional-1.webp');
+                    background-repeat: no-repeat;
+                    background-size: contain;
+                    background-position: center; 
+                    border-radius: 8px
+                }
+                >.back-img{
+                    background: url('../img/betting-professional.webp'); 
+                    background-repeat: no-repeat;
+                    background-size: contain;
+                    background-position: center; 
+                }
+            }
+            >div.mode-new{
+                &::after {
+                    content: '';
+                    position: absolute;
+                    top: 74.94px;
+                    left: 29.73px;
+                    width: 88.544px;
+                    height: 117.2px;            
+                    background: url('../img/betting-new-1.webp') no-repeat;
+                    background-repeat: no-repeat;
+                    background-size: contain;
+                    background-position: center; 
+                    border-radius: 8px
+                }
+                >.back-img{
+                    background: url('../img/betting-new.webp'); 
+                    background-repeat: no-repeat;
+                    background-size: contain;
+                    background-position: center; 
+                }
+            }
+            // >div.mode-selected{
+            //     border: 1.5px solid #3585FF !important;
+            //     transition: border 0.3s ease;
+            //     // position: relative;
+            //     &::before {
+            //         content: '';
+            //         position: absolute;
+            //         bottom: -1.5px;
+            //         right: -1.5px;
+            //         width: 24px;
+            //         height: 24px;
+            //         // background: url('../img/betting-tick-icon.svg') no-repeat;
+            //         transition: background-image 0.3s ease;
+            //     }
+            //     >div.description>h4{
+            //         color: var(--DP_Theme, #3586FF) !important;
+            //         transition: color 0.3s ease;
+            //     }
+            //     >button{
+            //         display: inline-block;
+            //         transition: display 0.3s ease;
+            //     }
+                
+            // }
+        }
+        
+    }
+}

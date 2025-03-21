@@ -1,0 +1,61 @@
+@import '~@style/mixins/index.scss';
+:local(.wrapper){
+  display: flex;
+  flex-direction: column;
+  width: 40px;
+  height: 45px;
+  align-items: center;
+  justify-content: center;
+  &>.value {
+    text-align: center;
+    font-family: "DINPro";
+    font-size: 12px;
+    font-style: normal;
+    font-weight: 500;
+    line-height: 18px;
+    &.red {
+      @include useTheme() {
+        color: getVar('dpRed');
+      }
+    }
+    &.green {
+      @include useTheme() {
+        color: getVar('dpGreen');
+      }
+    }
+    &.yellow {
+      @include useTheme() {
+        color: getVar('dpYellow');
+      }
+    }
+  }
+  &>.button {
+    border-radius: 2px;
+    width: 16px;
+    height: 16px;
+    @include useTheme() {
+      color: getVar('dpBasicWhite');
+    }
+    font-family: "PingFang SC";
+    font-size: 10px;
+    font-style: normal;
+    font-weight: 400;
+    line-height: 16px;
+    &.red {
+      @include useTheme() {
+        background: getVar('dpRed');
+      }
+    }
+    &.green {
+      @include useTheme() {
+        background: getVar('dpGreen');
+      }
+    }
+    &.yellow {
+      @include useTheme() {
+        background: getVar('dpYellow');
+      }
+    }
+  }
+
+}

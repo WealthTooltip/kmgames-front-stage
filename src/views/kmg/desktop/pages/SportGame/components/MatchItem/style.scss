@@ -1,0 +1,41 @@
+@import '~@core/templates/desktop/styles/mixins/index.scss';
+
+:local(.match_item) {
+  display: flex;
+  box-sizing: border-box;
+  position: relative;
+  transition: background 0.5s;
+  min-height: 120px;
+  @include useTheme {
+    color: getVar('dpNormal');
+  }
+  &:hover{
+    @include useTheme {
+      background: getVar('dp_match_bg_hover');
+      // box-shadow: rgba(0, 0, 0, 0.1) 0px 1px 2px 0px;
+    }
+  }
+  &.active:after {
+    content: "";
+    position: absolute;
+    width: 2px;
+    height: 100%;
+    left: 0;
+    top: 0;
+    background: url('./i/line.png') no-repeat;
+    background-size: contain;
+    background-position: center center;
+  }
+  &:not(:last-child) {
+    @include useTheme {
+      border-bottom: 1px solid getVar('dpDivide');
+    }
+  }
+  .video-list {
+    width: 38px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+  }
+}

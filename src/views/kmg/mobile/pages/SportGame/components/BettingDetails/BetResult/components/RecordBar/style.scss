@@ -1,0 +1,33 @@
+@import '~@core/templates/desktop/styles/mixins/index.scss';
+
+:local(.dpRecordBar) {
+  @include useTheme {
+    background-color: rgba(getVar('dpNormal'), 0.1);
+  }
+
+  display: flex;
+  justify-content: center;
+  padding: 4px 8px;
+  gap: 8px;
+  border-radius: 24px;
+
+  .record-body {
+    display: flex;
+    align-items: center;
+    gap: 4px;
+
+    .record-img {
+      width: 16px;
+      height: 16px;
+      img {
+        width: 100%;
+      }
+    }
+
+    .record-num {
+      @include useTheme {
+        color: getVar('dpStrong');
+      }
+    }
+  }
+}

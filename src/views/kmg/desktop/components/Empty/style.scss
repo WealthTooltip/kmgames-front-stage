@@ -1,0 +1,16 @@
+@import '~@this/styles/theme/index.scss';
+
+:local(.wrapper) {
+  .ant-empty-image{
+    max-width: 218px;
+    height: 126px;
+    margin: 0 auto 32px;
+  }
+  .ant-empty-description {
+    @include useTheme {
+      color: getVar('dpNormal');
+      font-size: 14px;
+      font-weight: 600;
+    }
+  }
+}

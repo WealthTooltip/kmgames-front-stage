@@ -1,0 +1,23 @@
+@import '~@core/templates/desktop/styles/mixins/index.scss';
+
+:local(.dpButton) {
+  display: inline-block;
+  border-radius: 30px;
+  padding: 6px 12px;
+  cursor: pointer;
+  transition: .2s;
+  @include useTheme {
+    background-color: getVar('dpButton');
+    color: getVar('dpNormal');
+    &:hover {
+      background: getVar('dp_btn_hover');
+    }
+    &.active {
+      color: getVar('dpBasicWhite');
+      background-color: getVar('dpTheme');
+    }
+    &.active {
+      pointer-events: none;
+    }
+  };
+}

@@ -1,0 +1,36 @@
+@import './base64.scss';
+@import './dark.scss';
+@import './light.scss';
+
+
+$theme: (
+  light: $light,
+  dark: $dark,
+);
+
+$currentTheme: 'light';
+
+@mixin useTheme(){
+  @each $key, $value in $theme {
+    $currentTheme: $key !global;
+    html[data-theme="#{$key}"] & {
+      // transition: all 0.2s;
+      @content;
+    }
+  }
+}
+
+@function getVar($key){
+  $themeMap: map-get($theme, $currentTheme);
+  @return map-get($themeMap, $key);
+}
+
+// Usage:
+//
+// .item{
+//   @include useTheme{
+//     color: getVar('dpStrong');
+//     background-color: getVar('bgColor');
+//     border-color: getVar('borderColor');
+//   }
+//

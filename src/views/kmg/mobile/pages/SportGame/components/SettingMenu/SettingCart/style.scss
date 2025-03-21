@@ -1,0 +1,66 @@
+@import '~@core/templates/desktop/styles/mixins/index.scss';
+
+:local(.wrapper){
+    display: flex;
+    flex-direction: column;
+    gap: 4px;
+    @include useTheme {
+        background-color: getVar('dpCard');
+    }
+    > div {
+        padding: 0 16px;
+        @include useTheme {
+            background-color: getVar('dpBasicWhite');
+        }
+        span {
+            @include useTheme {
+                color: getVar('dpStrong');
+            }
+        }
+        .menu-header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            height: 47px;
+            > div {
+                &:first-child {
+                    display: flex;
+                    align-items: center;
+                    .header-text > span {
+                        font-size: 13px;
+                        line-height: 13px;
+                    }
+                }
+                &:last-child {
+                   width: 250px;
+                }
+            }
+        }
+        .menu-content {
+            display: flex;
+            flex-direction: column;
+            gap: 1px;
+            @include useTheme {
+                background-color: getVar('dpDivide');
+            }
+        }
+        .menu-footer {
+            display: flex;
+            height: 45px;
+            align-items: center;
+            justify-content: center;
+            span {
+                font-size: 15px;
+                line-height: 15px;
+                text-align: center;
+            }
+        }
+    }
+
+}
+
+:local(.selectwrapper) {
+    @include useTheme {
+        background-color: getVar('dpInputBackground');
+    }
+}

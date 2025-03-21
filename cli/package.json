@@ -1,0 +1,16 @@
+{
+  "name": "web-build",
+  "version": "1.0.0",
+  "description": "定制CLI",
+  "author": "Passion.KMG",
+  "bin": {
+    "build": "./index.js"
+  },
+  "dependencies": {
+    "commander": "^6.0.0",
+    "inquirer": "^7.3.3"
+  },
+  "devDependencies": {
+    "md5": "^2.3.0"
+  }
+}

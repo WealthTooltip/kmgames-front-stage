@@ -1,0 +1,17 @@
+/*
+ * @Description: 该文件记录了平台差异化的样式（这些差异化的样式引用的组件都为公共组件）
+ * @Author: Passion.KMG
+ * @Date: 2023-12-13
+ * @LastEditTime: 2024-01-18 16:44:39
+ * @LastEditors: Galen.GE
+ */
+
+@import '~@core/templates/mobile/styles/variables.scss';
+@import '~@core/templates/mobile/styles/mixins/index.scss';
+@import './variables.scss';
+@import './layout.scss';
+@import './common.scss';
+@import './theme/index.scss';
+@import 'swiper/css';
+@import './animate.scss';
+

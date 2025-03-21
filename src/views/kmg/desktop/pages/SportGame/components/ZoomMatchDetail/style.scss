@@ -1,0 +1,666 @@
+@import '~@core/templates/desktop/styles/mixins/index.scss';
+
+:local(.wrapper) {
+  height: 100%;
+  box-sizing: border-box;
+  border-radius: 4px;
+  display: flex;
+  flex: 1;
+  flex-direction: column;
+  position: relative;
+  overflow: hidden;
+  padding-top: 6px;
+  margin-right: 10px;
+
+  .team-names {
+    width: 240px;
+    margin-right: 10px;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+  }
+
+  .match-detail-actions {
+    height: 38px;
+    padding: 0 7px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    position: relative;
+    z-index: 2;
+    @include useTheme {
+      background: getVar('dpCar');
+    }
+    .team-name {
+      font-size: 14px;
+    }
+    svg {
+      cursor: pointer;
+    }
+    .reload-icon svg {
+      width: 20px;
+      height: 20px;
+    }
+    .match-detail-actions-icons {
+      margin-right: 11px;
+    }
+    .btn-display {
+      @include useTheme {
+        background: getVar('dpButton');
+        color: getVar('dpNormal');
+      }
+      border-radius: 50px;
+      padding: 5.5px 10px;
+    }
+  }
+
+  .team-info {
+    position: relative;
+    height: 36px;
+    z-index: 2;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 6px 10px;
+    @include useTheme {
+      background: getVar('dpCar');
+    }
+  }
+  .ant-drawer {
+    position: absolute;
+    margin-top: 67px;
+    outline: none;
+    .ant-drawer-body {
+      @include useTheme {
+        border-top: 1px solid getVar('dpDivide');
+      }
+    }
+  }
+  .video-wrapper {
+    height: 190px;
+    overflow: hidden;
+    position: relative;
+    background-size: cover;
+    background-repeat: no-repeat;
+    background-position: center;
+    flex-shrink: 0;
+    @each $id in 1, 2, 3, 5, 6, 8, 9, 10, 11, 12, 13, 16, 18, 19, 23, 28, 276, 277, 278, 279 {
+      &.sport-#{$id} {
+        background-image: url("./i/sport-" + $id + "-full.webp");
+      }
+    }
+    &.is-animate {
+      height: 163px;
+    }
+    img {
+      width: 100%;
+    }
+    iframe {
+      position: absolute;
+      left: 0;
+      top: 0;
+      border: none;
+      width: 100%;
+      height: 100%;
+      z-index: 5;
+    }
+  }
+  .game-info {
+    display: flex;
+    justify-content: space-between;
+    height: 50px;
+    @include useTheme {
+      background: getVar('dpCar');
+    }
+    .team {
+      height: 31px;
+      margin-top: 12px;
+      display: flex;
+      align-items: flex-start;
+      position: relative;
+      .team-name {
+        white-space: nowrap;
+        overflow: hidden;
+        text-overflow: ellipsis;
+      }
+      .team-logo {
+        width: 24px;
+      }
+      &:after {
+        content: '';
+        width: 2px;
+        height: 26px;
+        top: 0;
+        position: absolute;
+        background-size: contain;
+        background-repeat: no-repeat;
+        background-position: center center;
+      }
+      &.home {
+        padding-left: 10px;
+        >.team-logo {
+          margin-right: 10px;
+        }
+        &:after {
+          left: 0;
+          background-image: url('~@this/pages/SportGame/components/MatchDetail/i/home-team-line.png');
+        }
+        .event {
+          &:last-child {
+            margin-right: 0;
+          }
+        }
+      }
+      &.away {
+        flex-direction: row-reverse;
+        padding-right: 10px;
+        >.team-logo {
+          margin-left: 10px;
+        }
+        &:after {
+          right: 0;
+          background-image: url('~@this/pages/SportGame/components/MatchDetail/i/away-team-line.png');
+        }
+        .team-name {
+          text-align: right;
+        }
+        .evnets {
+          flex-direction: row-reverse;
+        }
+        .event {
+          margin-right: 0;
+          margin-left: 10px;
+          &:first-child {
+            margin-left: 0;
+          }
+        }
+        .team-detail {
+          align-items: flex-end;
+        }
+      }
+      .events {
+        display: flex;
+        justify-content: space-between;
+        align-items: flex-end;
+      }
+      .event {
+        display: flex;
+        align-items: center;
+        margin-right: 10px;
+        font-weight: 500;
+        &:-child {
+          margin-right: 0;
+        }
+        @include useTheme {
+          color: getVar('dpNormal');
+        }
+        > *:first-child {
+          margin-right: 2px;
+        }
+        img {
+          width: 10px;
+        }
+      }
+    }
+    .score {
+      box-sizing: border-box;
+      height: 100%;
+      padding: 5px 2px;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      span {
+        font-size: 12px;
+        @include useTheme {
+          color: getVar('dpNormal');
+        }
+      }
+      > div {
+        font-size: 20px;
+        font-weight: 700;
+        text-align: center;
+      }
+    }
+    .team-detail {
+      height: 31px;
+      display: flex;
+      flex-direction: column;
+      justify-content: space-between;
+      align-items: flex-start;
+      &.no-events {
+        justify-content: center;
+        .events {
+          display: none;
+        }
+      }
+    }
+  }
+  .yellow-card,
+  .red-card {
+    width: 7px;
+    height: 10px;
+    border-radius: 1px;
+  }
+  .yellow-card {
+    background: #ffbc3b;
+  }
+  .red-card {
+    background: #e94343;
+  }
+
+  .play-type-list {
+    border-radius: 0 0 4px 4px;
+    margin-bottom: 6px;
+    height: 38px;
+    display: flex;
+    align-items: center;
+    @include useTheme {
+      background: getVar('dpCar');
+    }
+    .list-wrapper {
+      margin-left: 10px;
+      width: calc(100% - 50px);
+    }
+    .icon-wrap {
+      width: 34px;
+      height: 34px;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      cursor: pointer;
+      flex-shrink: 0;
+    }
+    .close-all-matchs {
+      transform-origin: 12px 12px;
+      transform: rotate(-180deg);
+      transition: all 0.2s linear;
+    }
+    .open-all-matchs {
+      transform-origin: 12px 12px;
+      transform: rotate(0deg);
+      transition: all 0.2s linear;
+    }
+  }
+
+  .play-list {
+    flex: 1;
+    overflow-y: auto;
+    &::-webkit-scrollbar {
+      display: none;
+    }
+  }
+
+  .play-item {
+    margin-bottom: 6px;
+    border-radius: 4px;
+    padding-bottom: 2px;
+    @include useTheme {
+      background: getVar('dpCar');
+    }
+    &.is-half {
+      .ht-half,
+      .second-half {
+        font-size: 12px;
+        height: 22px;
+        padding: 0 7px;
+        display: flex;
+        align-items: center;
+        box-sizing: border-box;
+        background: #F87676;
+        color: #fff;
+        margin-right: 10px;
+        border-radius: 50px;
+      }
+      .second-half {
+        background: #69CA5F;
+      }
+      .play-name {
+        padding-left: 10px;
+        &:after {
+          display: none;
+        }
+      }
+    }
+    .play-name {
+      display: flex;
+      align-items: center;
+      font-size: 13px;
+      line-height: 32px;
+      padding: 0 10px;
+      overflow: hidden;
+      text-overflow: ellipsis;
+      position: relative;
+      font-weight: 600;
+      &:after {
+        content: '';
+        position: absolute;
+        width: 2px;
+        height: 12px;
+        left: 0;
+        top: 50%;
+        transform: translateY(-50%);
+        background-size: contain;
+        background-repeat: no-repeat;
+        background-position: center center;
+        background-image: url('~@this/pages/SportGame/components/MatchDetail/i/play-game-line.png');
+      }
+    }
+  }
+  .play-content {
+    padding: 0 8px;
+  }
+  .play-ou {
+    .item-head {
+      height: 32px;
+      line-height: 32px;
+    }
+    > div {
+      display: flex;
+      > div {
+        margin-right: 2px;
+        text-align: center;
+        flex: 1;
+        margin-bottom: 2px;
+        &:last-child {
+          margin-right: 0;
+        }
+        &:first-child {
+          width: 61px;
+          flex: none;
+        }
+      }
+    }
+  }
+  .play-default {
+    padding: 8px 8px 2px;
+    .odd-item {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      padding: 0 16px;
+      position: relative;
+      margin-bottom: 2px;
+      &:hover {
+        @include useTheme {
+          background: getVar('dp_odd_hover') !important;
+        }
+      }
+      &.empty {
+        visibility: hidden;
+        pointer-events: none;
+      }
+    }
+    // .market-item {
+    //   display: grid;
+    //   grid-template-columns: repeat(2, 1fr);
+    //   gap: 4px;
+    // }
+  }
+  .odd-item {
+    &.disabled {
+      justify-content: center;
+      pointer-events: none;
+    }
+  }
+  .play-bd {
+    padding: 8px 0 2px;
+  }
+  .item-head {
+    @include useTheme {
+      color: getVar('dpNormal');
+    }
+  }
+  .market-item {
+    display: flex;
+    margin-bottom: 0px;
+    &.r-2c {
+      display: grid;
+      grid-template-columns: repeat(2, 1fr);
+      gap: 4px;
+    }
+  }
+  .label {
+    line-height: 34px;
+    @include useTheme {
+      background: getVar('dpBar');
+      color: getVar('dpNormal');
+    }
+  }
+  .odd-item {
+    flex: 1;
+    margin-right: 2px;
+    line-height: 34px;
+    height: 34px;
+    cursor: pointer;
+    border-radius: 4px;
+    font-size: 11px;
+    position: relative;
+    @include useTheme {
+      color: getVar('dpNormal');
+      background: getVar('dpForm2');
+    }
+    &:hover {
+      @include useTheme {
+        background: getVar('dp_odd_hover') !important;
+      }
+    }
+    &.active:not(.disabled) {
+      @include useTheme {
+        background: getVar('dpOddActive') !important;
+        color: getVar('dp_nomal_white');
+        .text-theme {
+          color: getVar('dp_nomal_white')!important;
+        }
+        .odd {
+          color: getVar('dpBasicWhite');
+        }
+      }
+    }
+    .odd {
+      font-size: 12px;
+      font-weight: 500;
+      @include useTheme {
+        color: getVar('dpStrong');
+      }
+    }
+    &.odd-item:not(.disabled).up.up {
+      @include useTheme {
+        background: getVar('dpUpBackground');
+      }
+      .odd {
+        @include useTheme {
+          color: getVar('dpUp');
+        }
+      }
+      &:after {
+        content: '';
+        width: 8px;
+        height: 12px;
+        background: url('~@this/assets/images/svg/up.png') no-repeat;
+        background-size: cover;
+        right: 4px;
+        top: 50%;
+        transform: translateY(-50%);
+        position: absolute;
+        animation-name: breath;
+        animation-duration: 2s;
+        animation-timing-function: ease-in-out;
+        animation-iteration-count: infinite;
+      }
+    }
+    &.odd-item:not(.disabled).down.down {
+      @include useTheme {
+        background: getVar('dpDownBackground');
+      }
+      .odd {
+        @include useTheme {
+          color: getVar('dpDown');
+        }
+      }
+      &:after {
+        content: '';
+        width: 8px;
+        height: 12px;
+        background: url('~@this/assets/images/svg/down.png') no-repeat;
+        background-size: cover;
+        right: 4px;
+        top: 50%;
+        transform: translateY(-50%);
+        position: absolute;
+        animation-name: breath;
+        animation-duration: 2s;
+        animation-timing-function: ease-in-out;
+        animation-iteration-count: infinite;
+      }
+    }
+  }
+
+  .play-bd {
+    .item-head {
+      display: flex;
+      > div {
+        flex: 1;
+        text-align: center;
+        line-height: 30px;
+        margin-bottom: 4px;
+        @include useTheme {
+          color: getVar('dpNormal');
+        }
+        overflow: hidden;
+        text-overflow: ellipsis;
+        white-space: nowrap;
+      }
+    }
+  }
+  .swiper-slide {
+    width: auto;
+    .type-tab {
+      padding: 5px 10px;
+      border-radius: 30px;
+      margin-right: 10px;
+      font-size: 13px;
+      cursor: pointer;
+      @include useTheme {
+        color: getVar('dpNormal');
+      }
+      border: 1px solid transparent;
+      &:hover {
+        border: 1px solid getVar('dpTheme');
+        background: rgba(getVar('dpTheme'), .2);
+      }
+      &.active {
+        @include useTheme {
+          border: 1px solid getVar('dpTheme');
+          background: getVar('dpTheme');
+          color: #fff;
+          border-color: getVar('dpTheme');
+        }
+      }
+    }
+  }
+  .bd-list {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+  }
+
+  @keyframes spin {
+    from {
+      transform: rotate(0deg);
+    }
+    to {
+      transform: rotate(360deg);
+    }
+  }
+  .spin-active svg {
+    animation: spin 1s ease-in-out;
+  }
+
+  .expand {
+    svg {
+      transition: transform 0.5s cubic-bezier(0, 1, 0, 1);
+      transform: rotate(0deg);
+    }
+
+    &.active svg {
+      transition: transform 0.5s cubic-bezier(0, 1, 0, 1);
+      transform: rotate(-180deg);
+    }
+  }
+
+  .score-detail {
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    left: 0;
+    top: 0;
+    .explain {
+      position: absolute;
+      right: 30px;
+      top: 20px;
+      width: 40px;
+      height: 24px;
+      cursor: pointer;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      color: #fff;
+      font-size: 12px;
+      border-radius: 14px;
+      background: rgba(11, 11, 12, 0.6);
+    }
+    .score-box {
+      width: 570px;
+      height: 130px;
+      background: rgba(32, 32, 38, 0.78);
+      backdrop-filter: blur(1.5px);
+      position: absolute;
+      left: 50%;
+      top: 50%;
+      transform: translate(-50%, -50%);
+      border-radius: 8px;
+      padding: 20px 0 18px 0;
+      color: #fff;
+      font-size: 12px;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: space-between;
+      box-sizing: border-box;
+      .score-info {
+        width: 100%;
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+
+        img {
+          width: 40px;
+        }
+      }
+      .logo {
+        display: flex;
+        align-items: center;
+        .team-name {
+          width: 80px;
+          box-sizing: border-box;
+          padding: 0 10px;
+          text-align: center;
+          overflow: hidden;
+          text-overflow: ellipsis;
+          white-space: nowrap;
+        }
+      }
+      .score-num {
+        font-weight: 700;
+        font-size: 28px;
+      }
+    }
+  }
+  .score-table {
+    .red-card,
+    .yellow-card {
+      width: 11px;
+      height: 16px;
+    }
+  }
+}

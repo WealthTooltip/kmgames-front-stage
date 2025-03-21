@@ -1,0 +1,23 @@
+@import '~@core/templates/desktop/styles/mixins/index.scss';
+
+:local(.dp_search_input) {
+  display: flex;
+  padding: 7px 10px;
+  align-items: center;
+  border-radius: 13px;
+  @include useTheme {
+    background: getVar('dpCar');
+  }
+
+  input {
+    max-width: 124px;
+    border: none;
+    background: inherit;
+  }
+
+  button {
+    height: 12px;
+    border: none;
+    background: inherit;
+  }
+}

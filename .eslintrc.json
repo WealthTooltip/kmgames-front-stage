@@ -1,0 +1,43 @@
+{
+  "env": {
+    "browser": true,
+    "es6": true
+  },
+  "extends": ["plugin:react/recommended", "google"],
+  "globals": {
+    "Atomics": "readonly",
+    "SharedArrayBuffer": "readonly"
+  },
+  "parser": "@typescript-eslint/parser",
+  "parserOptions": {
+    "ecmaFeatures": {
+      "jsx": true,
+      "tsx": true
+    },
+    "ecmaVersion": 2018,
+    "sourceType": "module"
+  },
+  "plugins": ["react", "@typescript-eslint"],
+  "settings": {
+    "react": {
+      "version": "18.2.0"
+    }
+  },
+  "rules": {
+    "react/jsx-uses-react": "off",
+    "react/react-in-jsx-scope": "off",
+    "import/no-unresolved": "off",
+    "react/jsx-filename-extension": [1, { "extensions": [".tsx"] }],
+    "import/extensions": "off",
+    "react/button-has-type": "off",
+    "no-undef": "off",
+    "max-len": "off",
+    "require-jsdoc": "off",
+    "react/display-name": "off",
+    "no-unused-vars": "off",
+    "valid-jsdoc": "off",
+    "no-invalid-this": "off",
+    "new-cap": ["error", { "newIsCap": false, "capIsNew": false }],
+    "linebreak-style": 0
+  }
+}

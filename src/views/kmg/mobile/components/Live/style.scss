@@ -1,0 +1,32 @@
+@import '~@style/mixins/index.scss';
+
+:local(.wrapper) {
+  width: 100%;
+  height: 100%;
+  position: absolute;
+  z-index: 1;
+  left: 0;
+  top: 0;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background-size: 100% 100%;
+  .empty {
+    width: 100%;
+    height: 100%;
+    background: rgba(32, 32, 38, 0.78);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    color: white;
+  }
+  iframe {
+    position: absolute;
+    left: 0;
+    top: 0;
+    border: none;
+    width: 100%;
+    height: 100%;
+    z-index: 5;
+  }
+}

@@ -1,0 +1,140 @@
+@import '~@core/templates/desktop/styles/mixins/index.scss';
+:local(.wrapper) {
+    padding: 30px 25px 50px 30px;
+    font-size: 12px;
+    font-family: PingFang SC;
+    flex: 1;
+    overflow-y: scroll;
+    &::-webkit-scrollbar {
+        display: none;
+    }
+
+    .return {
+        position: absolute;
+        top: 5px;
+        left: 167px;
+        cursor: pointer;
+    }
+
+    table {
+    width: 100%;
+    border-collapse: collapse;
+    margin: 5px 0;
+
+    th, td {
+        height: 40px;
+        font-size: 12px;
+        font-weight: normal!important;
+        text-align: center!important;
+        align-items: center;
+        border-radius: 0!important;
+        padding: 0!important;
+        @include useTheme {
+            color: getVar('dpStrong')!important;
+            border: 1px solid getVar('dpOutline')!important;
+        }
+    }
+
+    th {
+        @include useTheme {
+            background-color: getVar('dpForm2')!important;
+        }
+    }
+    td {
+        @include useTheme {
+            background-color: getVar('dpCar')!important;
+        }
+    }
+
+    }
+
+    .title {
+        font-size: 16px;
+        font-weight: 600;
+    }
+
+    .main-table {
+        margin: 24px 0 0 0;
+
+        th:nth-child(2) {
+            width: 565px;
+        }
+
+        span {
+            text-decoration: underline;
+            cursor: pointer;
+        }
+
+    }
+
+    .content-table {
+        padding-left: 15px;
+    }
+
+    .item-detail {
+        .subtitle {
+            font-size: 16px;
+            font-weight: 600;
+        }
+    
+        .no-item {
+            padding-top: 32px;
+        }
+    
+        .is-item {
+            padding: 32px 0 24px 0;
+        }
+    
+        .describe {
+
+            p {
+                line-height: 150%;
+            }
+            
+            ul {
+
+                padding-left: 15px;
+
+                li {
+                    list-style-type: disc;
+                    line-height: 250%;
+                }
+            }
+
+            .list-other {
+                p {
+                    font-weight: 600;
+                }
+            }
+        } 
+    
+        .mb-16 {
+            margin-bottom: 16px;
+        }
+    
+        .is-describe {
+            padding-bottom: 24px;
+        }
+    
+        .content {
+            font-weight: 600;
+            line-height: 250%;
+        }
+
+        .subcontent {
+
+            p {
+                line-height: 250%;
+            }
+
+            ul {
+                font-size: 12px;
+                font-weight: 400;
+                line-height: 150%;
+                padding-left: 15px;
+            }
+        
+        }
+    
+    }
+}

@@ -1,0 +1,13 @@
+:local(.dp_icon) {
+  display: inline-block;
+  position: relative;
+  line-height: 1;
+  .icon-arrow {
+    transition: .2s;
+  }
+  &.open {
+    .icon-arrow {
+      transform: rotate(180deg);
+    }
+  }
+}

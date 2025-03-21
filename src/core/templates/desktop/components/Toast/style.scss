@@ -1,0 +1,40 @@
+@import '~@core/templates/desktop/styles/mixins/index.scss';
+:local(.toast) {
+  div.Toastify__toast {    
+    border-radius: 6px; 
+    background-color: grey;
+    @include useTheme {
+      background-color: getVar('dpBar');
+    }
+    >div.Toastify__progress-bar{
+        @include useTheme {
+          background: getVar('dpTheme');
+      }
+    } 
+    >div.Toastify__toast-body{        
+      text-align: center;        
+      position: relative;
+      padding: 0px;
+      >div .custom-toast-content {
+        display: flex;
+        gap: 5px;
+        justify-content: center;
+        align-items: center;
+        >span{
+          font-family: PingFang SC;
+          font-size: 14px;
+          font-weight: 400;
+          line-height: 14px;
+          letter-spacing: 0em;
+          word-break: break-all;
+          @include useTheme {
+            color: getVar('dpStrong');
+          }     
+        }  
+      }
+    }
+  }
+
+  
+  
+}

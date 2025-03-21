@@ -1,0 +1,81 @@
+@import '~@core/templates/desktop/styles/mixins/index.scss';
+
+:local(.dp_switch_button) {
+  display: flex;
+  flex-wrap: nowrap;
+  padding: 1px;
+  height: 24px;
+  border-radius: 30px;
+  @include useTheme {
+    background-color: getVar('dpButton');
+  }
+  position: relative;
+
+  &:before {
+    content: "";
+    height: 100%;
+    width: 50%;
+    transition: .2s;
+    border-radius: 30px;
+    top: 0;
+    left: 0;
+    position: absolute;
+    pointer-events: none;
+    box-sizing: border-box;
+  }
+  &.disabled {
+    &:before {
+      transition: none;
+    }
+  }
+  &.open {
+    &:before {
+      transform: translateX(100%);
+    }
+  }
+  &:not(.disabled) {
+    &:before {
+      @include useTheme {
+        background: getVar('dpTheme');
+      }
+    }
+    &.type-button.type-button:before {
+      @include useTheme {
+        background: getVar('btnBg');
+        border: 1px solid getVar('dpOutline');
+      }
+    }
+    &.type-button {
+      button.active {
+        @include useTheme {
+          color: getVar('dpStrong');
+        }
+      }
+    }
+    button {
+      pointer-events: auto;
+      &.active {
+        @include useTheme {
+          color: #fff;
+          pointer-events: none;
+        }
+      }
+    }
+  }
+  button {
+    background: none;
+    border: none;
+    outline: none;
+    padding: 6px 11px;
+    border-radius: 0 30px 30px 0;
+    transition: .2s;
+    min-width: 46px;
+    text-align: center;
+    cursor: pointer;
+    z-index: 1;
+    line-height: 1;
+    @include useTheme {
+      color: getVar('dpNormal');
+    }
+  }
+}

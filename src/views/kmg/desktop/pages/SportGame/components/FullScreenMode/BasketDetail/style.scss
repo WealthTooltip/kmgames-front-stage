@@ -1,0 +1,48 @@
+.match-detail-view {
+    margin-top: 6px;
+    padding: 25px 35px;
+}
+
+.match-detail-head {
+    width: 100%;
+    padding: 0px 10px;
+    margin-bottom: 20px;
+}
+
+.match-detail-item {
+    margin-bottom: 20px;
+}
+
+.ice-main-header {
+    span {
+        color: var(--DP_strong, #0B0B0C);
+        text-align: center;
+        font-family: PingFang SC;
+        font-size: 13px;
+        font-style: normal;
+        font-weight: 400;
+        line-height: 13px;
+        /* 100% */
+    }
+}
+
+.possession {
+    color: var(--DP_strong, #0B0B0C);
+    text-align: center;
+    font-family: PingFang SC;
+    font-size: 12px;
+    font-style: normal;
+    font-weight: 400;
+    line-height: 12px;
+    /* 100% */
+}
+
+.not-live-watch {
+    color: var(--DP_strong, #0B0B0C);
+    font-family: DINPro;
+    font-size: 13px;
+    font-style: normal;
+    font-weight: 500;
+    line-height: 13px;
+    /* 100% */
+}

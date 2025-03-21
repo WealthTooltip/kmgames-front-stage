@@ -1,0 +1,212 @@
+@import '~@core/templates/desktop/styles/mixins/index.scss';
+
+:local(.modal) {
+    * {
+        box-sizing: border-box;
+    }
+    width: 872px !important;
+    height: 410px;
+    flex-shrink: 0;
+    border-radius: 18px;    
+    @include useTheme {
+        background-color: getVar('dp_betting_modal_background');
+    }
+    &::before {
+        content: '';
+        position: absolute;
+        top: 0;
+        width: 398px;
+        height: 410px;        
+        @include useTheme {
+            opacity: getVar(dp_betting_modal_back_img_opacity);
+        }
+        background: url('../img/betting-left-back.webp') no-repeat;
+        background-size: cover
+    }        
+    >div.ant-modal-content{
+        border-radius: 18px 18px 0 0;
+        background: none;
+        padding: 0;        
+        box-shadow: none;
+        // @include useTheme {
+        //     background-color: getVar('dp_tip_leave_modal_background');
+        // }
+        &::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 669px;
+            width: 171px;
+            height: 148px;
+            background: url('../img/betting-right-back.webp') no-repeat;            
+            background-size: cover;
+            @include useTheme {
+                opacity: getVar(dp_betting_modal_back_img_opacity);
+            }            
+        }
+        
+        >.ant-modal-close{
+            display: none;
+        }
+        
+        >div.ant-modal-header{
+            // display: none;
+            background: none;
+            text-align: center;
+            margin-bottom: 23px;            
+            >div.ant-modal-title{
+                display: inline-block;
+                @include useTheme {
+                    color: getVar('dp_betting_modal_description_h4');
+                }
+                font-family: PingFang SC;
+                font-size: 26px;
+                font-style: normal;
+                font-weight: 500;
+                line-height: normal;
+                position: relative;
+                margin-top: 29px;                
+                &::before {
+                    content: '';
+                    position: absolute;
+                    top: 0;
+                    left: -46px;
+                    width: 34px;
+                    height: 34px;
+                    @include useTheme {
+                        background: getVar('dp_betting_modal_title_icon_url') no-repeat;
+                        background-size: cover
+                    }
+                }
+            }
+        }
+        >div.ant-modal-body{
+            display: flex;
+            justify-content: center;
+            gap: 18px;
+            position: relative;
+            
+            >div.mode{
+                width: 407px;
+                height: 275px;
+                flex-shrink: 0;
+                border-radius: 16px;
+                @include useTheme {
+                    background-color: getVar('dp_betting_modal_background');
+                    border: 1.5px solid getVar('dp_betting_modal_border');
+                }
+                position: relative;
+                cursor: pointer;
+                >div.back-img{
+                    margin: 10px 10px 8px 10px;
+                    width: 387px;
+                    height: 193px;
+                    flex-shrink: 0;
+                    border-radius: 8px;
+                    @include useTheme {
+                        background-color: getVar('dp_betting_modal_back_img');
+                    }
+                    position: relative;                    
+                }
+                >div.description{
+                    margin-left: 44px;
+                    >h4{
+                        @include useTheme {
+                            color: getVar('dp_betting_modal_description_h4');
+                        }
+                        font-family: Microsoft YaHei;
+                        font-size: 18px;
+                        font-style: normal;
+                        font-weight: 700;
+                        line-height: normal;
+                        margin-bottom: 7px;
+                        transition: color 0.3s ease;
+                    }
+                    >p{
+                        @include useTheme {
+                            color: getVar('dp_betting_modal_description_p');
+                        }
+                        font-family: PingFang SC;
+                        font-size: 12px;
+                        font-style: normal;
+                        font-weight: 400;
+                        line-height: normal;
+                    }
+                }
+                >button{
+                    position: absolute;
+                    left: 262px;
+                    top: 232px;
+                    width: 120px;
+                    height: 28px;
+                    flex-shrink: 0;
+                    border-radius: 14px;
+                    display: none;
+
+                    text-align: center;
+                    font-family: PingFang SC;
+                    font-size: 11px;
+                    font-style: normal;
+                    font-weight: 400;
+                    line-height: normal;
+                    transition: display 0.3s ease;
+                }
+                
+            }
+            >div.mode-professional>.back-img{
+                &::before {
+                    content: '';
+                    position: absolute;
+                    top: 6px;
+                    left: 6px;
+                    width: 375px;
+                    height: 181px;
+                    
+                    @include useTheme {
+                        background: getVar('dp_betting_modal_back_img_url_pro') no-repeat;
+                        background-size: cover
+                    }
+                }
+            }
+            >div.mode-new>.back-img{
+                &::before {
+                    content: '';
+                    position: absolute;
+                    top: 6px;
+                    left: 6px;
+                    width: 375px;
+                    height: 181px;
+                    @include useTheme {
+                        background: getVar('dp_betting_modal_back_img_url_new') no-repeat;
+                        background-size: cover
+                    }
+                }
+            }
+            >div.mode-selected{
+                border: 1.5px solid #3585FF !important;
+                transition: border 0.3s ease;
+                // position: relative;
+                &::before {
+                    content: '';
+                    position: absolute;
+                    bottom: -1.5px;
+                    right: -1.5px;
+                    width: 24px;
+                    height: 24px;
+                    background: url('../img/betting-tick-icon.svg') no-repeat;
+                    transition: background-image 0.3s ease;
+                }
+                >div.description>h4{
+                    color: var(--DP_Theme, #3586FF) !important;
+                    transition: color 0.3s ease;
+                }
+                >button{
+                    display: inline-block;
+                    transition: display 0.3s ease;
+                }
+                
+            }
+        }
+        
+    }
+}

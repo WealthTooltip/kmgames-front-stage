@@ -1,0 +1,77 @@
+@import '~@core/templates/desktop/styles/mixins/index.scss';
+
+:local(.modal) {
+    width: 448px !important;
+    
+    >div.ant-modal-content{
+        border-radius: 22px 22px 20px 20px;
+        height: 176px !important;
+        padding: 0 !important;
+        display: flex;
+        flex-direction: column;
+        box-shadow: none;
+        @include useTheme {
+            background-color: getVar('dp_tip_leave_modal_background');
+        }
+        >.ant-modal-close{
+            top: 11px;
+            left: 401px
+        }
+        
+        >div.ant-modal-header{
+            text-align: center;
+            height: 44px;
+            padding-top:11px;
+            margin-bottom: 24px;
+            border-radius: 20px 20px 0px 0px;
+            background: var(--DP_Theme, #3586FF);
+            >div.ant-modal-title{
+                color: var(--DP_basic_white, #FFF);
+                font-family: 'PingFang SC';
+                font-size: 16px;
+                font-style: normal;
+                font-weight: 500;
+                line-height: normal;
+                border-radius: 20px 20px 0 0;
+            }
+        }
+        >div.ant-modal-body{
+            text-align: center;
+            margin-bottom: 22px;
+            >p{
+                @include useTheme {
+                    color: getVar('dp_tip_leave_modal_content_color');
+                }    
+                font-family: PingFang SC;
+                font-size: 13px;
+                font-style: normal;
+                font-weight: 500;
+                line-height: normal;
+            }
+        }
+        >div.ant-modal-footer{
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            margin-top: 0;
+            gap: 24px;
+            >button{
+                width: 136px;
+                height: 38px;
+                flex-shrink: 0;
+                border-radius: 10px;                
+            }
+            >button:first-child{
+                @include useTheme {
+                    background-color: getVar('dp_tip_leave_modal_background');
+                }              
+                color: #4096ff;
+                border-color: #4096ff;  
+                &:hover {
+                    border-color: #d9d9d9;
+                    // color: rgba(0, 0, 0, 0.88);
+                }
+            }
+        }
+    }
+}

@@ -1,0 +1,62 @@
+// 绝对定位居中，元素宽高
+@mixin abs-center {
+  top: 50%;
+  left: 50%;
+  transform: translate3d(-50%, -50%, 0);
+}
+.abs-center{
+  @include abs-center();
+}
+
+// FLEX布局左右(高度)
+@mixin flex-between($h: auto) {
+  height: $h;
+  display: flex;
+  justify-content: space-between;
+}
+.flex-between{
+  @include flex-between();
+}
+
+// FLEX水平居中
+@mixin flex-center($h: auto) {
+  height: $h;
+  display: flex;
+  justify-content: center;
+}
+.flex-center{
+  @include flex-center();
+}
+
+// FLEX 垂直居中
+@mixin flex-v-center($h: auto) {
+  height: $h;
+  display: flex;
+  align-items: center;
+}
+.flex-v-center{
+  @include flex-v-center();
+}
+
+@mixin block-center {
+  display: block;
+  margin: auto;
+}
+.block-center{
+  @include block-center();
+}
+
+@mixin inline-block($w: auto, $h: auto) {
+  display: inline-block;
+  width: $w;
+  height: $h;
+}
+.inline-block{
+  @include inline-block();
+}
+
+@mixin ellipsis{
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}

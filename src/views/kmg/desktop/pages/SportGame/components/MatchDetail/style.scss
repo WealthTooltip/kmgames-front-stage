@@ -1,0 +1,542 @@
+@import '~@core/templates/desktop/styles/mixins/index.scss';
+
+:local(.wrapper) {
+  height: 100%;
+  box-sizing: border-box;
+  border-radius: 4px;
+  display: flex;
+  flex-direction: column;
+  position: relative;
+  overflow: hidden;
+
+  .team-names {
+    width: 240px;
+    margin-right: 10px;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+  }
+  .game-info {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    height: 50px;
+    padding-top: 5px;
+    @include useTheme {
+      background: getVar('dpCar');
+    }
+    .team {
+      display: flex;
+      align-items: center;
+      position: relative;
+      .team-name {
+        width: 90px;
+        white-space: nowrap;
+        overflow: hidden;
+        text-overflow: ellipsis;
+        line-height: 1;
+      }
+      .team-logo {
+        width: 24px;
+      }
+      &:after {
+        content: '';
+        width: 2px;
+        height: 26px;
+        top: 50%;
+        transform: translateY(-50%);
+        position: absolute;
+        background-size: contain;
+        background-repeat: no-repeat;
+        background-position: center center;
+      }
+      &.home {
+        padding-left: 12px;
+        >.team-logo {
+          margin-right: 10px;
+        }
+        &:after {
+          left: 0;
+          background-image: url('~@this/pages/SportGame/components/MatchDetail/i/home-team-line.png');
+        }
+        .event {
+          &:last-child {
+            margin-right: 0;
+          }
+        }
+      }
+      &.away {
+        flex-direction: row-reverse;
+        padding-right: 10px;
+        >.team-logo {
+          margin-left: 10px;
+        }
+        &:after {
+          right: 0;
+          background-image: url('~@this/pages/SportGame/components/MatchDetail/i/away-team-line.png');
+        }
+        .team-name {
+          text-align: right;
+        }
+        .evnets {
+          flex-direction: row-reverse;
+        }
+        .event {
+          margin-right: 0;
+          margin-left: 10px;
+          &:first-child {
+            margin-left: 0;
+          }
+        }
+        .team-detail {
+          align-items: flex-end;
+        }
+      }
+      .events {
+        display: flex;
+        justify-content: space-between;
+        align-items: flex-end;
+        margin-top: 5px;
+      }
+      .event {
+        display: flex;
+        align-items: center;
+        margin-right: 10px;
+        font-weight: 500;
+        &:-child {
+          margin-right: 0;
+        }
+        @include useTheme {
+          color: getVar('dpNormal');
+        }
+        > *:first-child {
+          margin-right: 2px;
+        }
+        img {
+          width: 10px;
+        }
+      }
+    }
+    .score {
+      box-sizing: border-box;
+      height: 100%;
+      padding: 0 2px;
+      .period {
+        span:nth-child(2) {
+          margin-left: 3px;
+        }
+      }
+      span {
+        font-size: 10px;
+        @include useTheme {
+          color: getVar('dpNormal');
+        }
+      }
+      > div {
+        height: 100%;
+        font-size: 20px;
+        font-weight: 700;
+        text-align: center;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        justify-content: center;
+      }
+    }
+    .team-detail {
+      height: 31px;
+      display: flex;
+      flex-direction: column;
+      justify-content: space-between;
+      align-items: flex-start;
+      &.no-events {
+        justify-content: center;
+        .events {
+          display: none;
+        }
+      }
+    }
+
+  }
+  .yellow-card,
+  .red-card {
+    width: 7px;
+    height: 10px;
+    border-radius: 1px;
+  }
+  .yellow-card {
+    background: #ffbc3b;
+  }
+  .red-card {
+    background: #e94343;
+  }
+
+  .play-type-list {
+    border-radius: 0 0 4px 4px;
+    margin-bottom: 6px;
+    height: 38px;
+    display: flex;
+    align-items: center;
+    @include useTheme {
+      background: getVar('dpCar');
+    }
+    .list-wrapper {
+      margin-left: 10px;
+      width: calc(100% - 50px);
+    }
+    .icon-wrap {
+      width: 34px;
+      height: 34px;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      cursor: pointer;
+      flex-shrink: 0;
+    }
+    .close-all-matchs {
+      transform-origin: 12px 12px;
+      transform: rotate(-180deg);
+      transition: all 0.2s linear;
+    }
+    .open-all-matchs {
+      transform-origin: 12px 12px;
+      transform: rotate(0deg);
+      transition: all 0.2s linear;
+    }
+  }
+
+  .play-list {
+    flex: 1;
+    overflow-y: auto;
+    &::-webkit-scrollbar {
+      display: none;
+    }
+    &.is-esports {
+      .odd-item {
+        height: 58px!important;
+      }
+    }
+    &.is-empty {
+      @include useTheme {
+        background-color: getVar('dpCar');
+      }
+      display: flex;
+      align-items: center;
+      justify-content: center;
+    }
+  }
+
+  .play-item {
+    margin-bottom: 6px;
+    border-radius: 4px;
+    padding-bottom: 2px;
+    @include useTheme {
+      background: getVar('dpCar');
+    }
+    &.is-half {
+      .ht-half,
+      .second-half {
+        font-size: 12px;
+        height: 22px;
+        padding: 0 7px;
+        display: flex;
+        align-items: center;
+        box-sizing: border-box;
+        background: #F87676;
+        color: #fff;
+        margin-right: 10px;
+        border-radius: 50px;
+      }
+      .second-half {
+        background: #69CA5F;
+      }
+      .play-name {
+        padding-left: 10px;
+        &:after {
+          display: none;
+        }
+      }
+    }
+    .play-name {
+      display: flex;
+      align-items: center;
+      font-size: 13px;
+      line-height: 32px;
+      padding: 0 10px;
+      overflow: hidden;
+      text-overflow: ellipsis;
+      position: relative;
+      font-weight: 600;
+      &:after {
+        content: '';
+        position: absolute;
+        width: 2px;
+        height: 12px;
+        left: 0;
+        top: 50%;
+        transform: translateY(-50%);
+        background-size: contain;
+        background-repeat: no-repeat;
+        background-position: center center;
+        background-image: url('~@this/pages/SportGame/components/MatchDetail/i/play-game-line.png');
+      }
+    }
+  }
+  .play-content {
+    padding: 0 8px;
+  }
+  .play-ou {
+    .item-head {
+      height: 32px;
+      line-height: 32px;
+    }
+    > div {
+      display: flex;
+      > div {
+        margin-right: 1px;
+        text-align: center;
+        flex: 1;
+        margin-bottom: 2px;
+        &:last-child {
+          margin-right: 0;
+        }
+        &:first-child {
+          width: 61px;
+          flex: none;
+        }
+      }
+    }
+  }
+  .play-default {
+    padding: 8px 8px 2px;
+    .odd-item {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      padding: 0 16px;
+      position: relative;
+      margin-bottom: 2px;
+      >div:first-child {
+        line-height: 1.2;
+        display: flex;
+        align-items: center;
+      }
+      .mw-60 {
+        max-width: 60px;
+        overflow: hidden;
+        text-overflow: ellipsis;
+        white-space: nowrap;
+        display: inline-block;
+      }
+      &:hover {
+        @include useTheme {
+          background: getVar('dp_odd_hover') !important;
+        }
+      }
+      &.empty {
+        visibility: hidden;
+        pointer-events: none;
+      }
+    }
+    .market-item {
+      display: grid;
+      grid-template-columns: repeat(2, 1fr);
+      &.one-row {
+        grid-template-columns: repeat(1, 1fr);
+      }
+      &.one-line {
+        display: flex;
+      }
+    }
+  }
+  .odd-item {
+    &.disabled {
+      justify-content: center;
+      pointer-events: none;
+    }
+  }
+  .play-bd {
+    padding: 8px 0 2px;
+  }
+  .item-head {
+    @include useTheme {
+      color: getVar('dpNormal');
+    }
+  }
+  .market-item {
+    display: flex;
+    margin-bottom: 0px;
+  }
+  .label {
+    line-height: 34px;
+    @include useTheme {
+      background: getVar('dpBar');
+      color: getVar('dpNormal');
+    }
+  }
+  .odd-item {
+    flex: 1;
+    margin : 0 1px;
+    height: 34px;
+    line-height: 34px;
+    cursor: pointer;
+    border-radius: 4px;
+    font-size: 12px;
+    position: relative;
+    @include useTheme {
+      color: getVar('dpNormal');
+      background: getVar('dpForm2');
+    }
+    span:not(.odd) {
+      line-height: 1;
+    }
+    &:hover {
+      @include useTheme {
+        background: getVar('dp_odd_hover') !important;
+      }
+    }
+    &.active:not(.disabled) {
+      @include useTheme {
+        background: getVar('dpOddActive') !important;
+        color: getVar('dp_nomal_white');
+        .text-theme {
+          color: getVar('dp_nomal_white')!important;
+        }
+        .odd {
+          color: getVar('dpBasicWhite');
+        }
+      }
+    }
+    .odd {
+      font-size: 12px;
+      @include useTheme {
+        color: getVar('dpStrong');
+      }
+    }
+    &.odd-item:not(.disabled).up.up {
+      @include useTheme {
+        background: getVar('dpUpBackground');
+      }
+      .odd {
+        @include useTheme {
+          color: getVar('dpUp');
+        }
+      }
+      &:after {
+        content: '';
+        width: 8px;
+        height: 12px;
+        background: url('~@this/assets/images/svg/up.png') no-repeat;
+        background-size: cover;
+        right: 4px;
+        top: 50%;
+        transform: translateY(-50%);
+        position: absolute;
+        animation-name: breath;
+        animation-duration: 2s;
+        animation-timing-function: ease-in-out;
+        animation-iteration-count: infinite;
+      }
+    }
+    &.odd-item:not(.disabled).down.down {
+      @include useTheme {
+        background: getVar('dpDownBackground');
+      }
+      .odd {
+        @include useTheme {
+          color: getVar('dpDown');
+        }
+      }
+      &:after {
+        content: '';
+        width: 8px;
+        height: 12px;
+        background: url('~@this/assets/images/svg/down.png') no-repeat;
+        background-size: cover;
+        right: 4px;
+        top: 50%;
+        transform: translateY(-50%);
+        position: absolute;
+        animation-name: breath;
+        animation-duration: 2s;
+        animation-timing-function: ease-in-out;
+        animation-iteration-count: infinite;
+      }
+    }
+  }
+
+  .play-bd {
+    .item-head {
+      display: flex;
+      > div {
+        flex: 1;
+        text-align: center;
+        line-height: 30px;
+        margin-bottom: 4px;
+        @include useTheme {
+          color: getVar('dpNormal');
+        }
+        overflow: hidden;
+        text-overflow: ellipsis;
+        white-space: nowrap;
+      }
+    }
+  }
+  .swiper-slide {
+    width: auto;
+    .type-tab {
+      padding: 5px 10px;
+      border-radius: 30px;
+      margin-right: 10px;
+      font-size: 13px;
+      cursor: pointer;
+      @include useTheme {
+        color: getVar('dpNormal');
+      }
+      border: 1px solid transparent;
+      &:hover {
+        border: 1px solid getVar('dpTheme');
+        background: rgba(getVar('dpTheme'), .2);
+      }
+      &.active {
+        @include useTheme {
+          border: 1px solid getVar('dpTheme');
+          background: getVar('dpTheme');
+          color: #fff;
+          border-color: getVar('dpTheme');
+        }
+      }
+    }
+  }
+  .bd-list {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 0px;
+  }
+
+
+  @keyframes spin {
+    from {
+      transform: rotate(0deg);
+    }
+    to {
+      transform: rotate(360deg);
+    }
+  }
+  .spin-active svg {
+    animation: spin 1s ease-in-out;
+  }
+
+  .expand {
+
+    svg {
+      transition: transform 0.5s cubic-bezier(0, 1, 0, 1);
+      transform: rotate(0deg);
+    }
+
+    &.active svg {
+      transition: transform 0.5s cubic-bezier(0, 1, 0, 1);
+      transform: rotate(-180deg);
+    }
+  }
+}

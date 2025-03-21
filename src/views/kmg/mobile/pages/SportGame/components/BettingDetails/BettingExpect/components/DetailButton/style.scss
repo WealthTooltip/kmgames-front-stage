@@ -1,0 +1,20 @@
+@import '~@style/mixins/index.scss';
+
+:local(.wrapper){
+  @include useTheme {
+    color : getVar('dpAncillary')
+  }
+  display: flex;
+  justify-content: center;
+  font-family: "PingFang SC";
+  font-size: 10px;
+  font-style: normal;
+  font-weight: 400;
+  line-height: 12px;
+  position:absolute;
+  right: 10px;
+  >div {
+    display: flex;
+    align-items: center;
+  }
+}

@@ -1,0 +1,16 @@
+@import '~@core/templates/desktop/styles/mixins/index.scss';
+
+:local(.wrapper){
+  position: relative;
+  span{
+    position: absolute;
+    height: 180px;
+    width: 180px;
+    top: calc(50% - 90px);
+    left: calc(50% - 90px);
+    background-repeat: no-repeat;
+    background-size: 100%;
+    @include rotate-infinite;
+  }
+
+}

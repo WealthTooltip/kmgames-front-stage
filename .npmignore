@@ -1,0 +1,15 @@
+cli
+deployment
+node_modules
+tsconfig.json
+.git
+dist
+package-lock.json
+*.log
+__pycache__
+*.idea
+.idea
+.DS_Store
+build
+__sync__
+_package.json

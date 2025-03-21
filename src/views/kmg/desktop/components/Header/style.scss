@@ -1,0 +1,94 @@
+@import '~@core/templates/desktop/styles/mixins/index.scss';
+
+:local(.wrapper) {
+  height: 50px;
+  flex-shrink: 0;
+  box-sizing: border-box;
+  @include useTheme {
+    background: getVar('headerBg');
+  }
+  .contents{
+    width: 1440px;
+    margin: auto;
+    display: flex;
+    align-items: center;
+    height: 100%;
+    >img.logo{
+      width: 92px;
+    }
+
+    ul.menu-container {
+      position: relative;
+      margin-left: 40px;
+      height: 100%;
+      display: flex;
+      align-items: center;
+
+      li {
+        text-align: center;
+        font-family: PingFang SC;
+        font-size: 14px;
+        font-weight: 500;
+        padding-left: 20px;
+        padding-right: 20px;
+        cursor: pointer;
+        position: relative;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        height: 100%;
+        transition: all 0.3s;
+        @include useTheme {
+          color: getVar('dpNormal');
+        }
+        &:hover{
+          @include useTheme {
+            color: getVar('dpTheme');
+          }
+        }
+        &.active{
+          font-weight: 500;
+          @include useTheme {
+            color: getVar('dpStrong');
+          }
+        }
+        >a{
+          color: inherit;
+        }
+      }
+
+      hr {
+        position: absolute;
+        margin: 0;
+        bottom: 0;
+        height: 5%;
+        background: getVar('dpTheme');
+        border: none;
+        transition: 0.3s ease-in-out;
+      }
+    }
+
+    >div.ad{
+      margin-left: auto;
+      display: flex;
+      align-items: center;
+      >img{
+        height: 50px;
+      }
+      div.date{
+        @include useTheme {
+          color: getVar('dpNormal');
+        }
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        line-height: 12px;
+        margin-left: 10px;
+        font-weight: 500;
+        span {
+          min-width: 55px;
+        }
+      }
+    }
+  }
+}

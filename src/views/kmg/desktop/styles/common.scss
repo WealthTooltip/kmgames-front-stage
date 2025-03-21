@@ -1,0 +1,232 @@
+@import './theme/index.scss';
+
+body {
+  font-family: DinPro, PingFang SC,PingHei,Microsoft YaHei,Helvetica Neue,Roboto,sans-serif;
+  -webkit-font-smoothing: antialiased;
+  -webkit-text-size-adjust: 100%;
+  @include useTheme {
+    color: getVar('dpStrong');
+  }
+  -webkit-user-select: none;
+  user-select: none;
+}
+#root {
+  .flex-col {
+    flex-direction: column;
+  }
+  .fs-14 {
+    font-size: 14px;
+  }
+  .justify-between {
+    justify-content: space-between;
+  }
+  .text-theme {
+    @include useTheme {
+      color: getVar('dpTheme');
+    }
+  }
+  .text-red {
+    @include useTheme {
+      color: getVar('textRed');
+    }
+  }
+  .text-bold {
+    font-weight: 600;
+  }
+  .flex-end {
+    justify-content: flex-end;
+  }
+  .text-num {
+    font-family: DinPro;
+    font-weight: 500;
+  }
+  .odd {
+    font-family: DinPro;
+    // font-weight: 600;
+  }
+}
+@font-face {
+  font-family: DinPro;
+  src: url('~@my/assets/font/DINPro-Medium.otf') format('opentype');
+}
+.flex-col {
+  flex-direction: column;
+}
+.flex-row-reverse {
+  flex-direction: row-reverse;
+}
+.flex-wrap {
+  flex-wrap: wrap;
+}
+.flex {
+  display: flex;
+}
+.flex-1 {
+  flex: 1;
+}
+.items-center {
+  align-items: center;
+}
+.justify-center {
+  justify-content: center;
+}
+.justify-end {
+  justify-content: flex-end;
+}
+.text-sm {
+  font-size: 10px;
+}
+.text-center {
+  text-align: center;
+}
+.text-normal {
+  @include useTheme {
+    color: getVar('dpNormal');
+  }
+}
+.text-primary {
+  @include useTheme {
+    color: getVar('dpTheme');
+  }
+}
+.full-center-empty {
+  height: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+@each $position in left right top bottom {
+  .border-#{$position} {
+    @include useTheme {
+      border-#{$position}: 1px solid getVar('dpDivide');
+    }
+  }
+}
+.empty-wrapper {
+  &.center {
+    height: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    @include useTheme {
+      background: getVar('dpCar');
+    }
+  }
+}
+body .ant-tooltip {
+  .ant-tooltip-inner {
+    font-size: 10px;
+    pointer-events: none;
+    min-height: auto;
+    // @include useTheme {
+    //   background: getVar('tooltipBg');
+    // }
+  }
+  .ant-tooltip-arrow:before {
+    // @include useTheme {
+    //   background: getVar('tooltipBg');
+    // }
+  }
+  &.explain-tooltip {
+    .ant-tooltip-inner {
+      padding: 10px 20px;
+    }
+    .ant-tooltip-inner,
+    .ant-tooltip-arrow:before {
+      font-size: 12px!important;
+      // background-color: rgba(32, 32, 38, 1)!important;
+    }
+  }
+}
+.close-all-matchs {
+  transform-origin: 12px 12px;
+  transform: rotate(-180deg);
+  transition: all 0.2s linear;
+}
+.open-all-matchs {
+  transform-origin: 12px 12px;
+  transform: rotate(0deg);
+  transition: all 0.2s linear;
+}
+
+.empty-msg {
+  @include useTheme {
+    font-size: 11px;
+    color: getVar('dpNormal');
+  }
+}
+.ant-modal-root .ant-modal-wrap {
+  overflow: hidden;
+}
+.ant-dropdown {
+  .ant-dropdown-menu .ant-dropdown-menu-item {
+    font-size: 12px;
+  }
+  .langue-item {
+    min-height: 20px;
+  }
+}
+
+.ant-dropdown-open {
+  .icon-arrow {
+    transform: rotate(-180deg);
+    transition: all 0.2s linear;
+  }
+}
+
+.langue-item {
+  display: flex;
+  align-items: center;
+  img {
+    width: 14px;
+    margin-right: 4px;
+  }
+}
+
+.pointer {
+  cursor: pointer;
+}
+.text-success {
+  color: rgb(89, 167, 52);
+}
+@each $val in 2, 3, 4, 5, 6, 8, 10, 16, 20, 30, 40, 50, 60, 100 {
+  .plr-#{$val} {
+    padding-left: $val + px;
+    padding-right: $val + px;
+  }
+  .pl-#{$val} {
+    padding-left: $val + px;
+  }
+  .pr-#{$val} {
+    padding-right: $val + px;
+  }
+  .pt-#{$val} {
+    padding-top: $val + px;
+  }
+  .pb-#{$val} {
+    padding-bottom: $val + px;
+  }
+  .ml-#{$val} {
+    margin-left: $val + px;
+  }
+  .mr-#{$val} {
+    margin-right: $val + px;
+  }
+  .mt-#{$val} {
+    margin-top: $val + px;
+  }
+  .mb-#{$val} {
+    margin-bottom: $val + px;
+  }
+}
+.dp-empty-wrap {
+  height: 100%;
+  @include useTheme {
+    background: getVar('dpCar');
+  }
+  &.center {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+  }
+}

@@ -1,0 +1,133 @@
+@import '~@style/mixins/index.scss';
+:local(.wrapper){
+  display: flex;
+  padding: 4px;
+  flex-direction: column;
+  align-items: flex-start;
+  height: 188px;
+  border-radius: 6px;
+  margin-top: 12px;
+  @include useTheme {
+    background:getVar('dpInputBackground');
+  }
+
+  >.pre-set{
+    height: 34px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    width: 100%;
+    @include useTheme {
+      background:getVar('dpInputBackground');
+    }
+    >span:focus{
+      border: 1px solid red;
+    }
+    .checked-amount{
+      @include useTheme {
+        border: 1px solid getVar('dpTheme');
+      }
+    }
+    >span{
+      overflow: hidden;
+      position: relative;
+      display: flex;
+      width: 65px;
+      padding: 10px 22px;
+      justify-content: center;
+      align-items: center;
+      border-radius: 4px;
+      gap: 10px;
+      font-weight: 500;
+      font-size: 14px;
+      box-sizing: border-box;
+      text-align: center;
+      font-family: DINPro;
+      font-size: 14px;
+      font-style: normal;
+      font-weight: 500;
+      line-height: 14px; /* 100% */
+      @include useTheme {
+        color:getVar('dpTheme');
+        background:getVar('dpBasicWhite');
+      }
+      .checkd{
+        position: absolute;
+        right: 0;
+        bottom: -3px;
+      }
+    }
+  }
+
+  >.keys{
+    margin-top: 4px;
+    display: flex;
+    justify-content: space-between;
+    @include useTheme {
+      background: getVar('dpInputBackground');
+    }
+    width: 100%;
+    >.numbers{
+      width: 254px;
+      height: 148px;
+      display: flex;
+      flex-wrap: wrap;
+      gap: 4px;
+      >.item{
+        width: 82px;
+        height: 34px;
+        border-radius: 4px;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        text-align: center;
+        font-family: DINPro;
+        font-size: 17px;
+        font-style: normal;
+        font-weight: 500;
+        line-height: 17px; /* 100% */
+        @include useTheme {
+          color:getVar('dpStrong');
+          background: getVar('dpBasicWhite');
+        }
+      }
+    }
+
+    >.operation{
+      width: 85px;
+      height: 148px;
+      display: flex;
+      flex-wrap: wrap;
+      gap: 4px;
+      @include useTheme {
+        background: getVar('dpInputBackground');
+      }
+      .max-btn{
+        text-align: center;
+        font-size: 12px;
+        font-style: normal;
+        font-weight: 500;
+        line-height: 12px;
+        @include useTheme {
+          color: getVar('dpStrong');
+        }
+      }
+      >span{
+        width: 85px;
+        height: 34px;
+        border-radius: 4px;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        @include useTheme {
+          color:getVar('dpStrong');
+          background: getVar('dpBasicWhite');
+        }
+        &.big{
+          height: 72px;
+        }
+      }
+    }
+
+  }
+}

@@ -1,0 +1,62 @@
+@import '~@core/templates/desktop/styles/mixins/index.scss';
+
+:local(.wrapper){
+    display: flex;
+    justify-content: center;  
+    .ant-input-group-wrapper {
+        margin-right: 5px;
+        height: 100%;
+        .ant-input-affix-wrapper {
+            width: 200px;
+            @include useTheme {
+                background-color: getVar('dpInputBackground');
+            }
+            border: 0 !important;
+            box-shadow: none !important;
+        }
+        .ant-input-group-addon {
+            button {
+                height: 30px;
+                width: 25px;
+                border-left: 0;
+                border-radius: 8px;
+                @include useTheme {
+                    border-color: getVar('dpDivide');
+                }
+                @include useTheme {
+                    background-color: getVar('dpBasicWhite') !important;
+                }
+                .ant-btn-icon svg {
+                    @include useTheme {
+                        fill: getVar('dpTheme');
+                    }
+                }
+                > div {
+                    background-color: transparent !important;
+                }
+            }
+        }
+    }
+}
+
+:local(.dropdownwrapper){
+    transform: translateY(-5px);
+    .ant-dropdown-arrow::before {
+        @include useTheme {
+            background-color: getVar('dpInputBackground');
+        }
+    }
+    .ant-dropdown-menu {
+        @include useTheme {
+            background-color: getVar('dpInputBackground');
+        }
+        > div {
+            padding: 3px;
+        }
+        .ant-dropdown-menu-item:hover {
+            @include useTheme {
+                background-color: getVar('dpPromptBackground');
+            }
+        }
+    }
+}

@@ -1,0 +1,178 @@
+@import '~@core/templates/desktop/styles/mixins/index.scss';
+
+:local(.wrapper) {
+  margin-top: 6px;
+  flex: 1;
+  overflow-y: auto;
+  position: relative;
+  .play-type-wrapper{
+    height: 40px;
+    line-height: 40px;
+    padding: 0 14px;
+    display: flex;
+    justify-content: flex-start;
+    font-size: 14px;
+    font-weight: 400;
+    box-sizing: border-box;
+    @include useTheme {
+      border-bottom: 1px solid getVar('dpDivide');
+      background: getVar('dpPlayTypeBg');
+      background-color: getVar('dpCar');
+    }
+    position: sticky;
+    left: 0;
+    top: 0;
+    z-index: 2;
+    span:last-child {
+      font-size: 12px;
+    }
+  }
+  &::-webkit-scrollbar {
+    display: none;
+  }
+  &.has-more:hover {
+    padding-bottom: 60px;
+    .match-pages {
+      transform: translate(calc(-50% - 75px), 0);
+    }
+  }
+  .skeleton-wrapper {
+    border-radius: 4px;
+    box-sizing: border-box;
+    padding: 30px 20px;
+    position: absolute;
+    top: 0px;
+    left: 0px;
+    width: 100%;
+    height: 100%;
+    z-index: 999;
+    @include useTheme {
+      background: getVar('dpCar');
+    }
+    transition-delay: .32s;
+    pointer-events: none;
+    opacity: 0;
+    &.fade_in,
+    &.fade_in_second {
+      opacity: 1;
+      transition: all 0.1s linear;
+      pointer-events: unset;
+    }
+  }
+  .match-pages {
+    position: fixed;
+    transition: 0.3s ease-in-out;
+    left: 50%;
+    bottom: 0;
+    height: 60px;
+    display: flex;
+    align-items: center;
+    justify-content: flex-end;
+    transform: translate(calc(-50% - 75px), 110%);
+    width: 830px;
+    z-index: 2;
+    @include useTheme {
+      background: getVar('dpCar');
+    }
+  }
+  @media screen and (max-width: 1440px) {
+    &.has-more:hover {
+      .match-pages {
+        transform: translateY(0);
+      }
+    }
+    .match-pages {
+      left: 230px;
+      transform: translateY(110%);
+    }
+  }
+}
+
+:local(.leagueItem) {
+  border-radius: 4px;
+  margin-bottom: 6px;
+  position: relative;
+
+  @include useTheme {
+    background: getVar('dpCar');
+  }
+
+  >.match-items-wrapper{
+    min-height: 100px;
+  }
+
+  .collapse-header {
+    border-bottom: none;
+  }
+
+  .league-wrapper {
+    height: 34px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 0 26px 0 14px;
+    cursor: pointer;
+    position: sticky;
+    top: 40px;
+    z-index: 1;
+    @include useTheme {
+      background: getVar('dpCar');
+    }
+    .action {
+      padding : 0;
+    }
+  }
+  .league-info {
+    height: 100%;
+    display: flex;
+    align-items: center;
+    img {
+      height: 18px;
+      width: auto;
+      margin-right: 6px;
+    }
+    .league-name {
+      font-size: 13px;
+      line-height: 13px;
+    }
+  }
+  .match-title {
+    height: 24px;
+    align-items: center;
+    display: flex;
+    padding: 0 38px 0 241px;
+    @include useTheme {
+      background: getVar('dpBar');
+      border-top: 1px solid getVar('dpDivide');
+    }
+  }
+  .events-tools {
+    display: flex;
+    flex: 1;
+    .game-name {
+      flex: 1;
+      text-align: center;
+      font-weight: 600;
+      @include useTheme {
+        color: getVar('dpNormal');
+      }
+      &:nth-child(4),
+      &:nth-child(5),
+      &:nth-child(6) {
+        @include useTheme {
+          color: getVar('dpTheme');
+          font-weight: bold;
+        }
+      }
+    }
+  }
+  .league-name {
+    font-size: 13px;
+    font-weight: 400;
+  }
+}
+
+
+:local(.skeleton){
+  padding: 10px 14px;
+}

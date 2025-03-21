@@ -1,0 +1,52 @@
+.status-tennis-bar {
+    .hint-text {
+        color: var(--DP_strong, #0B0B0C);
+        text-align: center;
+        font-family: PingFang SC;
+        font-size: 12px;
+        font-style: normal;
+        font-weight: 400;
+        line-height: 12px;
+        /* 100% */
+        margin-top: 12px;
+    }
+
+    .status-tennis-blue {
+        border-radius: 3px;
+        background: var(--DP_Theme, #3586FF);
+        width: 80px;
+        height: 5px;
+    }
+
+    .status-tennis-red {
+        border-radius: 3px;
+        background: var(--DP_up, #F16B6B);
+        width: 80px;
+        height: 5px;
+    }
+
+    .status-blue-text {
+        color: var(--DP_Theme, #3586FF);
+        text-align: center;
+        font-family: DINPro;
+        font-size: 14px;
+        font-style: normal;
+        font-weight: 400;
+        line-height: 14px;
+        margin-bottom: 20px;
+        /* 100% */
+    }
+
+    .status-red-text {
+        margin-bottom: 20px;
+        color: var(--DP_up, #F16B6B);
+        text-align: center;
+        font-family: DINPro;
+        font-size: 14px;
+        font-style: normal;
+        font-weight: 400;
+        line-height: 14px;
+        /* 100% */
+        /* 100% */
+    }
+}

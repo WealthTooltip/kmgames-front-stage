@@ -1,0 +1,38 @@
+@import '~@style/mixins/index.scss';
+
+:local(.wrapper) {
+  padding: 0 3px 0 2px;
+  @include useTheme {
+    background: getVar('dpSwitchBtnBg');
+  }
+  border-radius: 5px;
+  .switch-body{
+    position: relative;
+    width: 100%;
+    display: flex;
+    align-items: center;
+    height: 24px;
+    justify-content: space-around;
+  }
+  .item{
+    text-align: center;
+    @include useTheme {
+      color: getVar('dpNormal');
+    }
+    font-family: PingFang SC;
+    font-size: 12px;
+    font-weight: 400;
+  }
+  .up-btn{
+    position: absolute;
+    top: 3px;
+    padding: 4px 0 3px;
+    text-align: center;
+    border-radius: 4px;
+    transition: .1s;
+    @include useTheme {
+      color: getVar('dpStrong');
+      background: getVar('dpBasicWhite');
+    }
+  }
+}

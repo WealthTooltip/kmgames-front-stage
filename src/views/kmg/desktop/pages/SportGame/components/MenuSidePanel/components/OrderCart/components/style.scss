@@ -1,0 +1,278 @@
+@import '~@core/templates/desktop/styles/mixins/index.scss';
+
+:local(.bet_list_onfrim_wrap) {
+  .bet-list {
+    position: relative;
+    margin: 0 auto;
+    top: 0;
+    left: 0;
+    right: 0;
+
+    @include useTheme {
+      background-color: getVar('dpButton1');
+    }
+  }
+
+  @include useTheme {
+    color: getVar('dpNormal');
+  }
+  .action{
+    @include useTheme {
+      background-color: getVar(dpCar);
+    }
+  }
+  .bet-item {
+    overflow: hidden;
+    position: relative;
+    box-sizing: border-box;
+    margin-top: 4px;
+    padding: 10px;
+    @include useTheme {
+      background: getVar('dp_Card');
+    }
+    .confirm-icon {
+      position: absolute;
+      top: 6px;
+      right: 8px;
+      padding: 5px;
+      border-radius: 2px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      svg {
+        path {
+          @include useTheme {
+            stroke: getVar('dpButton');
+          }
+        }
+      }
+    }
+
+    .remove {
+      position: absolute;
+      top: 10px;
+      right: 8px;
+      padding: 5px;
+      border-radius: 2px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+
+      @include useTheme {
+        background-color: getVar('dpHover');
+      }
+
+      cursor: pointer;
+
+      .close {
+        width: 10px;
+        height: 10px;
+      }
+
+      svg {
+        path {
+          @include useTheme {
+            stroke: getVar('dpNormal');
+          }
+        }
+      }
+    }
+    .amount-after{
+      padding: 10px;
+    }
+  }
+  .match-league {
+    font-size: 10px;
+    line-height: 1;
+    font-style: normal;
+    font-weight: 400;
+    @include useTheme {
+      color: getVar('dpNormal');
+    }
+  }
+
+  .match-name {
+    padding: 10px 10px 10px 0px;
+    font-size: 12px;
+    line-height: 1;
+    font-style: normal;
+    font-weight: 400;
+    @include useTheme {
+      color: getVar('dpStrong');
+    }
+    span:nth-child(1){
+      font-size: 12px;
+      line-height: 12px;
+      display: inline-block;
+      width: 80%;
+      overflow: hidden;
+      text-overflow: ellipsis;
+      white-space: nowrap;
+    }
+    span:nth-child(2){
+      font-size: 10px;
+      line-height: 10px;
+      display: inline-block;
+      width: 20%;
+      vertical-align: text-top;
+      text-align: right;
+    }
+  }
+
+  .match-time {
+    padding-bottom: 10px;
+
+    @include useTheme {
+      color: getVar(dpNormal2);
+      font-size: 10px;
+      line-height: 10px;
+    }
+  }
+
+  .market {
+    width: 200px;
+    border-radius: 4px;
+    padding: 10px 9px 10px 10px;
+    box-sizing: border-box;
+
+    @include useTheme {
+      background: getVar('dpHover');
+    }
+
+    .display-none {
+      display: none !important;
+    }
+
+    .market-info {
+      display: flex;
+      justify-content: space-between;
+      box-sizing: border-box;
+
+      span:nth-child(1) {
+        font-size: 12px;
+        line-height: 1;
+        font-style: normal;
+        @include useTheme {
+          color: getVar('dpTheme');
+        }
+      }
+      span:nth-child(2) {
+        font-size: 12px;
+        line-height: 1;
+        font-style: normal;
+        @include useTheme {
+          color: getVar('dpStrong');
+        }
+      }
+
+      span:nth-child(3) {
+        font-size: 10px;
+        line-height: 1;
+        font-style: normal;
+
+        @include useTheme {
+          color: getVar('dpTheme');
+        }
+      }
+    }
+  }
+
+  .not-started {
+    @include useTheme {
+      color: getVar(dpTheme) !important;
+    }
+  }
+  .odd {
+    margin-top: 10px;
+    font-size: 14px;
+    font-weight: 500;
+    line-height: 1;
+    box-sizing: border-box;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    @include useTheme {
+      color: getVar('dpStrong');
+    }
+
+    div {
+      border-radius: 2px;
+      padding: 5px 0px;
+    }
+
+    .fail {
+      padding: 4px 7px;
+      text-align: center;
+      color: white;
+      border-radius: 52px;
+
+      @include useTheme {
+        background-color: getVar(dp_up);
+      }
+    }
+
+    .up {
+      @include useTheme {
+        background-color: getVar(dp_up2);
+        color: white;
+      }
+    }
+
+    .down {
+      @include useTheme {
+        background-color: getVar(dp_odchange);
+        color: white;
+      }
+    }
+  }
+
+  .team-win {
+    margin-top: 11px;
+    box-sizing: border-box;
+    display: flex;
+    align-items: center;
+    flex-wrap: wrap;
+    .not-started {
+      em{
+        display: flex;
+        align-items: center;
+      }
+      display: flex;
+      .pl-6{
+        display: inline-block;
+
+        text-align: right;
+        padding-left: 6px;
+      }
+      @include useTheme {
+        color: getVar(dpTheme)!important;
+      }
+    }
+    span:nth-child(1) {
+      display: flex;
+      align-items: center;
+      font-size: 12px;
+      line-height: 1;
+      overflow: hidden;
+      text-overflow: ellipsis;
+      white-space: nowrap;
+      @include useTheme {
+        color: getVar('dpStrong');
+      }
+      .resere-text{
+        @include useTheme {
+          color: getVar('dpTheme');
+        }
+      }
+    }
+
+    span:nth-child(2) {
+      margin-left: 0px !important;
+      font-size: 12px;
+      line-height: 1;
+      @include useTheme {
+        color: getVar('dpTheme');
+      }
+    }
+  }
+}

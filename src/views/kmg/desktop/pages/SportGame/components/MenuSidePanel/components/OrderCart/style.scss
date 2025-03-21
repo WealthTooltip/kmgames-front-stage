@@ -1,0 +1,840 @@
+@import '~@core/templates/desktop/styles/mixins/index.scss';
+
+:local(.wrapper) {
+  flex: 1;
+  @include useTheme {
+    background: getVar('dpCar');
+  }
+  overflow-y: auto;
+  &::-webkit-scrollbar {
+    display: none;
+  }
+  .ant-tabs-nav {
+    margin-bottom: 6px;
+  }
+  .ant-tabs-nav-list {
+    width: 100%;
+    border-radius: 4px;
+    margin-top: 6px;
+    @include useTheme {
+      background: getVar('dpCar');
+    }
+    .ant-tabs-tab {
+      flex: 1;
+      justify-content: center;
+      font-size: 12px;
+    }
+  }
+  .go-back {
+    border-bottom: 0.5px solid #EBEDF1;
+    padding: 5px 12px;
+    display: flex;
+    gap: 4px;
+    @include useTheme {
+      border-bottom: 0.5px solid getVar('dp_divide');
+      color: getVar('dpStrong');
+    }
+    > div.goback {
+      width: 24px;
+      height: 24px;
+    }
+    > span {
+      font-size: 12px;
+      line-height: 12px;
+    }
+  }
+  .switch-type{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 36px;
+    padding: 5px 10px;
+    box-sizing: border-box;
+    position: sticky;
+    top: 34px;
+    z-index: 2;
+    @include useTheme {
+      background: getVar('dp_Card');
+      color: getVar('dpStrong');
+    }
+    > div {
+      width: 100%;
+      display: flex;
+      align-items: center;
+      border-radius: 60px;
+      &:before {
+        border-radius: 60px;
+      }
+    }
+    button{
+      flex: 1;
+      height: 26px;
+      border-radius: 60px;
+      width: 50%;
+      .order-size{
+        display: inline-block;
+        width: 14px;
+        height: 14px;
+        border-radius: 4px;
+        @include useTheme {
+          background: getVar('dpForm1');
+          color: getVar('dpStrong');
+        }
+      }
+      @include useTheme {
+        color: getVar('dpStrong');
+      }
+    }
+  }
+}
+
+:local(.single_bet_panel) {
+  font-size: 11px;
+  margin-top: 4px;
+  @include useTheme {
+    background: getVar('dpButton1');
+  }
+  > .action {
+    padding: 8px 0;
+  }
+  .bet-list {
+    position: relative;
+    margin: 0 auto;
+    top: 0;
+    left: 0;
+    right: 0;
+    @include useTheme {
+      background-color: getVar('dpButton1');
+    }
+  }
+  .switch-multiple{
+    display: flex;
+    width: 220px;
+    margin-top: 1px;
+    padding: 13px 10px;
+    justify-content: space-between;
+    align-items: center;
+    box-sizing: border-box;
+    cursor: pointer;
+    em{
+      @include useTheme {
+        color: getVar('dpAncillary');
+      }
+      font-size: 13px;
+      font-style: normal;
+      font-weight: 400;
+      line-height: 13px;
+    }
+    @include useTheme {
+      background: getVar('dp_Card');
+    }
+  }
+  @include useTheme {
+    color: getVar('dpNormal');
+  }
+  .reserve-opacity{
+    opacity: 0.5;
+    pointer-events:none;
+  }
+  .bet-item {
+    overflow: hidden;
+    position: relative;
+    box-sizing: border-box;
+    margin-top: 4px;
+    padding: 10px;
+    @include useTheme {
+      background: getVar('dp_Card');
+    }
+    user-select: none;
+    .multiple-r-1{
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+    }
+    .confirm-icon{
+      position: absolute;
+      top: 10px;
+      right: 8px;
+      padding: 5px;
+      border-radius: 2px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      svg {
+        path {
+          @include useTheme {
+            stroke: getVar('dpButton');
+          }
+        }
+      }
+    }
+    .remove{
+      position: absolute;
+      top: 10px;
+      right: 8px;
+      padding: 5px;
+      border-radius: 2px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      @include useTheme {
+        background-color: getVar('dpHover');
+      }
+      cursor: pointer;
+      .close {
+        width: 10px;
+        height: 10px;
+      }
+      svg {
+        path {
+          @include useTheme {
+            stroke: getVar('dpNormal');
+          }
+        }
+      }
+    }
+  }
+  .match-league{
+    font-size: 10px;
+    line-height: 1;
+    font-style: normal;
+    font-weight: 400;
+    @include useTheme {
+      color: getVar('dpNormal');
+    }
+  }
+  .match-name{
+    padding: 10px 0;
+    font-size: 12px;
+    line-height: 1;
+    font-style: normal;
+    font-weight: 400;
+    @include useTheme {
+      color: getVar('dpStrong');
+    }
+    >span {
+      span:nth-child(1){
+        font-size: 12px;
+        line-height: 12px;
+        display: inline-block;
+      }
+    }
+  }
+  .match-time {
+    padding-bottom: 10px;
+    @include useTheme {
+      color: getVar(dpNormal2);
+      font-size: 10px;
+      line-height: 10px;
+    }
+  }
+  .market{
+    width: 200px;
+    border-radius: 4px;
+    padding: 10px 9px 10px 10px;
+    box-sizing: border-box;
+    @include useTheme {
+      background: getVar('dpHover');
+      border: 0.5px solid getVar('dpTheme');
+    }
+    .display-none{
+      display: none !important;
+    }
+    .market-info{
+      display: flex;
+      justify-content: space-between;
+      box-sizing: border-box;
+      .bet-game-type-text{
+        margin-left: 4px;
+        white-space: nowrap;
+      }
+      .top-game-type-wrap{
+        display: flex;
+        .play-name-text{
+          overflow: hidden;
+          text-overflow: ellipsis;
+          white-space: nowrap;
+          width: 90px;
+        }
+      }
+      span:nth-child(1){
+        font-size: 12px;
+        line-height: 12px;
+        font-style: normal;
+        font-weight: 400;
+        em{
+          margin-left: 8px;
+          @include useTheme {
+            color: getVar('dpStrong');
+          }
+        }
+        @include useTheme {
+          color: getVar('dpTheme');
+        }
+      }
+      span:nth-child(2){
+        font-size: 12px;
+        line-height: 12px;
+        font-style: normal;
+        font-weight: 400;
+        @include useTheme {
+          color: getVar('dpStrong');
+        }
+      }
+      span:nth-child(3){
+        font-size: 10px;
+        line-height: 10px;
+        font-style: normal;
+        font-weight: 400;
+        @include useTheme {
+          color: getVar('dpTheme');
+        }
+      }
+    }
+  }
+    .not-started {
+      em{
+        display: flex;
+        align-items: center;
+      }
+      display: flex;
+      .pl-6{
+        display: inline-block;
+        min-width: 50px;
+        text-align: right;
+        padding-left: 6px;
+      }
+      @include useTheme {
+        color: getVar(dpTheme)!important;
+      }
+    }
+    .odd{
+      margin-top: 10px;
+      font-size: 13px;
+      font-weight: 500;
+      line-height: 1;
+      box-sizing: border-box;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      @include useTheme {
+        color: getVar('dpStrong');
+      }
+      .reserve-input{
+        display: flex;
+        align-content: center;
+        .subtract{
+          display: flex;
+          justify-content: center;
+          align-items: center;
+          span{
+            display: inline-block;
+            width: 8px;
+            height: 1.2px;
+            flex-shrink: 0;
+            background: getVar(dpNormal2);
+          }
+        }
+        .input{
+          width: 78px;
+          height: 20px;
+          flex-shrink: 0;
+          border: none;
+          text-align: center;
+          box-sizing: border-box;
+          @include useTheme {
+            background: getVar(dp_Card);
+            color: getVar(dpStrong);
+          }
+        }
+        .add{
+          display: flex;
+          justify-content: center;
+          align-items: center;
+        }
+        .add,.subtract{
+          width: 16px;
+          height: 20px;
+          flex-shrink: 0;
+          @include useTheme {
+            background: getVar(dpButton1);
+          }
+        }
+      }
+      .reserve{
+        display: inline-flex;
+        height: 22px;
+        padding: 2px 10px;
+        justify-content: center;
+        align-items: center;
+        gap: 4px;
+        border-radius: 20px;
+        flex-shrink: 0;
+        @include useTheme {
+          background: getVar(dp_Card);
+          border: 0.5px solid getVar(dpTheme);
+          color: getVar(dpTheme);
+        }
+        span{
+          font-size: 12px;
+          line-height: 1;
+        }
+      }
+      div {
+        border-radius: 2px;
+        padding: 5px;
+      }
+      .fail {
+        padding: 4px 7px;
+        text-align: center;
+        color: white;
+        border-radius: 52px;
+        @include useTheme {
+          background-color: getVar(dp_up);
+        }
+      }
+      .up {
+        padding: 5px;
+        transition: all 0.5s linear;
+        @include useTheme {
+          background-color: getVar(dp_up2);
+          color: white;
+        }
+      }
+      .down {
+        padding: 5px;
+        transition: all 0.5s linear;
+        @include useTheme {
+          background-color: getVar(dp_odchange);
+          color: white;
+        }
+      }
+    }
+    .team-win{
+      margin-top: 11px;
+      box-sizing: border-box;
+      display: flex;
+      align-items: center;
+      flex-wrap: wrap;
+      gap: 10px;
+     
+      span:nth-child(1){
+        font-size: 12px;
+        line-height: 1;
+        overflow: hidden;
+        text-overflow: ellipsis;
+        white-space: nowrap;
+        max-width: 75%;
+        @include useTheme {
+          color: getVar('dpStrong');
+        }
+        .resere-text{
+          margin-left: 10px;
+          @include useTheme {
+            color: getVar('dpTheme');
+          }
+        }
+      }
+      span:nth-child(2){
+        font-size: 12px;
+        line-height: 1;
+        @include useTheme {
+          color: getVar('dpTheme');
+        }
+      }
+    }
+  }
+  .input-box{
+    display: flex;
+    align-items: center;
+    margin: 10px 0px;
+    padding: 7px 0 9px 10px;
+    height: 30px;
+    border-radius: 4px;
+    box-sizing: border-box;
+    position: relative;
+    @include useTheme {
+      background: getVar('dpCar');
+      border: 0.5px solid getVar('dpOutline1');
+    }
+    input{
+      font-size: 12px;
+      font-style: normal;
+      font-weight: 500;
+      line-height: 1;
+      border: none;
+      width: 90%;
+      @include useTheme {
+        color: getVar('dpStrong');
+        background:  none;
+      }
+      ::placeholder {
+        @include useTheme {
+          background: getVar('dpAncillary');
+        }
+        opacity: 1;
+      }
+    }
+  }
+  .x-wrap{
+    position: absolute;
+    right: 20px;
+    top: 50%;
+    transform: translate(0, -50%);
+  }
+  .close-input {
+    position: absolute;
+    right: 4px;
+    top: 50%;
+    transform: translate(0, -50%);
+    width: 14px;
+    height: 14px;
+    cursor: pointer;
+    @include useTheme {
+      background-image: url(getVar(close));
+    }
+  }
+  .error-message {
+    color: red;
+    text-align: center;
+    font-size: 12px;
+    font-weight: 500;
+    margin: 0.4rem 0px;
+  }
+  .amount-after {
+    font-size: 10px;
+    line-height: 1;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    @include useTheme {
+      color: getVar('dpNormal');
+    }
+  }
+
+  .market-odd-detail {
+    padding: 2px 0;
+  }
+  .odd {
+    font-weight: 500;
+    @include useTheme {
+      color: getVar('dpTheme');
+    }
+  }
+  .faster-bet-btn{
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-between;
+    li {
+      cursor: pointer;
+      margin-top: 10px;
+      width: 63px;
+      height: 26px;
+      line-height: 26px;
+      font-weight: 500;
+      font-size: 12px;
+      text-align: center;
+      position: relative;
+      border-radius: 3px;
+      transition: 0.2s ease-in;
+      button {
+        width: 100%;
+        height: 100%;
+        border: none;
+        border-radius: 3px;
+        @include useTheme {
+          background-color: getVar('dpButton1');
+          // background: getVar('dpCar');
+          color: getVar('dpStrong');
+        }
+        &:disabled {
+          // Styles for the disabled state of the button
+          @include useTheme {
+            color: getVar('dpAncillary');
+          }
+        }
+      }
+    }
+    .max{
+      @include useTheme {
+        color: getVar('dpStrong');
+      }
+    }
+    li:hover{
+      @include useTheme {
+        background: getVar('dpButton');
+        color: getVar('dpAncillary');
+      }
+    }
+  }
+  .bottom-content{
+    position: sticky;
+    bottom: 0;
+    left: 0;
+    width: 100%;
+    .action {
+      padding: 10px 0;
+    }
+    @include useTheme {
+      background: getVar('dp_Card');
+    }
+    .bottom-wrap{
+      padding-top: 6px;
+      width: 210px;
+      margin: auto;
+      border-radius: 4px;
+      @include useTheme {
+        background: getVar('dpHover');
+      }
+    }
+    .multiple-bottom-wrap{
+      margin-top: 6px;
+      padding-top: 6px;
+      width: 210px;
+      margin: auto;
+      border-radius: 4px;
+      border-top: 5px solid ;
+      @include useTheme {
+        border-top: 5px solid getVar('dpButton');
+      }
+      .multiple-info{
+        padding: 10px;
+        font-size: 12px;
+        font-style: normal;
+        font-weight: 400;
+        line-height: 12px;
+        @include useTheme {
+          color: getVar('dpStrong');
+        }
+        .blod{
+          font-size: 14px;
+          font-style: normal;
+          font-weight: 700;
+          line-height: 14px;
+        }
+        .theme-color{
+          @include useTheme {
+            color: getVar('dpTheme');
+          }
+        }
+        p{
+          display: flex;
+          justify-content: space-between;
+        }
+        p:nth-child(2){
+          margin-top: 10px;
+        }
+      }
+    }
+  }
+  .anticon-close {
+    margin-left: 2px;
+    cursor: pointer;
+    margin-top: 4px;
+  }
+  .bet-content {
+    margin-top: 4px;
+    width: 100%;
+    height: 168px;
+    border-radius: 4px;
+    padding: 10px 6px;
+    box-sizing: border-box;
+    @include useTheme {
+      background: getVar('dpHover');
+    }
+    .title{
+      display: flex;
+      align-items: center;
+      font-size: 12px;
+      line-height: 1;
+      @include useTheme {
+        color: getVar('dpStrong');
+      }
+      span:nth-child(1){
+        display: inline-block;
+        width: 2px;
+        height: 12px;
+        margin-right: 6px;
+        @include useTheme {
+          background: getVar('dpTheme');
+        }
+      }
+    }
+    .fund-all {
+      display: flex;
+      align-items: center;
+      .orders{
+        width: 20px;
+        font-size: 12px;
+        line-height: 12px;
+        margin-right: 5px;
+        @include useTheme {
+          color: getVar('dpStrong');
+        }
+      }
+    }
+    // .faster-bet-btn{
+    //   li > button {
+    //     @include useTheme {
+    //       background: getVar('dp_Card') !important;
+    //       color: getVar('dpAncillary') !important;
+    //     }
+    //     .max{
+    //       color: getVar('dpStrong') !important;
+    //     }
+    //   }
+    // }
+  }
+  .od-confirm {
+    text-align: center;
+    width: 100%;
+    padding: 9px 0;
+    font-size: 12px;
+    font-style: normal;
+    font-weight: 400;
+    line-height: 12px;
+    @include useTheme {
+      color: getVar(dp_odchange1);
+      background-color: getVar(dp_od_background);
+    }
+  }
+  .fail-staus {
+    bottom: 55px;
+    width: 100%;
+    border: none;
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border-radius: 4px;
+    padding: 8px 0;
+    gap: 7px;
+    @include useTheme {
+      background-color: getVar('dp_up_background');
+      color: getVar(dp_up2);
+    }
+  }
+  .od-status-text{
+    padding-bottom: 5px;
+  }
+  
+  .od-status,.od-status-text {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+    font-size: 12px;
+    line-height: 12px;
+    bottom: 55px;
+    width: 100%;
+    @include useTheme {
+      color: getVar(dp_up1);
+    }
+    .auto-odd-checked{
+      width: 12px;
+      height: 12px;
+    }
+    .auto-odd{
+      margin-left: 10px;
+      font-size: 12px;
+      line-height: 12px;
+    }
+  }
+  .od-status{
+    margin-top: 8px;
+    display: flex;
+    justify-content: flex-start;
+    margin-left: 5px;
+  }
+  .action {
+    display: flex;
+    justify-content: center;
+    padding: 10px 0;
+    .od-change {
+      @include useTheme {
+        background-color: getVar(dp_odchange)!important;
+        color: white;
+      }
+    }
+    button:disabled{
+      span{
+        color: getVar('dpNormal2') !important;
+      }
+    }
+    button:nth-child(1){
+      display: flex;
+      width: 34px;
+      height: 34px;
+      margin-right: 10px;
+      justify-content: center;
+      align-items: center;
+      border-radius: 50%;
+      box-sizing: border-box;
+      padding: 12px;
+      letter-spacing: 0;
+      font-size: 10px;
+      background: none;
+      @include useTheme {
+        color: getVar('dpNormal2');
+        border: 0.5px solid getVar('dpOutline');
+      }
+      &.save {
+        width: 95px;
+        border-radius: 40px;
+        span{
+          font-size: 14px;
+          @include useTheme {
+            color: getVar('dpNormal');
+          }
+        }
+      }
+      span{
+        font-size: 10px;
+        letter-spacing: none;
+        @include useTheme {
+          color: getVar('dpNormal');
+        }
+      }
+    }
+    button:nth-child(2){
+      display: flex;
+      width: 156px;
+      height: 34px;
+      justify-content: center;
+      align-items: center;
+      border-radius: 40px;
+      box-sizing: border-box;
+      @include useTheme {
+        color: getVar('dpBasicWhite');
+      }
+      &.submit {
+        width: 95px;
+        span{
+          font-size: 14px;
+          @include useTheme {
+            color: getVar('dpBasicWhite');
+          }
+        }
+      }
+      span{
+        font-size: 12px;
+        @include useTheme {
+          color: white;
+        }
+      }
+    }
+    .invalid-submit{
+      @include useTheme {
+        background: getVar('dpOutline');
+      }
+    }
+  }
+  @keyframes fadeInDown {
+    0% {
+      height: 0px;
+    }
+
+    to {
+      height: 60px;
+    }
+  }

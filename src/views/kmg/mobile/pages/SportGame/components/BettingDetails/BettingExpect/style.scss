@@ -1,0 +1,618 @@
+@import '~@style/mixins/index.scss';
+
+:local(.wrapper){
+  .gradientsvg {
+    position: absolute;
+    z-index: -99;
+  }
+  flex: 1;
+  overflow-y: auto;
+ .detail-panel {
+  margin: 8px 6px;
+  border-radius: 6px;
+  @include useTheme {
+    background-color: getVar('dpCard');
+    border: 0.5px solid getVar('dpCardBorder');
+    color: getVar('dpStrong');
+  }
+
+  .panel-header {
+    height: 28px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    position: relative;
+    @include useTheme {
+      border-bottom: 0.5px solid getVar('dpDivide');
+    }
+    p {
+      @include useTheme {
+        color:getVar('dpStrong');
+      }
+      text-align: center;
+      font-family: "PingFang SC";
+      font-size: 12px;
+      font-style: normal;
+      font-weight: 500;
+    }
+    .select-btn {
+      position: absolute;
+      right: 10px;
+      width: 110px;
+      height: 22px;
+      top: 3px;
+      border-radius: 5px;
+      .switch-btn {
+        border-radius: 4px;
+        @include useTheme {
+          background-color: getVar('dpPromptBackground');
+        }
+        .switch-body {
+          height: 22px !important;
+        }
+      }
+      .up-btn {
+        @include useTheme {
+          background: getVar('dpBasicWhite');
+        }
+        padding: 3px;
+      }
+    }
+    &::after {
+      content: '';
+      position: absolute;
+      left: 0;
+      top:7px;
+      width: 2px;
+      height: 14px;
+      border-radius: 2px;
+      @include useTheme {
+        background-color: getVar('dpTheme');
+      }
+    }
+  }
+  .panel-content {
+    padding: 12px;
+    .win-rate-description {
+      height:32px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      @include useTheme {
+        color: getVar('dpAncillary');
+        font-family: "PingFang SC";
+        font-size: 10px;
+        font-style: normal;
+        font-weight: 400;
+      }
+      p {
+        margin-left: 2px;
+      }
+    }
+    .win-rate-team {
+      display: flex;
+      flex-direction: row;
+      justify-content: space-between;
+      .win-rate {
+        display: flex;
+        padding-bottom: 5px;
+        @include useTheme {
+          border-bottom: 1px solid getVar('dpRed');
+        }
+        align-items: center;
+        position: relative;
+        &.home {
+          .team-img {
+            background-image: url('./i/team1.webp');
+          }
+          .detail {
+            align-items: flex-end;
+            .color-red {
+              margin-left: 2px;
+            }
+          }
+          .bar-chart {
+            .bar {
+              height: 30%;
+            }
+            .rest {
+              height: 70%;              
+            }
+          }
+        }
+        &.away {
+          .team-img {
+            background-image: url('./i/team2.webp');
+          }
+          .detail .color-yellow {
+            margin-right: 2px;
+          }
+          @include useTheme {
+            border-bottom: 1px solid getVar('dpYellow');
+          }
+          .bar-chart {
+            .bar {
+              @include useTheme {
+                background-color: getVar('dpYellow');
+              }
+              height: 50%;              
+            }
+            .rest {
+              height: 50%;              
+            }
+          }
+        }
+        .team-img {
+          width: 32px;
+          height: 32px;
+          background-size: cover;
+          background-repeat: no-repeat;
+        }
+        .detail {
+          display: flex;
+          flex-direction: column;
+          align-items: flex-start;
+          margin: 0px 8px 0px 12px;
+          @include useTheme {
+            color: getVar('dpStrong');
+          }
+          font-family: "PingFang SC";
+          font-size: 10px;
+          font-style: normal;
+          font-weight: 400;
+          line-height: 12px;
+        }
+        .bar-chart {
+          width: 16px;
+          height: 100%;
+          .bar {
+            border-top-left-radius: 6px;
+            border-top-right-radius: 6px;
+            @include useTheme {
+              background-color: getVar('dpRed');
+            }
+          }
+          
+        }
+
+      }
+    }
+    .history {
+      display: flex;
+      justify-content: space-between;
+      .team-history {
+        .pie-chart {
+          width: 160px;
+          height: 110px;
+          display: flex;
+          align-items: center;
+          justify-content: center;
+          canvas {
+            height: 5.33rem !important;
+            width: 8.33rem !important;
+          }
+        }
+        &.away {
+          .team-name {
+            flex-direction: row-reverse;
+            .team-img {
+            margin: 0 0 0 4px !important;
+            background-image: url('./i/team2.webp');
+            }
+          }
+          .history-detail {
+            float: right;
+          }
+        }
+        .team-name {
+          align-items: center;
+          display: flex;
+          span {
+            @include useTheme {
+              color: getVar('dpStrong');
+            }
+            text-align: center;
+            font-family: "PingFang SC";
+            font-size: 12px;
+            font-style: normal;
+            font-weight: 400;
+            line-height: 16px;
+          }
+          .team-img {
+            width: 16px;
+            height: 16px;
+            margin-right: 4px;
+            background-image: url('./i/team1.webp');
+            background-repeat: no-repeat;
+            background-size: cover;
+          }
+        }
+        .history-detail {
+          @include useTheme {
+            color : getVar('dpNormal');
+          }
+          font-family: "PingFang SC";
+          font-size: 10px;
+          font-style: normal;
+          font-weight: 400;
+          line-height: 16px;
+          margin-top: 8px;
+          >span {
+            margin-right: 2px;
+            margin-left: 2px;
+            &:last-child {
+              margin-right: 0px;
+            }
+            &:first-child {
+              margin-left: 0px;
+            }
+          }
+          
+        }
+      }
+    }
+    &.goal-distribution {
+      .team-goals {
+        display: flex;
+        justify-content: space-between;
+        padding-bottom: 12px;
+        .team-goal {
+          width: 140px;
+          .time {
+            text-align: center;
+            font-family: 'D-DIN';
+            font-size: 12px;
+            font-style: normal;
+            font-weight: 400;
+            line-height: 16px;
+             >span {
+              font-family: 'D-DIN';
+              font-size: 8px;
+              font-style: normal;
+              font-weight: 400;
+              line-height: 16px;
+             }
+          }
+          .goal {
+            @include useTheme {
+              color: getVar('dpStrong');
+            }
+            font-family: "DIN Pro";
+            font-size: 12px;
+            font-style: normal;
+            font-weight: 500;
+            line-height: 16px;
+          }
+          &.away {
+            .team-name {
+              flex-direction: row-reverse;
+              .team-img {
+                margin: 0 0 0 4px !important;
+                background-image: url('./i/team2.webp');
+              } 
+            }
+            .team-detail {
+              text-align: right;
+            }
+          }
+          .team-name {
+            display: flex;
+            align-items: center;
+            span {
+              @include useTheme {
+                color: getVar('dpStrong');
+              }
+              text-align: center;
+              font-family: "PingFang SC";
+              font-size: 12px;
+              font-style: normal;
+              font-weight: 400;
+              line-height: 16px;
+            }
+            .team-img {
+              margin-right: 4px;
+              width: 16px;
+              height: 16px;
+              background-image: url('./i/team1.webp');
+              background-repeat: no-repeat;
+              background-size: cover;
+            }
+          }
+          .team-detail {
+            @include useTheme {
+              color: getVar('dpNormal')
+            }
+            font-family: "PingFang SC";
+            font-size: 10px;
+            font-style: normal;
+            font-weight: 400;
+            line-height: 16px;
+            margin-top: 8px;
+          }
+        }
+      }
+      .time-goal-detail {
+        padding-bottom: 12px;
+        .time-goal {
+          display: flex;
+        justify-content: space-between;
+        }
+        .time-detail {
+          display: flex;
+          justify-content: space-between;
+        }
+      }
+    }
+    &.market-trend {
+      .market-name {
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        .team-name {
+          &.away {
+            flex-direction: row-reverse;
+            .team-img {
+              margin: 0 0 0 4px !important;
+              background-image: url('./i/team2.webp');
+
+            }
+          }
+          align-items: center;
+          display: flex;
+          span {
+            @include useTheme {
+              color: getVar('dpStrong');
+            }
+            text-align: center;
+            font-family: "PingFang SC";
+            font-size: 12px;
+            font-style: normal;
+            font-weight: 400;
+            line-height: 16px;
+          }
+          .team-img {
+            margin-right: 4px;
+            width: 16px;
+            height: 16px;
+            background-image: url('./i/team1.webp');
+            background-repeat: no-repeat;
+            background-size: cover;
+          }
+        }
+      }
+      .market-charts {
+        display:flex;
+        justify-content: space-between;
+        align-items: center;
+        .market-chart {
+          width: 120px;
+          height: 110px;
+          display: flex;
+          align-items: center;
+          justify-content: center;
+          canvas {
+            height: 5.33rem !important;
+            width: 7.33rem !important;
+          }
+        }
+        .market-score {
+          display: grid;
+          width: 52px;
+          height: 58px;
+          grid-template-columns: 8px auto 8px;
+          row-gap: 8px;
+          justify-items: center;
+          .item {
+            height: 14px;
+          }
+        }
+      }
+      .market-tables {
+        display: flex;
+        justify-content: space-between;
+        padding: 12px 6px 0px 6px;
+        .market-table {
+          display:grid;
+          grid-template-columns: auto auto auto auto auto;
+          width: 108px;
+          height: 28px;
+          row-gap:8px;
+          column-gap: 12px;
+          .item {
+            height: 10px;
+          }
+        }
+      }
+    }
+    &.odds {
+      .team-odds {
+        display: flex;
+        justify-content: space-between;
+        .team-odd {
+          width: 140px;
+          &.away {
+            .team-name {
+              flex-direction: row-reverse;
+              .team-img {
+                margin: 0 0 0 4px !important;
+                background-image: url('./i/team2.webp');
+              }
+            }
+            .team-detail {
+              text-align: right;
+            }
+          }
+          .team-name {
+            align-items: center;
+            display: flex;
+            span {
+              @include useTheme {
+                color: getVar('dpStrong');
+              }
+              text-align: center;
+              font-family: "PingFang SC";
+              font-size: 12px;
+              font-style: normal;
+              font-weight: 400;
+              line-height: 16px;
+            }
+            .team-img {
+              margin-right: 4px;
+              width: 16px;
+              height: 16px;
+              background-image: url('./i/team1.webp');
+              background-repeat: no-repeat;
+              background-size: cover;
+            }
+          }
+          .team-detail {
+            @include useTheme {
+              color: getVar('dpNormal')
+            }
+            font-family: "PingFang SC";
+            font-size: 10px;
+            font-style: normal;
+            font-weight: 400;
+            line-height: 16px;
+            margin-top: 8px;
+          }
+        }
+      }
+      .area-chart {
+        .chart-header {
+          justify-content: flex-end;
+          display: flex;
+          height: 16px;
+          .item-group {
+            display: flex;
+            font-size: 10px;
+            .line-item {
+              background-size: cover;
+              width: 16px;
+              height: 16px;
+              margin-right: 5px;
+            }
+            .line-item.red {
+              background-image: url('./i/red-line.webp');
+            }
+            .line-item.green {
+              background-image: url('./i/green-line.webp');
+            }
+            .line-item.yellow {
+              background-image: url('./i/yellow-line.webp');
+            }
+            .span {
+              padding-left: 4px;
+            }
+            padding-right: 12px;
+            &:last-child {
+              padding-right: 0px !important;
+            }
+          }
+        }
+        .chart-content {
+          position: relative;
+          display: flex;
+          align-items: flex-start;
+          justify-content: center;
+          canvas {
+            height: 10rem !important;
+            width: 18rem !important;
+          }
+          width: 340px;
+          height: 200px;
+          .chart-labels {
+            @include useTheme {
+              color: getVar('dpAncillary');
+            }
+            position: absolute;
+            bottom: -3px;
+            display: flex;
+            height: 24px;
+            width: 100%;
+            justify-content: space-around;
+            margin: 0px 2px 0px 20px;
+            .chart-label {
+              display: flex;
+              flex-direction: column;
+              font-style: normal;
+              font-weight: 400;
+              line-height: 12px;
+              font-family: "D-DIN";
+              .time-label {
+                font-size: 10px;
+               }
+              .date-label {
+                font-size: 8px;
+              }
+            }
+          }
+        }
+      }
+    }
+    &.news {
+      .item {
+        padding: 12px 0 12px 0;
+        text-align: center;
+        font-family: "PingFang SC";
+        font-size: 12px;
+        font-style: normal;
+        font-weight: 400;
+        line-height: 12px;
+        @include useTheme {
+          color : getVar('dpAncillary');
+        }
+      }
+    }
+  }
+ }
+  .color-red {
+    @include useTheme {
+      color: getVar('dpRed');
+    }
+  }
+  .color-yellow {
+    @include useTheme {
+      color: getVar('dpYellow');
+    }
+  }
+  .color-green {
+    @include useTheme {
+      color: getVar('dpGreen');
+    }
+  }
+  .color-strong {
+    @include useTheme {
+      color: getVar('dpStrong');
+    }
+  }
+  .text-normal {
+    @include useTheme {
+      color: getVar('dpNormal')
+    }
+  }
+  .text-ancillary {
+    @include useTheme {
+      color: getVar('dpAncillary')
+    }
+  }
+  .text-12 {
+    font-family: "PingFang SC";
+    font-size: 12px;
+    font-style: normal;
+    font-weight: 400;
+    line-height: 14px;
+    margin-top: 6px;
+  }
+  .text-10 {
+    font-family: "PingFang SC";
+    font-size: 10px;
+    font-style: normal;
+    font-weight: 400;
+    line-height: 12px;
+    margin-top: 6px;
+  }
+  a.canvasjs-chart-credit {
+    display: none;
+  }
+}

@@ -1,0 +1,93 @@
+@import '~@core/templates/desktop/styles/mixins/index.scss';
+:local(.menuWrapper) {
+  height: calc(100% - 6px);
+  @include useTheme {
+    background: getVar('dp_Card');
+    border-right:1px solid rgba(getVar('dpNormal'), 0.1);
+  };
+  overflow-y: auto;
+  overflow-x: hidden;
+  &::-webkit-scrollbar {
+    width: 1px;
+  }
+  &::-webkit-scrollbar-thumb {
+    @include useTheme {
+      background-color: rgba(getVar('dpNormal'), 0.5);
+    }
+  }
+  &::-webkit-scrollbar-track {
+    @include useTheme{
+      background-color: rgba(getVar('dpNormal'), 0.1);
+    }
+    width: 140px;
+    border-right: 1px solid rgba(getVar('dpNormal'), 0.1);
+  }
+
+  .menu-item{
+    position: relative;
+    width: 162px;
+    height: auto;
+    border-radius: 0;
+    margin: 0;
+    font-size: 12px;
+    font-weight: 600;
+    padding: 10px 24px;
+    cursor: pointer;
+    overflow: hidden;
+    background-position: center;
+    transition: background 0.8s;
+    box-sizing: border-box;
+    @include useTheme{
+      color: getVar('dpNormal');
+    }
+    &::before {
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      content: "";
+      opacity: 0;
+      position: absolute;
+      transform: scale(8);
+      transition: transform 0.5s, opacity 0.5s;
+      pointer-events: none;
+      @include useTheme {
+        background: radial-gradient(circle, #a1a1a1 10%, transparent 10.01%);
+      }
+    }
+    &:active::before {
+      opacity: 0.3;
+      transition: 0s;
+      transform: scale(0, 0);
+    }
+
+    &.selected {
+      position: relative;
+      color: getVar('dpTheme') !important;
+      background-color: rgba(getVar('dpTheme'), 0.1);
+      &::after {
+        content: '';
+        position: absolute;
+        bottom: 0;
+        left: calc(100% - 2px);
+        width: 2px;
+        height: 100%;
+        background-color: getVar('dpTheme');
+        transition: opacity 0.3s, transform 0s;
+        transform: scale(1, 1);
+      }
+    }
+  }
+
+  >.pagination-wrap{
+    margin-top: 15px;
+    width: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
+
+  ::-webkit-scrollbar {
+    display: none;
+  }
+}

@@ -1,0 +1,84 @@
+@import '~@core/templates/mobile/styles/mixins/index.scss';
+
+:local(.modal) {    
+    border-radius: 14px;
+    width: 275px !important;
+    height: 337px !important;
+    @include useTheme {
+        // background: url('../img/alert4-bg-dark.webp') no-repeat;
+        background: getVar('dpAlert4Bg') no-repeat; 
+        background-size: contain;
+        background-position: center;  
+    }
+    display: flex;
+    justify-content: center;
+    >div.ant-modal-content{
+        background: none;
+        width: 275px;
+        height: 337px;
+        padding: 0;
+        display: flex;
+        flex-direction: column;
+        box-shadow: none;
+        border-radius: 14px;
+        margin: 0px 1px;
+        &::before {
+            content: '';
+            position: absolute;
+            top: 54px;
+            left: 50%;
+            transform: translate(-50%, 0);
+            width: 160px;
+            height: 136px;
+            @include useTheme {
+                background: getVar('dpAlert4Img');
+                background-repeat: no-repeat;
+                background-size: contain;
+                background-position: center; 
+            }
+        }       
+        
+        >.ant-modal-close {
+            display: none;
+        }
+        // >div.ant-modal-header{
+        //     display: none;
+        // }
+        >div.ant-modal-body {
+            text-align: center;
+            margin-top: 238px;        
+            >div.body-content {
+                >p {
+                    @include useTheme {
+                        color: getVar('dpNormal');                        
+                    }
+                    text-align: center;
+                    font-family: "PingFang SC";
+                    font-size: 14px;
+                    font-style: normal;
+                    font-weight: 400;
+                    line-height: 14px; /* 100% */
+                    margin-bottom: 16px;                    
+                    >span {
+                        color: var(---H5_Theme, #3586FF);
+                        font-family: "PingFang SC";
+                        font-size: 14px;
+                        font-style: normal;
+                        font-weight: 400;
+                        line-height: 14px;
+                        text-decoration-line: underline;
+                        cursor: pointer;
+                        &:hover {
+                            color: red;
+                        }
+                    }
+
+                }
+            }       
+        }
+        >div.ant-modal-footer {
+            display: none;
+        }
+       
+    }
+}

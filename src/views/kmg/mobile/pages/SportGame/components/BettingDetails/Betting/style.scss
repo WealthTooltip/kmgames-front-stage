@@ -1,0 +1,155 @@
+@import '~@core/templates/desktop/styles/mixins/index.scss';
+
+:local(.wrapper) {
+  flex: 1;
+  overflow-y: auto;
+  &::-webkit-scrollbar {
+    display: none;
+  }
+  @include useTheme {
+    background-color: getVar(dpBackground);
+  }
+  padding-bottom: 10px;
+    .bet-type {
+      height: 38px;
+      position: sticky;
+      top: 0;
+      left: 0;
+      z-index: 1;
+      display: flex;
+      align-items: center;
+      @include useTheme {
+        background: getVar('dpTopBackground');
+      }
+      padding-left: 20px;
+      padding-right: 10px;
+      .swiper-slide{
+        width: auto;
+        font-size: 12px;
+        line-height: 12px;
+        margin-right: 10px;
+        @include useTheme {
+          color: getVar(dpNormal);
+        }
+        .type-tab {
+          padding: 4px 8px;
+        }
+        .active {
+          @include useTheme {
+            color: getVar(dpTheme);
+            background-color: getVar(dpActiveButton);
+          }
+        }
+      }
+    }
+    .bet-items {
+      margin-top: 12px;
+      padding: 0 6px;
+      >.bet-item {
+        @include useTheme {
+          background: linear-gradient(0deg, getVar(dpBetCard1), getVar(dpBetCard1)),
+          linear-gradient(0deg, getVar(dpBetGrad1), getVar(dpBetGrad1));
+        }
+        margin-top: 8px;
+        border-radius: 6px;
+        padding-bottom: 12px;
+        >.header {
+          text-align: center;
+          font-weight: 500;
+          font-size: 12px;
+          line-height: 12px;
+          height: 28px;
+          display: flex;
+          align-items: center;
+          justify-content: center;
+          position: relative;
+          @include useTheme {
+            color: getVar(dpStrong);
+            border-bottom: 0.5px solid getVar(dpDivide);
+          }
+          &:before {
+            content: '';
+            position: absolute;  
+            width: 2px;
+            height: 14px;
+            left: 0px;
+            background-color: #3586FF;
+          }
+          >.pin-pannal {
+            position: absolute;
+            right: 12px;
+            display: flex;
+            gap: 13px;
+          }
+        }
+        >.content {
+          margin-top: 12px;
+          padding: 0 12px;
+          display: grid;
+          grid-template-columns: repeat(2, 1fr);
+          border-radius: 4px;
+          gap: 1px;
+          &.cols-3 {
+            grid-template-columns: repeat(3, 1fr);
+          }
+          >.item {
+            text-align: center;
+            padding: 8px 0px;
+            box-shadow: 0px 1px 2px 0px #C6C8CF40;
+            @include useTheme {
+              background-color: getVar(dpButton);
+            }
+            p {
+              &:nth-child(1) {
+                font-size: 11px;
+                line-height: 11px;
+                @include useTheme {
+                  color: getVar(dpAncillary);
+                }
+              }
+              &:nth-child(2) {
+                margin-top: 4px;
+                font-size: 12px;
+                line-height: 12px;
+                @include useTheme {
+                  color: getVar(dpStrong);
+                }
+              }
+            }
+          }
+        }
+      }
+    }
+    >.net-erro {
+      >.img {
+        margin-top: 93px;
+        display: flex;
+        justify-content: center;
+      }
+      >.desc {
+        font-size: 14px;
+        text-align: center;
+        line-height: 14px;
+        @include useTheme {
+          color: getVar(dpNormal);
+        }
+      }
+      >.btn {
+        width: 160px;
+        height: 32px;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        border: none;
+        margin: 0 auto;
+        margin-top: 20px;
+        border-radius: 6px;
+        @include useTheme {
+          background-color: getVar(dpTheme);
+          color: white;
+          font-size: 12px;
+          line-height: 12px;
+        }
+      }
+    }
+}

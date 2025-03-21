@@ -1,0 +1,73 @@
+@import '~@style/mixins/index.scss';
+:local(.wrapper) {
+  .bet-group-item {
+    margin-bottom: 8px;
+    border-radius: 6px;
+    @include useTheme {
+      background: getVar('dpCard');
+    }
+    .content-wrapper {
+      padding: 12px 10px;
+    }
+  }
+  .bd-list {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 6px;
+  }
+  .market-item {
+    margin-bottom: 6px;
+    &:last-child {
+      margin-bottom: 0;
+    }
+    &.col-2 {
+      display: grid;
+      grid-template-columns: repeat(2, 1fr);
+      gap: 6px;
+    }
+    &.col-3 {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 6px;
+    }
+  }
+
+  .collapse-header {
+    &:not(.border-bottom) {
+      .icon {
+        transform: rotate(-270deg)!important;
+      }
+    }
+    .play-name {
+      height: 28px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      position: relative;
+      .actions {
+        position: absolute;
+        right: 0;
+        height: 100%;
+        display: flex;
+        align-items: center;
+        padding-right: 12px;
+        .icon {
+          transition: .2s;
+          transform: rotate(-90deg);
+        }
+      }
+      &::after {
+        content: '';
+        position: absolute;
+        left: 0;
+        top:7px;
+        width: 2px;
+        height: 14px;
+        background-repeat: no-repeat;
+        background-size: contain;
+        background-position: center center;
+        background-image: url('~@this/assets/images/common/title-line.png');
+      }
+    }
+  }
+}

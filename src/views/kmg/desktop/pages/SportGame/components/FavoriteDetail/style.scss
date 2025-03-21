@@ -1,0 +1,64 @@
+@import '~@core/templates/desktop/styles/mixins/index.scss';
+
+:local(.favorite-detail) {
+  height: 100%;
+  border-radius: 4px;
+  display: flex;
+  flex-direction: column;
+  .option-bar {
+    @include useTheme {
+      background: getVar('dpCar');
+    }
+  }
+  .back {
+    height: 34px;
+    box-sizing: border-box;
+    padding: 0 14px;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    font-size: 14px;
+    cursor: pointer;
+    @include useTheme {
+      border-bottom: 1px solid getVar('dpDivide');
+    }
+    .flex > div {
+      width: 24px;
+      height: 24px;
+      border-radius: 50%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      margin-right: 10px;
+      @include useTheme {
+        border: 1px solid getVar('dpDivide');
+      }
+      svg {
+        transform: rotate(90deg);
+      }
+    }
+  }
+  .title {
+    height: 30px;
+    line-height: 30px;
+    padding: 0 24px;
+    position: relative;
+    &:after {
+      content: "";
+      position: absolute;
+      left: 14px;
+      top: 9px;
+      width: 2px;
+      height: 12px;
+      @include useTheme {
+        background: getVar('dpTheme');
+      }
+    }
+  }
+  .league-wrapper{
+    top: 0!important;
+  }
+  .match-title{
+    top: 0!important;
+  }
+}

@@ -1,0 +1,61 @@
+@import '~@core/templates/desktop/styles/mixins/index.scss';
+
+:local(.wrapper) {
+  margin: 14px auto 20px;
+  display: inline-flex;
+  align-items: center;
+  height: 28px;
+
+  > li {
+    font-family: DINPro;
+    font-size: 12px;
+    font-weight: 700;
+    > button span, a {
+      @include useTheme {
+        color: getVar('dpAncillary');
+      }
+    }
+    
+    &:not(.ant-pagination-options) {
+      width: 28px;
+      height: 28px;
+      padding: 5px;
+      border: none;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      flex-shrink: 0;
+      text-align: center;
+      border-radius: 3px;
+      @include useTheme {
+        background: getVar('dpCar');
+      }
+    }
+    &.ant-pagination-options {
+      .ant-select > .ant-select-selector, .ant-pagination-options-quick-jumper > input {
+        border: none;
+        @include useTheme {
+          color: getVar('dpStrong');
+          background: getVar('dpCar');
+        }
+      }
+    }
+    &.ant-pagination-item-active {
+      @include useTheme {
+        background: getVar('dpTheme');
+      }
+      > a {
+        @include useTheme {
+          color: getVar('dpBasicWhite');
+        }
+      }
+    }
+    &.ant-pagination-jump-next, &.ant-pagination-jump-prev {
+      .ant-pagination-item-link {
+        .ant-pagination-item-container {
+          min-width: 18px;
+        }
+      }
+    }
+  }
+}

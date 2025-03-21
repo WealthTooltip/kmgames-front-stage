@@ -1,0 +1,24 @@
+@import '~@style/mixins/index.scss';
+:local(.wrapper){
+  display: flex;
+  align-items: center;
+  padding: 4px 6px;
+  box-sizing: border-box;
+  justify-content: space-between;
+  @include useTheme {
+    background: getVar('dpTopBackground');
+  }
+  .dp-hidden {
+    opacity: 0;
+    pointer-events: none;
+  }
+  .switch-btn {
+    padding: 2px;
+    .up-btn {
+      transition: all 0.2s ease-in-out;
+      @include useTheme {
+        box-shadow: getVar('dpSwitchBtnShadow');
+      }
+    }
+  }
+}

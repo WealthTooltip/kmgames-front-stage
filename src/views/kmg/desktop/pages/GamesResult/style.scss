@@ -1,0 +1,10 @@
+:local(.wrapper) {
+  height: 100%;
+
+  >div.container{
+    display: flex;
+    height: 100%;
+    flex-direction: column;
+    justify-content: space-between;
+  }
+}

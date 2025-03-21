@@ -1,0 +1,73 @@
+@import '~@style/mixins/index.scss';
+
+:local(.DragWrapper){
+  .drag-bg{ 
+    position: relative;
+    display: flex;
+    align-items: center;
+    width: 251px;
+    height: 42px;
+    flex-shrink: 0;
+    padding: 0px 8px;
+    border-radius: 30px;
+    background: #3586FF;
+    box-sizing: border-box;
+  }
+  .arrow{
+    position: absolute;
+  }
+  .a1{
+    right: 20px;
+    top: 50%;
+    transform: translateY(-50%);
+    animation: arrow-animation;
+    animation-duration: 1.5s;
+    animation-delay: 1.5s;
+    animation-iteration-count: infinite;
+    transition: all;
+  }
+  .a2{
+    right: 30px;
+    top: 50%;
+    transform: translateY(-50%);
+    animation: arrow-animation;
+    animation-duration: 1.5s;
+    animation-delay: 1s;
+    animation-iteration-count: infinite;
+    transition: all;
+  }
+  .a3{
+    right: 40px;
+    top: 50%;
+    transform: translateY(-50%);
+    animation: arrow-animation;
+    animation-duration: 1.5s;
+    animation-delay: 0.5s;
+    transition: all;
+    animation-iteration-count: infinite;
+  }
+  @keyframes arrow-animation {
+    0%{
+      opacity: 0.4;
+    }
+    100%{
+      opacity: 1;
+    }
+  }
+  .drag-ball{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 32px;
+    height: 32px;
+    border-radius: 50%;
+    background: RGBA(255, 255, 255, 0.4);
+    touch-action: none;
+    .drag-ball-in{
+      width: 26px;
+      height: 26px;
+      background: #FFF;
+      border-radius: 50%;
+    }
+  }
+}

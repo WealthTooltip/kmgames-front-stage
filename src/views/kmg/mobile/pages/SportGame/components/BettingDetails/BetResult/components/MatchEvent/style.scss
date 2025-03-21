@@ -1,0 +1,271 @@
+@import '~@core/templates/desktop/styles/mixins/index.scss';
+
+:local(.dpMatchEvent) {
+  position: relative;
+  display: flex;
+
+  .body {
+    width: 100%;
+
+    .time-bar {
+      width: 100%;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      gap: 4px;
+
+      .timer-img {
+        width: 16px;
+        height: 16px;
+
+        img {
+          width: 100%;
+        }
+      }
+
+      .axis {
+        position: relative;
+        width: 1px;
+        height: 593px;
+
+        @include useTheme {
+          background-color: rgba(getVar('dpNormal'), 0.9);
+        }
+
+        .start-point {
+          position: absolute;
+          content: '';
+          width: 4px;
+          height: 4px;
+          top: 0;
+          left: -1px;
+          border-radius: 50%;
+
+          @include useTheme {
+            background-color: getVar('dpTheme');
+          }
+        }
+
+        .end-point {
+          position: absolute;
+          content: '';
+          width: 4px;
+          height: 4px;
+          bottom: 0;
+          left: -1px;
+          border-radius: 50%;
+
+          @include useTheme {
+            background-color: getVar('dpNormal');
+            &.ended{
+              background-color: getVar('dpTheme');
+            }
+          }
+        }
+
+        .load-time {
+          position: absolute;
+          width: 20px;
+          height: 20px;
+          left: -10px;
+          display: flex;
+          align-items: center;
+          justify-content: center;
+          border-radius: 50%;
+
+          @include useTheme {
+            background-color: getVar('dpTheme');
+            color: #fff;
+          }
+        }
+
+        .axis-fill {
+          position: absolute;
+          top: 0;
+          height: 100px;
+          width: 1px;
+          border-bottom-left-radius: 5px;
+          border-bottom-right-radius: 5px;
+
+          @include useTheme {
+            background-color: rgba(getVar('dpTheme'), 0.9);
+          }
+        }
+      }
+
+      .rest-bar {
+        position: absolute;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        width: 80px;
+        padding: 8px 16px;
+        font-size: 12px;
+
+        @include useTheme {
+          background: getVar('dpCard');
+          border: 1px solid getVar('dpTheme');
+          color: getVar('dpTheme');
+        }
+
+        border-radius: 24px;
+      }
+    }
+
+    .event-board {
+      position: absolute;
+      top: 0;
+      width: 100%;
+
+      .event-item {
+        position: absolute;
+        top: 20px;
+        width: 100%;
+        height: 593px;
+
+        .event-time {
+          position: absolute;
+          left: 170px;
+          width: 20px;
+          height: 20px;
+          border-radius: 50%;
+          font-size: 12px;
+          text-align: center;
+          font-weight: 500;
+
+          @include useTheme {
+            background-color: getVar('dpTheme');
+            color: #fff;
+          }
+
+          display: flex;
+          align-items: center;
+          justify-content: center;
+        }
+      }
+    }
+  }
+
+  .left-side,
+  .right-side {
+    position: absolute;
+    width: 120px;
+
+    @include useTheme {
+      background-color: getVar('dpPromptBackground');
+    }
+
+    border-radius: 6px;
+    padding: 8px;
+
+    .event-img {
+      padding: 10px;
+
+      img {
+        width: 16px;
+        height: 16px;
+      }
+    }
+
+    .content {
+      font-size: 12px;
+      font-weight: 500;
+
+      @include useTheme {
+        color: getVar('dp_Card');
+      }
+
+      .text {
+        margin-bottom: 4px;
+        white-space: nowrap;
+      }
+    }
+
+    &::after {
+      position: absolute;
+      content: '';
+      width: 0;
+      height: 0;
+      border-style: solid;
+      border-width: 6px 0 6px 13px;
+
+      @include useTheme {
+        border-color: transparent transparent transparent getVar('dpPromptBackground');
+      }
+    }
+
+    transition: opacity 3s;
+  }
+
+  .left-side {
+    left: 20px;
+    display: flex;
+    align-items: center;
+    justify-content: right;
+    gap: 8px;
+    position: relative;
+
+    .event-img {
+      @include useTheme {
+        border-left: 0.5px solid rgba(getVar('dpNormal'), 0.1);
+      }
+    }
+
+    .content {
+      .score {
+        font-size: 12px;
+        font-weight: 500;
+        float: right;
+        text-align: center;
+        width: 32px;
+        padding: 1px 7px;
+        border-radius: 20px;
+
+        @include useTheme {
+          color: getVar('dpStrong');
+          background-color: rgba(getVar('dpNormal'), 0.3);
+        }
+      }
+    }
+
+    &::after {
+      right: -12px;
+    }
+  }
+
+  .right-side {
+    right: 20px;
+    display: flex;
+    align-items: center;
+    justify-content: left;
+    gap: 8px;
+
+    .event-img {
+      @include useTheme {
+        border-right: 0.5px solid rgba(getVar('dpNormal'), 0.1);
+      }
+    }
+
+    .content {
+      .score {
+        font-size: 12px;
+        font-weight: 500;
+        float: left;
+        text-align: center;
+        width: 32px;
+        padding: 1px 7px;
+        border-radius: 20px;
+
+        @include useTheme {
+          color: getVar('dpStrong');
+          background-color: rgba(getVar('dpNormal'), 0.3);
+        }
+      }
+    }
+
+    &::after {
+      left: -12px;
+      transform: rotate(-180deg);
+    }
+  }
+}

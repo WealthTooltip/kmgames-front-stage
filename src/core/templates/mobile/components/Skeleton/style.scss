@@ -1,0 +1,16 @@
+@import '~@style/mixins/index.scss';
+
+:local(.wrapper){
+  max-width: 343px;
+  margin: 0 auto;
+  margin-bottom: 20px;
+  .react-loading-skeleton {
+    @include useTheme {
+      background: getVar('dpDivide');
+      &:after {
+        background: getVar('skeletonBg');
+        opacity: .5;
+      }
+    }
+  }
+}

@@ -1,0 +1,45 @@
+@mixin rotate-infinite {
+  animation: rotate-infinite 1s linear infinite;
+  @-webkit-keyframes rotate-infinite {
+    from {
+      -webkit-transform: rotate(0deg);
+    }
+    to {
+      -webkit-transform: rotate(360deg);
+    }
+  }
+  @keyframes rotate-infinite {
+    from {
+      transform: rotate(0deg);
+    }
+    to {
+      transform: rotate(360deg);
+    }
+  }
+}
+
+@keyframes fade-in{
+  0%{
+    opacity: 0;
+  }
+  100%{
+    opacity: 1;
+  }
+}
+.fade-in{
+  animation: fade-in 100ms;
+}
+
+// 无限旋转
+@keyframes rotate-infinite {
+  0%{
+    transform: rotate(0deg);
+  }
+  100%{
+    transform: rotate(360deg);
+  }
+}
+
+.rotate-infinite svg {
+  animation: rotate-infinite 2s infinite;
+}

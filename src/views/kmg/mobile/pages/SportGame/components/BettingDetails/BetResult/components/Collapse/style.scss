@@ -1,0 +1,41 @@
+@import '~@core/templates/desktop/styles/mixins/index.scss';
+
+:local(.dp_collapse) {
+  .collapse-header {
+    position: relative;
+    cursor: pointer;
+    text-align: center;
+    padding: 8px;
+    border-radius: 6px 6px 0 0;
+
+    @include useTheme {
+      color: getVar('dpStrong');
+      &.open {
+        border-bottom: 0.5px solid rgba(getVar('dpNormal'), 0.1);
+      }
+
+      &:hover, &.open {
+        &::before {
+          content: '';
+          position: absolute;
+          border-radius: 4px;
+          top: 8px;
+          left: 0;
+          width: 2px;
+          height: 14px;
+          background-color: getVar('dpTheme');
+        }
+      }
+    }
+
+    .arrow {
+      position: absolute;
+      top: 8px;
+      right: 10px;
+    }
+  }
+
+  .content {
+    overflow: hidden;
+  }
+}

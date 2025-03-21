@@ -1,0 +1,197 @@
+@import '~@style/mixins/index.scss';
+:local(.noticeWrapper){
+  display: flex;
+  flex-flow: column;
+  align-items: center;
+  justify-items: center;
+  height: 490px;
+  flex-shrink: 0;
+  fill: #FFF;
+  position: absolute;
+  width: 100%;
+  left: 0;
+  bottom: 0;
+  border-top-right-radius: 10px;
+  border-top-left-radius: 10px;
+  animation: slideInUpSuccessNotice 0.3s ease-in-out;
+  padding: 12px;
+  box-sizing: border-box;
+  @include useTheme {
+    background:getVar('dpBasicWhite');
+  }
+  .icon-success{
+    display: flex;
+    flex-flow: column;
+    align-items: center;
+    margin-bottom: 16px;
+    img{
+      width: 136px;
+      height: 136px;
+      flex-shrink: 0;
+    }
+    em{
+      text-align: center;
+      font-family: "PingFang SC";
+      font-size: 15px;
+      font-style: normal;
+      font-weight: 500;
+      line-height: normal;
+      @include useTheme {
+        color: getVar('dpTheme');
+      }
+    }
+  }
+  .score-info{
+    display: flex;
+    width: 351px;
+    height: 87px;
+    padding: 6px 16px;
+    flex-direction: column;
+    justify-content: center;
+    align-items: flex-start;
+    gap: 8px;
+    flex-shrink: 0;
+    border-radius: 6px;
+    box-sizing: border-box;
+    @include useTheme {
+      background:getVar('dpInputBackground');
+    }
+    .odds{
+      width: 100%;
+      margin-bottom: 6px;
+      display: flex;
+      justify-content: space-between;
+      font-size: 14px;
+      font-style: normal;
+      font-weight: 500;
+      line-height: 14px;
+      box-sizing: border-box;
+      @include useTheme {
+        color:getVar('dpStrong');
+      }
+      em{
+        display: flex;
+        font-size: 14px;
+        font-style: normal;
+        font-weight: 500;
+        line-height: 14px;
+        @include useTheme {
+          color:getVar('dpStrong');
+        }
+      }
+      p{
+        text-align: right;
+        font-size: 14px;
+        font-style: normal;
+        font-weight: 500;
+        line-height: 14px;
+        @include useTheme {
+          color:getVar('dpStrong');
+        }
+      }
+    }
+    .info-content{
+      width: 100%;
+      position: relative;
+      &::after {
+        content: '';
+        position: absolute;
+        top:   0px;
+        width: 2px;
+        height: 41px;
+        @include useTheme{
+          background-color: getVar('dpTheme');
+        }
+        border-top-right-radius: 2px;
+        border-top-left-radius: 2px;
+    }
+      ul{
+        padding-left: 12px;
+        display: flex;
+        justify-content: left;
+        flex-direction: column;
+        gap: 4px;
+        font-size: 10px;
+        font-style: normal;
+        font-weight: 400;
+        box-sizing: border-box;
+        @include useTheme{
+          color: getVar('dpNormal');
+        }
+      }
+    }
+  }
+  .bet-info{
+    margin-top: 15px;
+    width: 351px;
+    display: inline-flex;
+    padding: 14px 16px;
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 16px;
+    border-radius: 6px;
+    box-sizing: border-box;
+    @include useTheme {
+      background:getVar('dpInputBackground');
+    }
+    li{
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      width: 100%;
+      span:nth-child(1){
+        font-size: 12px;
+        font-style: normal;
+        font-weight: 400;
+        line-height: 12px;
+        @include useTheme {
+          color:getVar('dpNormal');
+        }
+      }
+      span:nth-child(2){
+        text-align: right;
+        font-size: 14px;
+        font-style: normal;
+        font-weight: 500;
+        line-height: 14px;
+        @include useTheme {
+          color:getVar('dpStrong');
+        }
+      }
+      .order-num{
+        @include useTheme {
+          color:getVar('dpNormal') !important;
+        }
+      }
+    }
+  }
+  .confirm-btn{
+    button{
+      display: flex;
+      width: 351px;
+      margin-top: 12px;
+      padding: 15px 38px;
+      justify-content: center;
+      align-items: center;
+      gap: 10px;
+      border-radius: 6px;
+      border: none;
+      color: #FFF;
+      font-size: 15px;
+      font-style: normal;
+      font-weight: 400;
+      line-height: 12px;
+      @include useTheme {
+        background:getVar('dpTheme');
+      }
+    }
+  }
+  @keyframes slideInUpSuccessNotice {
+    0% {
+      transform: translateY(100%);
+    }
+    100% {
+      transform: translateY(0);
+    }
+  }
+}

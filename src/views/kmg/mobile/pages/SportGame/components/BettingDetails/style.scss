@@ -1,0 +1,401 @@
+@import '~@core/templates/desktop/styles/mixins/index.scss';
+
+:local(.wrapper) {
+  animation: slideInUp 0.3s ease-in-out;
+  height: 100%;
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  @include useTheme {
+    background: getVar('dpBackground');
+  }
+  iframe {
+    position: absolute;
+    left: 0;
+    top: 0;
+    border: none;
+    width: 100%;
+    height: 100%;
+    z-index: 5;
+  }
+  .media-back {
+    position: absolute;
+    left: 0;
+    top: 0;
+    width: 38px;
+    height: 44px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    z-index: 10;
+  }
+  .media-box {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    span:nth-child(2) {
+      margin-left: 10px;
+    }
+    span {
+      width: 86px;
+      height: 24px;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      border-radius: 24px;
+      background: rgba(0, 0, 0, 0.40);
+      backdrop-filter: blur(1px);
+      font-size: 12px;
+      color: #8E9298;
+      img {
+        display: block;
+        width: 18px;
+        margin-right: 4px;
+      }
+    }
+  }
+  >.hero {
+        height: 206px;
+        width: 100%;
+        position: relative; 
+        &.sport-1 {
+            background: radial-gradient(50% 50% at 50% 50%, rgba(0, 0, 0, 0.00) 0%, rgba(0, 0, 0, 0.50) 100%), url('./i/sport-1.webp');
+            background-repeat: no-repeat;
+            background-size: cover;
+            background-position: center;  
+        }
+        &.sport-2 {
+            background: radial-gradient(50% 50% at 50% 50%, rgba(0, 0, 0, 0.00) 0%, rgba(0, 0, 0, 0.50) 100%), url('./i/sport-2.webp');
+            background-repeat: no-repeat;
+            background-size: cover;
+            background-position: center;  
+        }
+        &.sport-3 {
+            background: radial-gradient(50% 50% at 50% 50%, rgba(0, 0, 0, 0.00) 0%, rgba(0, 0, 0, 0.50) 100%), url('./i/sport-3.webp');
+            background-repeat: no-repeat;
+            background-size: cover;
+            background-position: center;   
+        }
+        &.sport-5 {
+            background: radial-gradient(50% 50% at 50% 50%, rgba(0, 0, 0, 0.00) 0%, rgba(0, 0, 0, 0.50) 100%), url('./i/sport-5.webp');
+            background-repeat: no-repeat;
+            background-size: cover;
+            background-position: center;   
+        }
+        &.sport-6 {
+            background: radial-gradient(50% 50% at 50% 50%, rgba(0, 0, 0, 0.00) 0%, rgba(0, 0, 0, 0.50) 100%), url('./i/sport-6.webp');
+            background-repeat: no-repeat;
+            background-size: cover;
+            background-position: center;  
+        }
+        &.sport-8 {
+            background: radial-gradient(50% 50% at 50% 50%, rgba(0, 0, 0, 0.00) 0%, rgba(0, 0, 0, 0.50) 100%), url('./i/sport-8.webp');
+            background-repeat: no-repeat;
+            background-size: cover;
+            background-position: center; 
+        }
+        &.sport-9 {
+            background: radial-gradient(50% 50% at 50% 50%, rgba(0, 0, 0, 0.00) 0%, rgba(0, 0, 0, 0.50) 100%), url('./i/sport-9.webp');
+            background-repeat: no-repeat;
+            background-size: cover;
+            background-position: center;   
+        }
+        &.sport-10 {
+            background: radial-gradient(50% 50% at 50% 50%, rgba(0, 0, 0, 0.00) 0%, rgba(0, 0, 0, 0.50) 100%), url('./i/sport-10.webp');
+            background-repeat: no-repeat;
+            background-size: cover;
+            background-position: center;
+        }
+        &.sport-11 {
+            background: radial-gradient(50% 50% at 50% 50%, rgba(0, 0, 0, 0.00) 0%, rgba(0, 0, 0, 0.50) 100%), url('./i/sport-11.webp');
+            background-repeat: no-repeat;
+            background-size: cover;
+            background-position: center; 
+        }
+        &.sport-12 {
+            background: radial-gradient(50% 50% at 50% 50%, rgba(0, 0, 0, 0.00) 0%, rgba(0, 0, 0, 0.50) 100%), url('./i/sport-12.webp');
+            background-repeat: no-repeat;
+            background-size: cover;
+            background-position: center;
+        }
+        &.sport-13 {
+            background: radial-gradient(50% 50% at 50% 50%, rgba(0, 0, 0, 0.00) 0%, rgba(0, 0, 0, 0.50) 100%), url('./i/sport-13.webp');
+            background-repeat: no-repeat;
+            background-size: cover;
+            background-position: center;   
+        }
+        &.sport-16 {
+            background: radial-gradient(50% 50% at 50% 50%, rgba(0, 0, 0, 0.00) 0%, rgba(0, 0, 0, 0.50) 100%), url('./i/sport-16.webp');
+            background-repeat: no-repeat;
+            background-size: cover;
+            background-position: center;  
+        }
+        &.sport-19 {
+            background: radial-gradient(50% 50% at 50% 50%, rgba(0, 0, 0, 0.00) 0%, rgba(0, 0, 0, 0.50) 100%), url('./i/sport-19.webp');
+            background-repeat: no-repeat;
+            background-size: cover;
+            background-position: center; 
+        }
+        &.sport-23 {
+            background: radial-gradient(50% 50% at 50% 50%, rgba(0, 0, 0, 0.00) 0%, rgba(0, 0, 0, 0.50) 100%), url('./i/sport-23.webp');
+            background-repeat: no-repeat;
+            background-size: cover;
+            background-position: center;  
+        }
+        &.sport-28 {
+            background: radial-gradient(50% 50% at 50% 50%, rgba(0, 0, 0, 0.00) 0%, rgba(0, 0, 0, 0.50) 100%), url('./i/sport-28.webp');
+            background-repeat: no-repeat;
+            background-size: cover;
+            background-position: center; 
+        }
+        &.esports {
+            background: radial-gradient(50% 50% at 50% 50%, rgba(0, 0, 0, 0.00) 0%, rgba(0, 0, 0, 0.50) 100%), url('./i/esports.webp');
+            background-repeat: no-repeat;
+            background-size: cover;
+            background-position: center; 
+        }
+      >.match-status {
+          display: flex;
+          justify-content: space-between;
+          align-items: center;
+          color: white;
+          padding: 0 25px;
+          height: calc(100% - 100px);
+          >.match-team {
+              width: 100px;
+              display: flex;
+              flex-direction: column;
+              justify-content: center;
+              align-items: center;
+              text-align: center;
+              >.name {
+                  width: 100%;
+                  margin-top: 8px;
+                  font-size: 14px;
+                  overflow: hidden;
+                  white-space: nowrap;
+                  text-overflow: ellipsis;
+                  &:hover {
+                      white-space: normal;
+                  }
+              }
+              >.icon {
+                  display: flex;
+                  align-items: center;
+                  justify-content: center;
+                  img {
+                      height: 40px;
+                      width: auto;
+                  }    
+              }
+          }
+          >.match-score {
+              text-align: center;
+              >.time {
+                  font-size: 12px;
+                  line-height: 12px;
+              }
+              >.score {
+                  margin-top: 8px;
+                  font-size: 32px;
+                  line-height: 32px;
+                  font-weight: 500;
+              }
+          }
+      }
+      >.status-details {
+          position: absolute;
+          left: 12px;
+          bottom: 10px;
+          display: flex;
+          gap: 8px;
+          color: white;
+          align-items: center;
+          &.col-yelleow {
+            p {
+                &:nth-last-child(1) {
+                    color: #F6B73D;
+                }
+            }
+          }
+          >.fist-half {
+              font-size: 10px;
+              line-height: 12px;
+          }
+          >.item {
+              display: flex;
+              align-items: center;
+              gap: 4px;
+              .logo {
+                  width: 16px;
+                  height: 16px;
+              }
+              >.details {
+                  font-size: 10px;
+                  line-height: 12px;
+                  color: white;
+              }
+          }
+      }
+  }
+  >.noname-tab {
+      display: grid;
+      grid-template-columns: repeat(4, 1fr);
+      padding: 0 10px;
+      height: 40px;
+      gap: 1px;
+      @include useTheme {
+          border-bottom: 0.5px solid getVar(dpDivide);
+          background-color: getVar(dpTopBackground);
+          
+      }
+      >li {
+          font-size: 16px;
+          line-height: 18px;
+          display: flex;
+          justify-content: center;
+          align-items: center;
+          position: relative;
+          @include useTheme {
+              color: getVar(dpNormal);
+          }
+          &.active {
+              color: #19191A;
+              font-weight: 500;
+              @include useTheme {
+                  color: getVar(dpStrong);
+              }
+              &::after {
+                  content: '';
+                  position: absolute;
+                  width: 12px;
+                  background-color:#3586FF;
+                  height: 2px;
+                  border-radius: 38.2px;
+                  bottom: 0px;
+              }
+          }
+      }
+  }
+  >.league-open {
+      box-sizing: border-box;
+      height: 100vh;
+      overflow-y: scroll;
+      position: fixed;
+      top: 0;
+      z-index: 1000;
+      padding-top: 88px;
+      padding-left: 12px;
+      padding-right: 12px;
+      width: 100%;
+      margin: 0 auto;
+      gap: 24px;
+      @include useTheme {
+          background-color: getVar(dpTopBackground);
+      }
+      &.close {
+          display: none;
+          // animation: fadeOut 0.5s ease-in-out; 
+          // animation-fill-mode: forwards;
+      }
+      &.open {
+          animation: fadeIn 0.5s ease-in-out; 
+          display: block;
+      }
+      >li {
+          display: flex;
+          justify-content: space-between;
+          align-items: center;
+          padding: 16px 30px;
+          border-radius: 8px;
+          position: relative;
+          margin-bottom: 12px;
+          margin-top: 24px;
+          &:nth-child(1) {
+              margin-top: 12px;
+          }
+          &:after {
+              content: '';
+              position: absolute;
+              width: 100%;
+              height: 1px;
+              bottom: -12px;
+              left: 0px;
+              @include useTheme {
+                  border-top: 0.5px solid getVar(dpDivide);
+              }
+              
+          }
+          &:nth-last-child(1) {
+              &::after {
+                  border-top: none!important;
+              }
+          }
+          &.active {
+              @include useTheme {
+                  background-color: getVar(dpActiveButton);
+              }
+          }
+          >.team {
+              >div {
+                  display: flex;
+                  justify-content: center;
+              }
+              p {
+                  @include useTheme {
+                      color: getVar(dpStrong);
+                  }
+              }
+          }
+          >.score {
+              p {
+                  @include useTheme {
+                      color: getVar(dpStrong);
+                  }
+                  &:nth-child(1) {
+                      font-weight: 500;
+                      font-size: 12px;
+                      line-height: 12px;
+                      text-align: center;
+                  }
+                  &:nth-child(2) {
+                      font-weight: 700;
+                      font-size: 32px;
+                      line-height: 32px;
+                      margin-top: 4px;
+                  }
+              }
+          }
+      }
+      
+  }
+  
+  
+  @keyframes slideInUp {
+      0% {
+        transform: translateX(100%);
+      }
+      100% {
+        transform: translateX(0);
+      }
+    }
+  @keyframes fadeIn {  
+      from {  
+          height: 0%;
+      }  
+    
+      to {  
+          height: 100%;  
+      }  
+  }
+  @keyframes fadeOut {  
+    from {  
+        height: 100%;
+    }  
+  
+    to {  
+        height: 0%;  
+        display: none;
+    }  
+  }
+}

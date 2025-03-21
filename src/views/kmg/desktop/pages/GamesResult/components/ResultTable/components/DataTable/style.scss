@@ -1,0 +1,128 @@
+@import '~@core/templates/desktop/styles/mixins/index.scss';
+
+:local(.wrapper) {
+  display: flex;
+  flex: 1;
+  flex-direction: column;
+  overflow: auto;
+  
+  .body-row {
+    display: flex;
+    align-items: center;
+    border: none;
+    border-radius: 4px;
+    
+    &:not(.opened) {
+      margin-bottom: 10px;
+      @include useTheme{
+        background: getVar('dpCar');
+      }      
+    }
+    &.opened {
+      @include useTheme{
+        background: getVar('dpHover');
+      }      
+    }
+
+    >span {
+      display: flex;
+      align-items: center;
+      @include useTheme {
+        color: getVar('dpStrong');
+      }
+      &.wide-element {
+        width: 180px;
+        padding-left: 20px;
+      }
+      &:not(.wide-element) {
+        flex: 1;
+      }
+    }
+  }
+
+  .header {
+    position: sticky;
+    width: 100%;
+    top: 0;
+    z-index: 10;
+    @include useTheme {
+      background: getVar('dpBackground');
+    }
+
+    .body-row {
+      >span {
+        height: 34px;
+        font-size: 14px;
+        line-height: 14px;
+
+        &.contain-filtering {
+          display: flex;
+          align-items: center;
+          gap: 4px;
+        }
+  
+        &:not(.wide-element) {
+          justify-content: center;
+        }
+      }
+    }
+  }
+
+  .table-body {
+    position: relative;
+    display: flex;
+    flex: 1;
+    flex-direction: column;
+    overflow-y: auto;
+    &::-webkit-scrollbar {
+      display: none;
+    }
+
+    .no-record {
+      flex: 1;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+    }
+    
+    .collapse-opened {
+      margin-bottom: 10px;
+    }
+
+    .collapse-header {
+      border: none;
+
+      .body-row {
+        cursor: pointer;
+      
+        >span {
+          height: 42px;
+          font-size: 12px;
+          line-height: 12px;   
+  
+          &.render-array {
+            display: flex;
+            flex-direction: column;
+            justify-content: space-between;
+            &.wide-element {
+              padding: 14px 0 14px 20px;
+              align-items: flex-start;
+            }
+            &:not(.wide-element) {
+              padding: 11px 20px;
+              align-items: center;          
+            }
+          }
+  
+          &.contain-view-icon {
+            display: flex;
+            justify-content: flex-start;
+            align-items: center;
+            gap: 10px;
+          }
+        }
+      }
+    }
+
+  }
+}

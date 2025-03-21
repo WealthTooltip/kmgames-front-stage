@@ -1,0 +1,224 @@
+@import '~@style/mixins/index.scss';
+:local(.wrapper){
+  width: 275px;
+  display: flex;
+  height: max-content;
+  overflow-y: auto;
+  flex-direction: column;
+  align-items: center;
+  animation: slideInUpOrderRecords 0.3s ease-in-out;
+  .placeholder{
+    padding-top: 89px;
+  }
+  > div {
+    width: 275px;
+    margin-bottom: 16px;
+  }
+
+  .blue {
+    @include useTheme {
+      color: getVar('dpTheme');
+    }
+  }
+
+  .red {
+    @include useTheme {
+      color: getVar('dpRed');
+    }
+  }
+
+  > .order-card {
+    border-radius: 16px;
+    padding: 21px 0 16px 0;
+    @include useTheme {
+      background-color: getVar('dpOrderCard');
+      background-image: getVar('dpOrderCardBg');
+      color: getVar('dpStrong');
+    }
+
+    &-empty {
+      padding: 58px 0 55px 0;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      border-radius: 16px;
+      @include useTheme {
+        background-color: getVar('dpOrderCard');
+        background-image: getVar('dpOrderCardBg');
+        color: getVar('dpStrong');
+      }
+
+      > img {
+        width: 160px;
+        height: 136px;
+        margin-bottom: 48px;
+      }
+      > p {
+        text-align: center;
+        font-size: 14px;
+        font-style: normal;
+        font-weight: 400;
+        line-height: 14px;
+        @include useTheme {
+          color: getVar('dpNormal');
+        }
+
+        &:nth-child(2) {
+          margin-bottom: 16px;
+        }
+
+        a {
+          @include useTheme {
+            color: getVar('dpTheme');
+          }
+        }
+      }
+    }
+
+    > .order-match-name {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      text-align: center;
+      padding: 0 12px;
+      font-size: 12px;
+      font-style: normal;
+      font-weight: 400;
+      line-height: 12px;
+      margin-bottom: 20px;
+
+      div:nth-child(1) {
+        width: 40%;
+      }
+      div:nth-child(2) {
+        width: 16px;
+      }
+
+      div:nth-child(3) {
+        width: 40%;
+      }
+    }
+
+    > .order-match-info {
+      background: linear-gradient(156deg, #37ABFF 11.57%, #3586FF 76.85%);
+      padding: 12px 47px;
+      margin: 0 12px;
+      border-radius: 6px;
+      text-align: center;
+      margin-bottom: 30px;
+      color: #fff;
+
+      > div:nth-child(1) {
+        font-size: 13px;
+        font-style: normal;
+        font-weight: 500;
+        line-height: 13px;
+      }
+
+      > div:nth-child(2) {
+        font-size: 12px;
+        font-style: normal;
+        font-weight: 400;
+        line-height: 12px;
+        margin-top: 12px;
+        .play-name{
+          margin-right: 14px;
+        }
+        span {
+          font-size: 14px;
+          font-style: normal;
+          font-weight: 500;
+          line-height: 14px;
+        }
+      }
+
+      > div:nth-child(3) {
+        font-size: 12px;
+        font-style: normal;
+        font-weight: 400;
+        line-height: 12px;
+        margin-top: 12px;
+      }
+    }
+
+    > .order-match-detail {
+      display: flex;
+      justify-content: space-between;
+      align-items: flex-start;
+      font-size: 12px;
+      font-style: normal;
+      font-weight: 400;
+      line-height: 12px;
+      margin-bottom: 18px;
+      padding: 0 12px;
+
+      > .order-match-id {
+        display: flex;
+        justify-content: flex-end;
+        align-items: flex-start;
+      }
+
+      > div:nth-child(1) {
+        text-align: right;
+      }
+
+      &:last-child {
+        margin-bottom: 0;
+      }
+    }
+
+    > .order-match-button {
+      border-radius: 6px;
+      border: 1px solid;
+      font-size: 14px;
+      font-style: normal;
+      font-weight: 400;
+      line-height: 12px;
+      text-align: center;
+      padding: 10px 2px;
+      cursor: pointer;
+      margin: 0 12px;
+      -webkit-tap-highlight-color: transparent;
+  
+      @include useTheme {
+        color: getVar('dpTheme');
+        border-color: getVar('dpTheme');
+      }
+    }
+
+    > .order-match-tips {
+      display: flex;
+      justify-content: right;
+      text-align: right;
+      font-size: 10px;
+      font-style: normal;
+      font-weight: 400;
+      line-height: 10px;
+      padding: 0 12px;
+      @include useTheme {
+        color: getVar('dpNormal');
+      }
+
+      img {
+        width: 10px;
+        height: 10px;
+        margin-left: 4px;
+      }
+    }
+  }
+}
+
+
+:local(.bg){
+  width: 100%;
+  height: 100vh;
+}
+
+@keyframes slideInUpOrderRecords {
+  0% {
+    transform: translateY(100%);
+  }
+  100% {
+    transform: translateY(0);
+  }
+}

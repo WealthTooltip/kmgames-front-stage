@@ -1,0 +1,230 @@
+@import '~@core/templates/desktop/styles/mixins/index.scss';
+
+:local(.wrapper) {
+
+  height: 36px;
+  flex-shrink: 0;
+  box-sizing: border-box;
+  border-radius: 4px;
+  display: flex;
+  align-items: center;
+  padding: 0 14px;
+  font-size: 12px;
+  @include useTheme {
+    background: getVar('dpCar');
+    color: getVar('dpStrong');
+  }
+  .btn {
+    padding: 6px 11px;
+    white-space: nowrap;
+    border-radius: 30px;
+    margin-right: 8px;
+    font-weight: 400;
+    line-height: 1;
+    @include useTheme {
+      color: getVar('dpStrong');
+      border: 0.5px solid getVar('dpOutline');
+      background: getVar('btnBg');
+    }
+
+  }
+  .marquee_wrap {
+    flex: 1;
+    margin-right: 20px;
+    @include useTheme {
+      color: getVar('dp_stong');
+    }
+    span {
+      margin-right: 40px;
+    }
+    .rfm-marquee-container  {
+      overflow: hidden;
+    }
+  }
+  .r-actions {
+    display: flex;
+    flex-wrap: nowrap;
+    align-items: center;
+    >div {
+      margin-left: 14px;
+      font-size: 12px;
+    }
+  }
+}
+
+
+:local(.dropIcon) {
+  margin-left: 4px;
+}
+
+:local(.language) {
+  width: 114px;
+
+  span, a {
+    font-size: 12px;
+    font-weight: 400;
+    line-height: 12px;
+    @include useTheme {
+      color: getVar('dpStrong');
+    }
+  }
+  
+  .ant-dropdown-menu {
+    padding: 0;
+    
+    .ant-dropdown-menu-item {
+      padding: 8px 15px 8px 24px;
+      border-radius: 8px;
+
+      &.ant-dropdown-menu-item-selected {
+        @include useTheme {
+          background: getVar('dp_dropdown_language');
+        }
+      }
+
+      &:hover {
+        @include useTheme {
+          background: getVar('dp_dropdown_language');
+        }
+      }
+    }
+  }
+}
+
+:local(.menu) {
+  width: 230px;
+
+  span, a {
+    font-size: 12px;
+    font-weight: 400;
+    line-height: 12px;
+  }
+  
+  .ant-dropdown-menu {
+    padding: 0;
+    
+    .ant-dropdown-menu-item {
+      padding: 0;
+
+      &:hover {
+        background-color: transparent;
+        cursor: default;
+      }
+    }
+  }
+
+  .menu-item {
+    width: calc(100% - 24px);
+    color: #0B0B0C;
+    padding: 17px 10px;
+  
+    >.ant-space-item:first-child {
+      height: 14px;
+      width: 14px;
+    }
+  
+    >.ant-space-item:nth-child(2) {
+      width: 100%;
+    }
+  
+    .item-container {
+      width: 100%;
+      justify-content: space-between;
+    }
+  }
+
+  .collaspe-container {
+
+    .collaspe-menu-item {
+      font-size: 12px;
+      font-weight: 400;
+      line-height: 12px;
+      color: #0B0B0C;
+  
+      >.ant-space-item:first-child {
+        height: 14px;
+        width: 14px;
+      }
+    }
+
+    .ant-collapse-header {
+      padding: 17px 10px;
+      align-items: center;
+
+      .ant-collapse-header-text {
+        line-height: 12px;
+      }
+
+      .ant-collapse-extra {
+        height: 15px;
+        line-height: 12px;
+
+        a {
+          font-size: 12px;
+          font-weight: 400;
+          line-height: 12px;
+          @include useTheme {
+            color: getVar('dpTheme');
+          }
+        }
+      }
+
+      .ant-collapse-expand-icon {
+        height: 15px;
+        padding-inline-start: 10px;
+
+        svg {
+          @include useTheme {
+            color: getVar('dp_dropdown_collaspe_icon');
+          }
+        }
+      }
+    }
+  
+    .ant-collapse-content-box {
+      padding: 0;
+      padding-block: 0  !important;
+      @include useTheme {
+        background: getVar('dp_dropdown_collaspe');
+      }
+
+      .selection-list {
+        li {
+          padding: 10px 10px;
+          cursor: pointer;
+          font-size: 12px;
+          font-weight: 400;
+          line-height: 12px;
+          display: flex;
+          justify-content: space-between;
+          align-items: center;
+          @include useTheme {
+            color: getVar('dpStrong');
+          }
+
+          svg {
+            @include useTheme {
+              color: getVar('dp_dropdown_collaspe_icon');
+            }
+          }
+
+          &.selected-item {
+            @include useTheme {
+              color: getVar('dpTheme');
+            }
+          }
+        }
+
+        &.overlay-selection {
+          li {
+            &.selected-item {
+              @include useTheme {
+                background: getVar('dp_dropdown_collaspe_selected');
+              }
+            }
+          }
+        }
+      }
+    }
+  }
+}

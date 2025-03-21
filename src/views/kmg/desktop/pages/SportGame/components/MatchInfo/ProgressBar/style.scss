@@ -1,0 +1,51 @@
+@import '~@core/templates/desktop/styles/mixins/index.scss';
+:local(.wrapper) {
+  display: flex;
+  height: 12px;
+  align-items: center;
+  justify-content: space-between;
+  .title {
+    @include useTheme {
+      color: getVar('dpStrong');
+    }
+    text-align: center;
+    font-family: PingFang SC;
+    font-size: 12px;
+    font-style: normal;
+    font-weight: 400;
+    line-height: 12px;
+    width: 48px;
+  }
+  .value {
+    @include useTheme {
+      color: getVar('dpNormal');
+    }
+    text-align: center;
+    font-family: DINPro;
+    font-size: 13px;
+    font-style: normal;
+    font-weight: 500;
+    line-height: 12px;
+  }
+  .progress {
+    display: flex;
+    height: 6px;
+    background-color: #ED3737;
+    .active {
+      background-color: #3586FF;
+      height: 100%;
+    }
+    &.away {
+      background-color: #3586FF;
+      justify-content: flex-end;
+      .active {
+        background-color: #ED3737;
+      }
+    }
+    &.disabled {
+      @include useTheme {
+        background-color: getVar('dpDivide');
+      }
+    }
+  }
+}

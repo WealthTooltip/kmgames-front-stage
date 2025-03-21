@@ -1,0 +1,35 @@
+@import '~@core/templates/desktop/styles/mixins/index.scss';
+
+.ant-select-dropdown {
+  .ant-select-item-option-content {
+    font-size: 12px;
+  }
+}
+
+:local(.dp_select) {
+  display: flex;
+  align-items: center;
+  border-radius: 55px;
+  padding: 4px 8px;
+  @include useTheme {
+    color: getVar('dpNormal');
+    background: getVar('dpButton');
+  }
+  position: relative;
+  >.label {
+    margin-right: 10px;
+  }
+  .ant-select {
+    position: absolute;
+    left: 0;
+    top: 0;
+    right: 0;
+    bottom: 0;
+    opacity: 0;
+  }
+  .value {
+    @include useTheme {
+      color: getVar('dpStrong');
+    }
+  }
+}

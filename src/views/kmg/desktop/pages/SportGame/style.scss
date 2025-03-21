@@ -1,0 +1,84 @@
+@import '~@core/templates/desktop/styles/mixins/index.scss';
+
+:local(.wrapper) {
+
+  margin-top: 6px;
+  height: calc(100% - 6px);
+
+  >div.container{
+    height: 100%;
+    display: flex;
+    justify-content: space-between;
+    >div.content{
+      width: 1210px;
+      display: flex;
+      flex-direction: column;
+      ::-webkit-scrollbar{
+        display: none;
+      }
+      >div.match-container{
+        display: flex;
+        justify-content: space-between;
+        flex: 1;
+        overflow-y: auto;
+
+        >div.match-list,
+        .favorite-list{
+          &.hidden{
+            display: none;
+          }
+          width: 830px;
+          margin-top: 6px;
+          margin-right: 10px;
+          .ka-wrapper,
+          .ka-content {
+            height: 100%;
+          }
+          .ka-content {
+            display: flex;
+            flex-direction: column;
+          }
+        }
+        div.match-detail{
+          height: 100%;
+          width: 370px;
+          padding-top: 6px;
+          box-sizing: border-box;
+          .empty-center {
+            height: 100%;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            border-radius: 4px;
+            @include useTheme {
+              background: getVar('dpCar');
+            }
+          }
+        }
+      }
+    }
+  }
+  .sport-logo {
+    height: 20px;
+    width: 20px;
+    background-repeat: no-repeat;
+    background-size: cover;
+    background-position: center center;
+    position: relative;
+    @each $i in 1 2 3 4 5 6 7 8 9 10 11 12 13 14 15 16 17 18 19 20 21 22 23 24 25 26 27 28 29 30 31 32 33 {
+      &.sid-#{$i} {
+        background-image: url('./i/sportslogo/' + $i + '.webp');
+      }
+
+    }
+  }
+  .sport-logo {
+    &.active {
+      @each $i in 1 2 3 4 5 6 7 8 9 10 11 12 13 14 15 16 17 18 19 20 21 22 23 24 25 26 27 28 29 30 31 33 {
+        &.sid-#{$i} {
+          background-image: url('./i/sportslogo/' + $i + '-active.webp');
+        }
+      }
+    }
+  }
+}

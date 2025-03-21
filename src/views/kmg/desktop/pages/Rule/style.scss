@@ -1,0 +1,11 @@
+@import '~@core/templates/desktop/styles/mixins/index.scss';
+:local(.ruleWrapper) {
+  position: relative;
+  height: calc(100% - 6px);
+  @include useTheme {
+    border-top: 1px solid getVar('dpDivide');
+    background: getVar('dp_Card');
+  }
+  display: flex;
+  overflow: hidden;
+}
